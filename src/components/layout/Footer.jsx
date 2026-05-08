@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../../assets/icons/logoWhite.png";
 
 import FacebookIcon from "../../assets/icons/Facebook.svg";
@@ -21,11 +22,13 @@ export default function Footer() {
           <div className="w-full flex flex-col lg:flex-row items-start lg:justify-between gap-8 lg:gap-0">
             {/* Brand container */}
             <div className="flex flex-col items-start gap-4 lg:gap-5 w-full lg:w-[420px] lg:-ml-6">
-              <img
-                src={logo}
-                alt="Prime Ambit"
-                className="w-[180px] md:w-[200px] lg:w-[227.118px] h-auto lg:h-[74.935px] object-contain"
-              />
+              <Link to="/" onClick={() => window.scrollTo(0, 0)}>
+                <img
+                  src={logo}
+                  alt="Prime Ambit"
+                  className="w-[180px] md:w-[200px] lg:w-[227.118px] h-auto lg:h-[74.935px] object-contain"
+                />
+              </Link>
 
               <p
                 className="self-stretch w-full lg:max-w-[380px]"
@@ -124,83 +127,9 @@ export default function Footer() {
                   Services
                 </h4>
                 <ul className="space-y-2">
-                  <li
-                    onClick={() => {
-                      const section = document.getElementById("services");
-                      if (section)
-                        section.scrollIntoView({ behavior: "smooth" });
-                    }}
-                    style={{
-                      flex: "1 0 0",
-                      color: "rgba(255,255,255,0.70)",
-                      fontFamily: "Inter",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "20px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    Web Development
-                  </li>
-                  <li
-                    onClick={() => {
-                      const section = document.getElementById("services");
-                      if (section)
-                        section.scrollIntoView({ behavior: "smooth" });
-                    }}
-                    style={{
-                      flex: "1 0 0",
-                      color: "rgba(255,255,255,0.70)",
-                      fontFamily: "Inter",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "20px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    UI/UX Design
-                  </li>
-                  <li
-                    onClick={() => {
-                      const section = document.getElementById("services");
-                      if (section)
-                        section.scrollIntoView({ behavior: "smooth" });
-                    }}
-                    style={{
-                      flex: "1 0 0",
-                      color: "rgba(255,255,255,0.70)",
-                      fontFamily: "Inter",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "20px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    Product Engineering
-                  </li>
-
-                  <li
-                    onClick={() => {
-                      const section = document.getElementById("services");
-                      if (section)
-                        section.scrollIntoView({ behavior: "smooth" });
-                    }}
-                    style={{
-                      flex: "1 0 0",
-                      color: "rgba(255,255,255,0.70)",
-                      fontFamily: "Inter",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "20px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    AI/LLM Development
-                  </li>
+                  <Link to="/services/ai-development" style={{ display: "block", color: "rgba(255,255,255,0.70)", fontFamily: "Inter", fontSize: "14px", fontWeight: 400, lineHeight: "20px", textDecoration: "none" }}>AI Development</Link>
+                  <Link to="/services/software-development" style={{ display: "block", color: "rgba(255,255,255,0.70)", fontFamily: "Inter", fontSize: "14px", fontWeight: 400, lineHeight: "20px", textDecoration: "none" }}>Software Development</Link>
+                  <Link to="/services/marketing-branding" style={{ display: "block", color: "rgba(255,255,255,0.70)", fontFamily: "Inter", fontSize: "14px", fontWeight: 400, lineHeight: "20px", textDecoration: "none" }}>Marketing and Branding</Link>
                 </ul>
               </div>
 
@@ -220,63 +149,8 @@ export default function Footer() {
                   Web3
                 </h4>
                 <ul className="space-y-2">
-                  <li
-                    onClick={() => {
-                      const section = document.getElementById("services");
-                      if (section)
-                        section.scrollIntoView({ behavior: "smooth" });
-                    }}
-                    style={{
-                      flex: "1 0 0",
-                      color: "rgba(255,255,255,0.70)",
-                      fontFamily: "Inter",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "20px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    Smart Contracts
-                  </li>
-                  <li
-                    onClick={() => {
-                      const section = document.getElementById("services");
-                      if (section)
-                        section.scrollIntoView({ behavior: "smooth" });
-                    }}
-                    style={{
-                      flex: "1 0 0",
-                      color: "rgba(255,255,255,0.70)",
-                      fontFamily: "Inter",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "20px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    dApp Development
-                  </li>
-                  <li
-                    onClick={() => {
-                      const section = document.getElementById("services");
-                      if (section)
-                        section.scrollIntoView({ behavior: "smooth" });
-                    }}
-                    style={{
-                      flex: "1 0 0",
-                      color: "rgba(255,255,255,0.70)",
-                      fontFamily: "Inter",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "20px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    DeFi Integrations
-                  </li>
+                  <Link to="/services/web3-development" style={{ display: "block", color: "rgba(255,255,255,0.70)", fontFamily: "Inter", fontSize: "14px", fontWeight: 400, lineHeight: "20px", textDecoration: "none" }}>Web3 Development</Link>
+                  <Link to="/services/web3-marketing" style={{ display: "block", color: "rgba(255,255,255,0.70)", fontFamily: "Inter", fontSize: "14px", fontWeight: 400, lineHeight: "20px", textDecoration: "none" }}>Web3 Marketing</Link>
                 </ul>
               </div>
 

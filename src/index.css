@@ -5,10 +5,5 @@
 html,
 body {
   scroll-behavior: smooth;
-  font-family: "Inter", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  font-kerning: normal;
   overflow-x: hidden;
 }
