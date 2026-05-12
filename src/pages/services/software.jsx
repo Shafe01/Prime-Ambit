@@ -2,20 +2,21 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "../../assets/images/logo.png";
-import aiHero from "../../assets/images/ai_hero.png";
-import pythonLogo from "../../assets/images/python.png";
-import n8nLogo from "../../assets/images/n8n.png";
-import langraphLogo from "../../assets/images/langraph.png";
-import claudeLogo from "../../assets/images/claude.png";
+import softwareHero from "../../assets/images/software_hero.png";
 import financeIcon from "../../assets/images/finance.png";
 import marketingIcon from "../../assets/images/marketing.png";
 import logisticsIcon from "../../assets/images/logistics.png";
 import healthIcon from "../../assets/images/health.png";
-import aiSolution from "../../assets/images/ai_solution.png";
-import aiIcon1 from "../../assets/images/ai_icon_1.png";
-import aiIcon2 from "../../assets/images/ai_icon_2.png";
-import aiIcon3 from "../../assets/images/ai_icon_3.png";
-import aiIcon4 from "../../assets/images/ai_icon_4.png";
+import productEngineeringSolution from "../../assets/images/product_engineering_solution.png";
+import softwareIcon1 from "../../assets/images/software_icon_1.png";
+import softwareIcon2 from "../../assets/images/software_icon_2.png";
+import softwareIcon3 from "../../assets/images/software_icon_3.png";
+import softwareIcon4 from "../../assets/images/software_icon_4.png";
+import techLogo7 from "../../assets/images/tech_logo_7.png";
+import techLogo8 from "../../assets/images/tech_logo_8.png";
+import techLogo9 from "../../assets/images/tech_logo_9.png";
+import techLogo10 from "../../assets/images/tech_logo_10.png";
+import techLogo11 from "../../assets/images/tech_logo_11.png";
 import Footer from "../../components/layout/Footer";
 
 export default function Software() {
@@ -43,66 +44,72 @@ export default function Software() {
     { label: "Marketing and Branding", href: "/services/marketing-branding" },
   ];
 
-  const aiCards = [
+  const softwareCards = [
     {
-      title: "Agentic Workflow & Sales Automation",
-      description: "Design and deployment of autonomous systems for business processes, lead gen, and sales pipelines with minimal manual effort.",
+      title: "SaaS & Product Engineering",
+      description: "We focus on creating stable foundations rather than disposable prototypes.",
       points: [
-        "Custom n8n workflows and multi-tool orchestration across SaaS/CRM platforms",
-        "Autonomous AI agents for lead sourcing, qualification, scoring, and email personalization",
-        "Advanced error handling, retry logic, and migration from Zapier/Make.com"
+        "SaaS & Multi-tenant Applications",
+        "MVP Architecture",
+        "Product Dashboards",
+        "Growth Kits"
       ],
       bg: "#FFF",
       titleColor: "#2A394A",
       textColor: "#2A394A",
       iconBg: "#509AAF73",
       iconColor: "rgba(80, 154, 175, 0.45)",
-      icon: aiIcon1,
+      icon: softwareIcon1,
     },
     {
-      title: "Knowledge & Content Intelligence",
-      description: "RAG-powered assistants and pipelines that turn documents and media into searchable, generative assets.",
+      title: "Enterprise Systems & API Integrations",
+      description: "We specialize in building the \"connective tissue\" of modern business operations.",
       points: [
-        "Internal knowledge search, document intelligence, and structured data extraction",
-        "AI policy/SOP assistants, client chatbots, and vector database systems",
-        "Automated content generation, social scheduling, compliance checks, and digital asset management"
+        "Custom Enterprise Software",
+        "API Design",
+        "Third-Party Integrations",
+        "Data & Reporting"
       ],
       bg: "#FFF",
       titleColor: "#2A394A",
       textColor: "#2A394A",
       iconBg: "#509AAF73",
       iconColor: "rgba(80, 154, 175, 0.45)",
-      icon: aiIcon2,
+      icon: softwareIcon2,
     },
     {
-      title: "Data & Analytics Platforms",
-      description: "AI-driven ingestion, processing, and insights from fragmented data sources.",
+      title: "Mobile Application Development",
+      description: "We build high-performance mobile interfaces that act as seamless extensions of your core system architecture",
       points: [
-        "Enterprise web scraping and multi-source data pipelines",
-        "Automated reporting dashboards and real-time analytics",
-        "AI analysis agents for business intelligence and prospect enrichment"
+        "Cross-Platform Excellence",
+        "Secure Ecosystems",
+        "Mobile Workflows"
       ],
       bg: "#FFF",
       titleColor: "#2A394A",
       textColor: "#2A394A",
       iconBg: "#509AAF73",
       iconColor: "rgba(80, 154, 175, 0.45)",
-      icon: aiIcon3,
+      icon: softwareIcon3,
     },
     {
-      title: "Voice & Conversational AI",
-      description: "Real-time voice and conversation systems for calls, meetings, and customer interactions.",
+      title: (
+        <span>
+          Cloud Infrastructure <br />& System Reliability
+        </span>
+      ),
+      description: "Every system we build is designed for long-term health, focusing on the underlying architecture that keeps platforms running under load.",
       points: [
-        "AI voice agents for inbound/outbound calls and customer service",
-        "Meeting intelligence with summaries and action items",
-        "Voice-enabled workflow automation and conversational assistants"
+        "Operational Observability",
+        "System Boundaries",
+        "Scalable Backend Foundations"
       ],
       bg: "#509AAF",
       titleColor: "#FFF",
       textColor: "#FFF",
       iconBg: "#509AAF73",
       iconColor: "rgba(80, 154, 175, 0.45)",
-      icon: aiIcon4,
+      icon: softwareIcon4,
     }
   ];
 
@@ -130,15 +137,17 @@ export default function Software() {
           padding: "20px 40px",
           boxSizing: "border-box",
           transform: `translateY(${showHeader ? "0" : "-120%"})`,
-          transition: "all 0.3s ease",
+          transition: "transform 0.3s ease",
           background: "rgba(67, 106, 117, 0.8)",
           backdropFilter: "blur(10px)",
-          boxShadow: showHeader && window.scrollY > 10 ? "0 4px 20px rgba(0,0,0,0.15)" : "none",
         }}
       >
         {/* LOGO */}
         <Link to="/" onClick={() => window.scrollTo(0, 0)}>
-          <img
+          <motion.img
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             src={logo}
             alt="Prime Ambit"
             style={{
@@ -322,6 +331,7 @@ export default function Software() {
           justifyContent: "center",
           alignItems: "center",
           background: "#2A394A",
+          overflow: "hidden",
         }}
       >
         <div
@@ -341,13 +351,16 @@ export default function Software() {
             style={{
               display: "flex",
               width: "429px",
-              height: "365.276px",
               flexDirection: "column",
               alignItems: "flex-start",
               gap: "40px",
             }}
           >
-            <h1
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               style={{
                 alignSelf: "stretch",
                 color: "#FFF",
@@ -355,13 +368,13 @@ export default function Software() {
                 fontSize: "59.3px",
                 fontStyle: "normal",
                 fontWeight: 400,
-                lineHeight: "54px", // 91.062%
+                lineHeight: "54px",
                 letterSpacing: "-4px",
                 margin: 0,
               }}
             >
               Our Services
-            </h1>
+            </motion.h1>
 
             <div
               style={{
@@ -372,7 +385,11 @@ export default function Software() {
                 gap: "25px",
               }}
             >
-              <h2
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 style={{
                   alignSelf: "stretch",
                   color: "#FFF",
@@ -380,13 +397,17 @@ export default function Software() {
                   fontSize: "22.65px",
                   fontStyle: "normal",
                   fontWeight: 400,
-                  lineHeight: "160.5%", // 36.353px
+                  lineHeight: "160.5%",
                   margin: 0,
                 }}
               >
-                Software Development
-              </h2>
-              <p
+                Software Platforms
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                 style={{
                   width: "399.539px",
                   color: "#FFF",
@@ -394,7 +415,7 @@ export default function Software() {
                   fontSize: "14px",
                   fontStyle: "normal",
                   fontWeight: 300,
-                  lineHeight: "160.5%", // 22.47px
+                  lineHeight: "160.5%",
                   margin: 0,
                 }}
               >
@@ -403,41 +424,53 @@ export default function Software() {
                 workflow automation to enterprise knowledge assistants, we
                 design AI solutions that plug into real processes and unlock
                 data driven growth.
-              </p>
-              <Link
-                to="/contact"
-                style={{
-                  display: "inline-flex",
-                  height: "30.727px",
-                  padding: "10px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "10px",
-                  borderRadius: "16px",
-                  background: "#509AAF",
-                  color: "#FFF",
-                  textAlign: "center",
-                  fontFamily: "Inter, sans-serif",
-                  fontSize: "14px",
-                  fontStyle: "normal",
-                  fontWeight: 400,
-                  lineHeight: "160.5%",
-                  textTransform: "capitalize",
-                  textDecoration: "none",
-                  boxSizing: "border-box",
-                }}
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.6 }}
               >
-                Start a Build
-              </Link>
+                <Link
+                  to="/contact"
+                  style={{
+                    display: "inline-flex",
+                    height: "30.727px",
+                    padding: "10px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "10px",
+                    borderRadius: "16px",
+                    background: "#509AAF",
+                    color: "#FFF",
+                    textAlign: "center",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "160.5%",
+                    textTransform: "capitalize",
+                    textDecoration: "none",
+                    boxSizing: "border-box",
+                  }}
+                >
+                  Start a Build
+                </Link>
+              </motion.div>
             </div>
           </div>
 
           {/* RIGHT SIDE IMAGE */}
-          <div
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut" }}
             style={{
-              width: "524.055px",
-              height: "475px",
-              background: `url(${aiHero}) lightgray 50% / cover no-repeat`,
+              width: "474.661px",
+              height: "527.855px",
+              aspectRatio: "116/129",
+              background: `url(${softwareHero}) lightgray 50% / cover no-repeat`,
             }}
           />
         </div>
@@ -450,16 +483,19 @@ export default function Software() {
           width: "100%",
           maxWidth: "1440px",
           margin: "0 auto",
-          padding: "60px 61.22px", // Updated to match Figma 61.22px margin
+          padding: "60px 61.22px",
           flexDirection: "column",
           alignItems: "flex-start",
-          gap: "32px", // Increased gap between heading and description
+          gap: "32px",
           boxSizing: "border-box",
         }}
       >
-        <h2
+        <motion.h2
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           style={{
-            width: "453.465px",
             color: "#D6DBC7",
             fontFamily: "Inter, sans-serif",
             fontSize: "36.65px",
@@ -467,13 +503,18 @@ export default function Software() {
             fontWeight: 400,
             lineHeight: "38px",
             letterSpacing: "-1.833px",
+            width: "388.645px",
             margin: 0,
             maxWidth: "100%",
           }}
         >
-          Software Development Solutions for Real Business Workflows
-        </h2>
-        <p
+          Product Engineering, Not Just Coding.
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           style={{
             width: "1302px",
             color: "#FFF",
@@ -487,11 +528,11 @@ export default function Software() {
             maxWidth: "100%",
           }}
         >
-          We design intelligent systems that coordinate complex workflows,
-          process large data volumes, and automate business operations inside
-          your existing tools. Using LLMs, vector databases, autonomous agents,
-          and workflow orchestration
-        </p>
+          We design and build modern software platforms for the real world. Web
+          applications, SaaS products, and enterprise systems that focus on
+          architecture, usability, and operational reliability from first product 
+          versions to large scale platforms.
+        </motion.p>
       </div>
 
       {/* ── BIG WHITE CONTAINER ── */}
@@ -515,8 +556,6 @@ export default function Software() {
             alignItems: "flex-start",
             background: "#FFF",
             boxSizing: "border-box",
-            borderRadius: "24px",
-            boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
           }}
         >
           {/* Inner content for the white container will go here */}
@@ -529,7 +568,11 @@ export default function Software() {
             }}
           >
             {/* Left side container */}
-            <div
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               style={{
                 width: "519px",
                 height: "610px",
@@ -616,10 +659,10 @@ export default function Software() {
                 {/* Image */}
                 <div
                   style={{
-                    height: "428.516px",
+                    height: "432.374px",
                     flexShrink: 0,
                     alignSelf: "stretch",
-                    background: `url(${aiSolution}) transparent 62.421px 14.065px / 75.944% 93.436% no-repeat`,
+                    background: `url(${productEngineeringSolution}) transparent 74.18px 34.462px / 71.413% 84.059% no-repeat`,
                   }}
                 />
 
@@ -648,7 +691,9 @@ export default function Software() {
                       lineHeight: "20px",
                     }}
                   >
-                    Prime Ambit builds production-ready AI systems, Agentic workflow automation to enterprise knowledge assistants, we design AI solutions that plug into real processes and unlock data driven growth.
+                    Building a Product That Needs Structure?<br />
+                    Share your product scope, current stage (idea, MVP, v1+), and architecture<br />
+                    environment. We’ll assess build feasibility and system alignment.
                   </div>
                   <div>
                     <Link
@@ -674,12 +719,12 @@ export default function Software() {
                         textDecoration: "none",
                       }}
                     >
-                      Discuss Engineering Scope
+                      Discuss Product Engineering
                     </Link>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right side container */}
             <div
@@ -693,9 +738,17 @@ export default function Software() {
                 flexWrap: "wrap",
               }}
             >
-              {aiCards.map((card, index) => (
-                <div
+              {softwareCards.map((card, index) => (
+                <motion.div
                   key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: 0.4 + (index * 0.1), 
+                    ease: "easeOut" 
+                  }}
                   style={{
                     display: "flex",
                     width: "348px",
@@ -783,7 +836,7 @@ export default function Software() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -813,7 +866,11 @@ export default function Software() {
             boxSizing: "border-box",
           }}
         >
-          <h2
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
             style={{
               color: "#2A394A",
               fontFamily: "Inter, sans-serif",
@@ -827,12 +884,22 @@ export default function Software() {
             }}
           >
             Technologies We Work With
-          </h2>
+          </motion.h2>
           
-          <div
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: { staggerChildren: 0.2 }
+              }
+            }}
             style={{
               display: "flex",
-              width: "760px",
+              width: "837px",
               height: "155.692px",
               maxWidth: "100%",
               boxSizing: "border-box",
@@ -841,11 +908,12 @@ export default function Software() {
               gap: "65px",
             }}
           >
-            <div style={{ width: "80px", height: "80px", background: `url(${pythonLogo}) transparent center / contain no-repeat` }} />
-            <div style={{ width: "250px", height: "79.749px", background: `url(${n8nLogo}) transparent center / contain no-repeat` }} />
-            <div style={{ width: "155px", height: "155.692px", background: `url(${langraphLogo}) transparent center / contain no-repeat` }} />
-            <div style={{ width: "80px", height: "80.661px", background: `url(${claudeLogo}) transparent center / contain no-repeat` }} />
-          </div>
+            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "178px", height: "102px", background: `url(${techLogo7}) transparent center / contain no-repeat` }} />
+            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "98px", height: "102px", background: `url(${techLogo8}) transparent center / contain no-repeat` }} />
+            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "93px", height: "102px", background: `url(${techLogo9}) transparent center / contain no-repeat` }} />
+            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "121px", height: "102px", background: `url(${techLogo10}) transparent center / contain no-repeat` }} />
+            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "87px", height: "93px", background: `url(${techLogo11}) transparent center / contain no-repeat` }} />
+          </motion.div>
         </div>
       </div>
 
@@ -874,7 +942,11 @@ export default function Software() {
             boxSizing: "border-box",
           }}
         >
-          <h2
+          <motion.h2
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
             style={{
               color: "#D6DBC7",
               fontFamily: "Inter, sans-serif",
@@ -887,8 +959,12 @@ export default function Software() {
             }}
           >
             Industries We Support
-          </h2>
-          <p
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             style={{
               width: "778.137px",
               maxWidth: "100%",
@@ -902,8 +978,8 @@ export default function Software() {
               margin: 0,
             }}
           >
-            Prime Ambit AI systems support organizations across
-          </p>
+            Prime Ambit software systems support organizations across
+          </motion.p>
 
           {/* INDUSTRIES ICONS CONTAINER */}
           <div
@@ -916,37 +992,26 @@ export default function Software() {
               marginTop: "80px",
             }}
           >
-            {/* 1. FinTech */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
-              <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: "60px", height: "60px", background: `url(${financeIcon}) no-repeat center / contain` }} />
-              </div>
-              <span style={{ color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>FinTech</span>
-            </div>
-
-            {/* 2. Growth & Platforms */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
-              <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: "80px", height: "80px", background: `url(${marketingIcon}) no-repeat center / contain` }} />
-              </div>
-              <span style={{ width: "156.984px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>Growth & Platforms</span>
-            </div>
-
-            {/* 3. Logistics & Ops */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
-              <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: "80px", height: "80px", background: `url(${logisticsIcon}) no-repeat center / contain` }} />
-              </div>
-              <span style={{ width: "110.359px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>Logistics & Ops</span>
-            </div>
-
-            {/* 4. Health Systems */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
-              <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: "71.667px", height: "65.008px", background: `url(${healthIcon}) no-repeat center / contain` }} />
-              </div>
-              <span style={{ width: "139.301px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>Health Systems</span>
-            </div>
+            {[
+              { icon: financeIcon, label: "FinTech", width: "60px", height: "60px" },
+              { icon: marketingIcon, label: "Growth & Platforms", width: "80px", height: "80px" },
+              { icon: logisticsIcon, label: "Logistics & Ops", width: "80px", height: "80px" },
+              { icon: healthIcon, label: "Health Systems", width: "71.667px", height: "65.008px" },
+            ].map((industry, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
+                style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}
+              >
+                <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
+                  <div style={{ width: industry.width, height: industry.height, background: `url(${industry.icon}) no-repeat center / contain` }} />
+                </div>
+                <span style={{ maxWidth: "160px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>{industry.label}</span>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
@@ -961,7 +1026,11 @@ export default function Software() {
           boxSizing: "border-box",
         }}
       >
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
           style={{
             display: "flex",
             width: "1301.508px",
@@ -999,7 +1068,7 @@ export default function Software() {
                 margin: 0,
               }}
             >
-              Whether you are starting with AI automation or scaling enterprise AI, Prime Ambit helps you design and deploy intelligent systems that create measurable operational impact.
+              Whether you are starting with complex automation or scaling enterprise platforms, Prime Ambit helps you design and deploy systems that create measurable operational impact.
             </p>
           </div>
 
@@ -1029,7 +1098,7 @@ export default function Software() {
           >
             Talk to Our Team
           </Link>
-        </div>
+        </motion.div>
       </div>
 
       <Footer />

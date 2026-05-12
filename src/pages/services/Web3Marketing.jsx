@@ -2,20 +2,20 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "../../assets/images/logo.png";
-import aiHero from "../../assets/images/ai_hero.png";
-import pythonLogo from "../../assets/images/python.png";
-import n8nLogo from "../../assets/images/n8n.png";
-import langraphLogo from "../../assets/images/langraph.png";
-import claudeLogo from "../../assets/images/claude.png";
-import financeIcon from "../../assets/images/finance.png";
-import marketingIcon from "../../assets/images/marketing.png";
-import logisticsIcon from "../../assets/images/logistics.png";
-import healthIcon from "../../assets/images/health.png";
-import aiSolution from "../../assets/images/ai_solution.png";
-import aiIcon1 from "../../assets/images/ai_icon_1.png";
-import aiIcon2 from "../../assets/images/ai_icon_2.png";
-import aiIcon3 from "../../assets/images/ai_icon_3.png";
-import aiIcon4 from "../../assets/images/ai_icon_4.png";
+import web3Hero from "../../assets/images/web3_marketing_hero.png";
+import web3Tool1 from "../../assets/images/web3_tool_1.png";
+import web3Tool2 from "../../assets/images/web3_tool_2.png";
+import web3Tool3 from "../../assets/images/web3_tool_3.png";
+import web3Tool4 from "../../assets/images/web3_tool_4.png";
+import web3Industry1 from "../../assets/images/web3_industry_1.png";
+import web3Industry2 from "../../assets/images/web3_industry_2.png";
+import web3Industry3 from "../../assets/images/web3_industry_3.png";
+import web3Industry4 from "../../assets/images/web3_industry_4.png";
+import web3Solution from "../../assets/images/web3_marketing_solution.png";
+import web3Icon1 from "../../assets/images/web3_icon_1.png";
+import web3Icon2 from "../../assets/images/web3_icon_2.png";
+import web3Icon3 from "../../assets/images/web3_icon_3.png";
+import web3Icon4 from "../../assets/images/web3_icon_4.png";
 import Footer from "../../components/layout/Footer";
 
 export default function Web3Marketing() {
@@ -45,64 +45,72 @@ export default function Web3Marketing() {
 
   const aiCards = [
     {
-      title: "Agentic Workflow & Sales Automation",
-      description: "Design and deployment of autonomous systems for business processes, lead gen, and sales pipelines with minimal manual effort.",
+      title: "Token Strategy & Product Go-To-Market",
+      titleWidth: "236.5px",
+      description: "We ensure that your launch is not just a singular event, but a sustainable entry into the decentralized economy.",
       points: [
-        "Custom n8n workflows and multi-tool orchestration across SaaS/CRM platforms",
-        "Autonomous AI agents for lead sourcing, qualification, scoring, and email personalization",
-        "Advanced error handling, retry logic, and migration from Zapier/Make.com"
+        "Tokenomics & Governance",
+        "Launch Execution",
+        "Vertical-Specific Marketing",
+        "Liquidity & Ecosystem Growth"
       ],
       bg: "#FFF",
       titleColor: "#2A394A",
       textColor: "#2A394A",
       iconBg: "#509AAF73",
       iconColor: "rgba(80, 154, 175, 0.45)",
-      icon: aiIcon1,
+      icon: web3Icon1,
     },
     {
-      title: "Knowledge & Content Intelligence",
-      description: "RAG-powered assistants and pipelines that turn documents and media into searchable, generative assets.",
+      title: "Community & Ecosystem Engagement",
+      titleWidth: "250.539px",
+      description: "Web3 projects live and die by their community.",
       points: [
-        "Internal knowledge search, document intelligence, and structured data extraction",
-        "AI policy/SOP assistants, client chatbots, and vector database systems",
-        "Automated content generation, social scheduling, compliance checks, and digital asset management"
+        "Platform Operations",
+        "Live Engagement",
+        "Growth Mechanics",
+        "Moderation & Security"
       ],
       bg: "#FFF",
       titleColor: "#2A394A",
       textColor: "#2A394A",
       iconBg: "#509AAF73",
       iconColor: "rgba(80, 154, 175, 0.45)",
-      icon: aiIcon2,
+      icon: web3Icon2,
     },
     {
-      title: "Data & Analytics Platforms",
-      description: "AI-driven ingestion, processing, and insights from fragmented data sources.",
+      title: <span>Strategic PR, <br /> Content & Authority</span>,
+      titleWidth: "254.441px",
+      description: "We translate complex blockchain concepts into compelling narratives that build trust with investors, developers, and the media.",
       points: [
-        "Enterprise web scraping and multi-source data pipelines",
-        "Automated reporting dashboards and real-time analytics",
-        "AI analysis agents for business intelligence and prospect enrichment"
+        "Technical Literacy",
+        "KOL & Influencer Outreach",
+        "Media & Brand Identity",
+        "Strategic Partnerships"
       ],
       bg: "#FFF",
       titleColor: "#2A394A",
       textColor: "#2A394A",
       iconBg: "#509AAF73",
       iconColor: "rgba(80, 154, 175, 0.45)",
-      icon: aiIcon3,
+      icon: web3Icon3,
     },
     {
-      title: "Voice & Conversational AI",
-      description: "Real-time voice and conversation systems for calls, meetings, and customer interactions.",
+      title: <span>Growth Advertising <br />& Acquisition</span>,
+      titleWidth: "232.004px",
+      description: "We utilize specialized Web3 advertising channels and technical optimization to attract high-intent users and liquidity without relying on traditional, restrictive ad platforms.",
       points: [
-        "AI voice agents for inbound/outbound calls and customer service",
-        "Meeting intelligence with summaries and action items",
-        "Voice-enabled workflow automation and conversational assistants"
+        "Native Ad Platforms",
+        "Blockchain SEO",
+        "Onboarding Optimization",
+        "Performance Tracking"
       ],
       bg: "#509AAF",
       titleColor: "#FFF",
       textColor: "#FFF",
       iconBg: "#509AAF73",
       iconColor: "rgba(80, 154, 175, 0.45)",
-      icon: aiIcon4,
+      icon: web3Icon4,
     }
   ];
 
@@ -130,15 +138,17 @@ export default function Web3Marketing() {
           padding: "20px 40px",
           boxSizing: "border-box",
           transform: `translateY(${showHeader ? "0" : "-120%"})`,
-          transition: "all 0.3s ease",
+          transition: "transform 0.3s ease",
           background: "rgba(67, 106, 117, 0.8)",
           backdropFilter: "blur(10px)",
-          boxShadow: showHeader && window.scrollY > 10 ? "0 4px 20px rgba(0,0,0,0.15)" : "none",
         }}
       >
         {/* LOGO */}
         <Link to="/" onClick={() => window.scrollTo(0, 0)}>
-          <img
+          <motion.img
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             src={logo}
             alt="Prime Ambit"
             style={{
@@ -347,7 +357,11 @@ export default function Web3Marketing() {
               gap: "40px",
             }}
           >
-            <h1
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               style={{
                 alignSelf: "stretch",
                 color: "#FFF",
@@ -361,7 +375,7 @@ export default function Web3Marketing() {
               }}
             >
               Our Services
-            </h1>
+            </motion.h1>
 
             <div
               style={{
@@ -372,9 +386,13 @@ export default function Web3Marketing() {
                 gap: "25px",
               }}
             >
-              <h2
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 style={{
-                  alignSelf: "stretch",
+                  width: "300.633px",
                   color: "#FFF",
                   fontFamily: "Inter, sans-serif",
                   fontSize: "22.65px",
@@ -384,11 +402,15 @@ export default function Web3Marketing() {
                   margin: 0,
                 }}
               >
-                Web3 Marketing
-              </h2>
-              <p
+                Web3 Marketing & Ecosystem Growth
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                 style={{
-                  width: "399.539px",
+                  width: "390.109px",
                   color: "#FFF",
                   fontFamily: "Inter, sans-serif",
                   fontSize: "14px",
@@ -398,46 +420,54 @@ export default function Web3Marketing() {
                   margin: 0,
                 }}
               >
-                Prime Ambit builds production-ready AI systems that turn complex
-                operations into intelligent, predictable workflows. From agentic
-                workflow automation to enterprise knowledge assistants, we
-                design AI solutions that plug into real processes and unlock
-                data driven growth.
-              </p>
-              <Link
-                to="/contact"
-                style={{
-                  display: "inline-flex",
-                  height: "30.727px",
-                  padding: "10px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "10px",
-                  borderRadius: "16px",
-                  background: "#509AAF",
-                  color: "#FFF",
-                  textAlign: "center",
-                  fontFamily: "Inter, sans-serif",
-                  fontSize: "14px",
-                  fontStyle: "normal",
-                  fontWeight: 400,
-                  lineHeight: "160.5%",
-                  textTransform: "capitalize",
-                  textDecoration: "none",
-                  boxSizing: "border-box",
-                }}
+                Prime Ambit helps blockchain projects launch, grow, and scale
+                their ecosystems through strategic Web3 marketing. From token
+                launch strategy and community building to crypto-native
+                advertising and investor relations, we design growth systems
+                tailored for decentralized products.
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.6 }}
               >
-                Start a Build
-              </Link>
+                <Link
+                  to="/contact"
+                  style={{
+                    display: "inline-flex",
+                    height: "30.727px",
+                    padding: "10px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "10px",
+                    borderRadius: "16px",
+                    background: "#509AAF",
+                    color: "#FFF",
+                    textAlign: "center",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "160.5%",
+                    textTransform: "capitalize",
+                    textDecoration: "none",
+                    boxSizing: "border-box",
+                  }}
+                >
+                  Start a Build
+                </Link>
+              </motion.div>
             </div>
           </div>
 
           {/* RIGHT SIDE IMAGE */}
           <div
             style={{
-              width: "524.055px",
-              height: "475px",
-              background: `url(${aiHero}) lightgray 50% / cover no-repeat`,
+              width: "469.241px",
+              height: "422.042px",
+              aspectRatio: "169/152",
+              background: `url(${web3Hero}) transparent center / contain no-repeat`,
             }}
           />
         </div>
@@ -459,7 +489,7 @@ export default function Web3Marketing() {
       >
         <h2
           style={{
-            width: "453.465px",
+            width: "388.645px",
             color: "#D6DBC7",
             fontFamily: "Inter, sans-serif",
             fontSize: "36.65px",
@@ -471,7 +501,7 @@ export default function Web3Marketing() {
             maxWidth: "100%",
           }}
         >
-          Web3 Marketing Solutions for Real Business Workflows
+          Growth Strategies Built for Web3 Ecosystems
         </h2>
         <p
           style={{
@@ -487,10 +517,7 @@ export default function Web3Marketing() {
             maxWidth: "100%",
           }}
         >
-          We design intelligent systems that coordinate complex workflows,
-          process large data volumes, and automate business operations inside
-          your existing tools. Using LLMs, vector databases, autonomous agents,
-          and workflow orchestration
+          We specialize in crypto-native growth strategies that combine community engagement, token incentives, on-chain analytics, and technical storytelling from pre-launch token strategy to post-launch ecosystem expansion.
         </p>
       </div>
 
@@ -515,7 +542,7 @@ export default function Web3Marketing() {
             alignItems: "flex-start",
             background: "#FFF",
             boxSizing: "border-box",
-            borderRadius: "24px",
+            borderRadius: "0px",
             boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
           }}
         >
@@ -616,10 +643,12 @@ export default function Web3Marketing() {
                 {/* Image */}
                 <div
                   style={{
-                    height: "428.516px",
+                    width: "432.374px",
+                    height: "432.374px",
                     flexShrink: 0,
-                    alignSelf: "stretch",
-                    background: `url(${aiSolution}) transparent 62.421px 14.065px / 75.944% 93.436% no-repeat`,
+                    aspectRatio: "1/1",
+                    background: `url(${web3Solution}) transparent 50% / cover no-repeat`,
+                    alignSelf: "center",
                   }}
                 />
 
@@ -648,7 +677,9 @@ export default function Web3Marketing() {
                       lineHeight: "20px",
                     }}
                   >
-                    Prime Ambit builds production-ready AI systems, Agentic workflow automation to enterprise knowledge assistants, we design AI solutions that plug into real processes and unlock data driven growth.
+                    Building a Product That Needs Structure?<br />
+                    Share your product scope, current stage (idea, MVP, v1+), and architecture<br />
+                    environment. We’ll assess build feasibility and system alignment.
                   </div>
                   <div>
                     <Link
@@ -674,7 +705,7 @@ export default function Web3Marketing() {
                         textDecoration: "none",
                       }}
                     >
-                      Discuss Engineering Scope
+                      Discuss Product Engineering
                     </Link>
                   </div>
                 </div>
@@ -694,8 +725,16 @@ export default function Web3Marketing() {
               }}
             >
               {aiCards.map((card, index) => (
-                <div
+                <motion.div
                   key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: 0.6 + (Math.floor(index / 2) * 0.4), 
+                    ease: "easeOut" 
+                  }}
                   style={{
                     display: "flex",
                     width: "348px",
@@ -727,8 +766,9 @@ export default function Web3Marketing() {
                         display: "flex",
                         width: "328px",
                         padding: "10px",
-                        justifyContent: "space-between",
+                        justifyContent: "center",
                         alignItems: "center",
+                        gap: "12px",
                         boxSizing: "border-box",
                       }}
                     >
@@ -743,7 +783,7 @@ export default function Web3Marketing() {
                       />
                       <div
                         style={{
-                          width: "220.465px",
+                          width: card.titleWidth,
                           flexShrink: 0,
                           color: card.titleColor,
                           fontFamily: "Inter, sans-serif",
@@ -752,9 +792,12 @@ export default function Web3Marketing() {
                           fontWeight: 400,
                           lineHeight: "24px",
                           letterSpacing: "-0.453px",
+                          textAlign: "center",
                         }}
                       >
-                        {card.title}
+                        <div style={{ display: "inline-block", textAlign: "left" }}>
+                          {card.title}
+                        </div>
                       </div>
                     </div>
 
@@ -783,7 +826,7 @@ export default function Web3Marketing() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -826,25 +869,21 @@ export default function Web3Marketing() {
               textAlign: "center",
             }}
           >
-            Technologies We Work With
+            Platforms & Tools We Use
           </h2>
           
           <div
             style={{
-              display: "flex",
-              width: "760px",
-              height: "155.692px",
-              maxWidth: "100%",
-              boxSizing: "border-box",
+              display: "inline-flex",
               alignItems: "center",
-              justifyContent: "center",
               gap: "65px",
+              boxSizing: "border-box",
             }}
           >
-            <div style={{ width: "80px", height: "80px", background: `url(${pythonLogo}) transparent center / contain no-repeat` }} />
-            <div style={{ width: "250px", height: "79.749px", background: `url(${n8nLogo}) transparent center / contain no-repeat` }} />
-            <div style={{ width: "155px", height: "155.692px", background: `url(${langraphLogo}) transparent center / contain no-repeat` }} />
-            <div style={{ width: "80px", height: "80.661px", background: `url(${claudeLogo}) transparent center / contain no-repeat` }} />
+            <div style={{ width: "402.309px", height: "87.876px", background: `url(${web3Tool1}) transparent center / contain no-repeat` }} />
+            <div style={{ width: "209.75px", height: "157.434px", background: `url(${web3Tool2}) transparent center / contain no-repeat` }} />
+            <div style={{ width: "116.912px", height: "112.5px", background: `url(${web3Tool3}) transparent center / contain no-repeat` }} />
+            <div style={{ width: "256px", height: "52px", background: `url(${web3Tool4}) transparent center / contain no-repeat` }} />
           </div>
         </div>
       </div>
@@ -886,11 +925,12 @@ export default function Web3Marketing() {
               margin: 0,
             }}
           >
-            Industries We Support
+            Web3 Projects We Support
           </h2>
           <p
             style={{
               width: "778.137px",
+              height: "74px",
               maxWidth: "100%",
               color: "#FFF",
               fontFamily: "Inter, sans-serif",
@@ -913,39 +953,39 @@ export default function Web3Marketing() {
               justifyContent: "center",
               alignItems: "flex-start",
               gap: "100px",
-              marginTop: "80px",
+              marginTop: "32px",
             }}
           >
-            {/* 1. FinTech */}
+            {/* 1. Ecosystem Foundations */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
               <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: "60px", height: "60px", background: `url(${financeIcon}) no-repeat center / contain` }} />
+                <div style={{ width: "80px", height: "80px", background: `url(${web3Industry1}) no-repeat center / contain` }} />
               </div>
-              <span style={{ color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>FinTech</span>
+              <span style={{ color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px", textAlign: "center", width: "150px" }}>Ecosystem Foundations</span>
             </div>
 
-            {/* 2. Growth & Platforms */}
+            {/* 2. DeFi Protocols */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
               <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: "80px", height: "80px", background: `url(${marketingIcon}) no-repeat center / contain` }} />
+                <div style={{ width: "80px", height: "80px", background: `url(${web3Industry2}) no-repeat center / contain` }} />
               </div>
-              <span style={{ width: "156.984px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>Growth & Platforms</span>
+              <span style={{ color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px", textAlign: "center", width: "120px" }}>DeFi Protocols</span>
             </div>
 
-            {/* 3. Logistics & Ops */}
+            {/* 3. Digital Culture */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
               <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: "80px", height: "80px", background: `url(${logisticsIcon}) no-repeat center / contain` }} />
+                <div style={{ width: "80px", height: "80px", background: `url(${web3Industry3}) no-repeat center / contain` }} />
               </div>
-              <span style={{ width: "110.359px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>Logistics & Ops</span>
+              <span style={{ color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px", textAlign: "center", width: "120px" }}>Digital Culture</span>
             </div>
 
-            {/* 4. Health Systems */}
+            {/* 4. Consumer dApps */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
               <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: "71.667px", height: "65.008px", background: `url(${healthIcon}) no-repeat center / contain` }} />
+                <div style={{ width: "80px", height: "80px", background: `url(${web3Industry4}) no-repeat center / contain` }} />
               </div>
-              <span style={{ width: "139.301px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>Health Systems</span>
+              <span style={{ color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px", textAlign: "center", width: "140px" }}>Consumer dApps</span>
             </div>
           </div>
         </div>

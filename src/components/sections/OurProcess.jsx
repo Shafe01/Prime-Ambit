@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import OurProcessImage from "../../assets/images/OurProcessimage.png";
 
 import Card1Svg from "../../assets/images/Card1.svg";
@@ -7,318 +7,113 @@ import Card3Svg from "../../assets/images/Card3.svg";
 import Card4Svg from "../../assets/images/Card4.svg";
 import Card5Svg from "../../assets/images/Card5.svg";
 
+const cardImages = [Card1Svg, Card2Svg, Card3Svg, Card4Svg, Card5Svg];
+
 export default function OurProcess() {
+  const [pinState, setPinState] = useState("before");
+  const [mobileActive, setMobileActive] = useState(0);
   const sectionRef = useRef(null);
   const trackRef = useRef(null);
-  const scrollProgressRef = useRef(0);
-  const isInSectionRef = useRef(false);
-  const animationFrameRef = useRef(null);
-  const accumulatedScrollRef = useRef(0);
-  const ignoreWheelRef = useRef(false);
-  const isSnappingRef = useRef(false);
-  const isDraggingRef = useRef(false);
-  const dragStartXRef = useRef(0);
-  const dragStartTargetXRef = useRef(0);
   const mobileScrollContainerRef = useRef(null);
-  // thumb  = the moving filled portion of the bar
-  // handle = the small pill/dot that sits at the thumb's trailing edge
-  const mobileThumbRef = useRef(null);
-  const mobileHandleRef = useRef(null);
-  const mobileBarRef = useRef(null);
-  const mobileBarDraggingRef = useRef(false);
 
-  // ── DESKTOP: wheel-scroll + mouse-drag ──────────────────────
+  // DESKTOP: pinned, progress-driven horizontal narrative.
   useEffect(() => {
     const section = sectionRef.current;
     const track = trackRef.current;
     if (!section || !track) return;
 
-    if (window.innerWidth <= 768) return;
+    if (window.innerWidth < 1024) return;
 
-    const DELTA_SCALE = 0.6;
-    const LERP_FACTOR = 0.12;
-    const LAST_CARD_PADDING = 24;
-    const MAX_EXTRA_CAP = 120;
-
-    let visibleWidth = track.parentElement.clientWidth;
-    let totalScrollNeeded = Math.max(0, track.scrollWidth - visibleWidth);
+    let frameId = null;
+    let visibleWidth = 0;
+    let totalScrollNeeded = 0;
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
     const calculateScrollNeeded = () => {
-      visibleWidth = track.parentElement.clientWidth;
-      const baseNeeded = Math.max(0, track.scrollWidth - visibleWidth);
-      const lastCard = track.lastElementChild;
-      let extra = 0;
-      if (lastCard) {
-        extra = Math.max(
-          0,
-          lastCard.offsetLeft +
-            lastCard.offsetWidth -
-            visibleWidth +
-            LAST_CARD_PADDING,
-        );
-      }
-      totalScrollNeeded = Math.max(
-        0,
-        baseNeeded + Math.min(extra, MAX_EXTRA_CAP),
-      );
+      const container = track.parentElement;
+      visibleWidth = container.clientWidth;
+      totalScrollNeeded = Math.max(0, container.scrollWidth - visibleWidth);
     };
 
-    calculateScrollNeeded();
-    window.addEventListener("resize", calculateScrollNeeded);
-
-    let targetX = 0;
-    let currentX = 0;
-    let rafId = null;
-    const pendingAnim = null;
-    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-
-    const animate = () => {
-      currentX += (targetX - currentX) * LERP_FACTOR;
-      if (Math.abs(targetX - currentX) < 0.5) currentX = targetX;
-      track.style.transform = `translateX(-${currentX}px)`;
-      rafId = requestAnimationFrame(animate);
-    };
-    animate();
-
-    track.style.cursor = "grab";
-    track.style.userSelect = "none";
-
-    const handleMouseDown = (e) => {
-      isDraggingRef.current = true;
-      dragStartXRef.current = e.clientX;
-      dragStartTargetXRef.current = targetX;
-      track.style.cursor = "grabbing";
-      e.preventDefault();
-    };
-    const handleMouseMove = (e) => {
-      if (!isDraggingRef.current) return;
-      targetX = clamp(
-        dragStartTargetXRef.current + (dragStartXRef.current - e.clientX),
-        0,
-        totalScrollNeeded,
-      );
-      accumulatedScrollRef.current = targetX;
-      scrollProgressRef.current = totalScrollNeeded
-        ? targetX / totalScrollNeeded
-        : 0;
-    };
-    const handleMouseUp = () => {
-      if (!isDraggingRef.current) return;
-      isDraggingRef.current = false;
-      track.style.cursor = "grab";
-    };
-
-    track.addEventListener("mousedown", handleMouseDown);
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseup", handleMouseUp);
-
-    const handleWheel = (e) => {
-      if (ignoreWheelRef.current) return;
-      const rect = section.getBoundingClientRect();
-      const vh = window.innerHeight;
-      const sh = rect.height;
-      const down = e.deltaY > 0;
-      const up = e.deltaY < 0;
-
-      const inSnapZone =
-        (rect.top <= vh * 0.5 && rect.top > -sh * 0.1) ||
-        (rect.bottom >= vh * 0.5 && rect.top < 0 && rect.top > -80);
-      const perfectLock = Math.abs(rect.top) <= 8;
-
-      if (inSnapZone && !perfectLock) {
-        e.preventDefault();
-        isInSectionRef.current = false;
-        const toward = (down && rect.top > 0) || (up && rect.top < 0);
-        if ((toward || Math.abs(rect.top) < 60) && !isSnappingRef.current) {
-          isSnappingRef.current = true;
-          section.scrollIntoView({ behavior: "smooth", block: "start" });
-          setTimeout(() => {
-            isSnappingRef.current = false;
-          }, 700);
-        }
-        return;
-      }
-
-      if (!(rect.top <= 8 && rect.top >= -8 && rect.bottom > 0)) {
-        isInSectionRef.current = false;
-        if (rect.bottom <= 0) {
-          targetX = 0;
-          currentX = 0;
-          accumulatedScrollRef.current = 0;
-          scrollProgressRef.current = 0;
-          track.style.transform = "translateX(0px)";
-        }
-        return;
-      }
-
-      if (targetX <= 0 && up) {
-        isInSectionRef.current = false;
-        if (!ignoreWheelRef.current) {
-          ignoreWheelRef.current = true;
-          isSnappingRef.current = true;
-          setTimeout(() => {
-            const prev = section.previousElementSibling;
-            if (prev)
-              prev.scrollIntoView({ behavior: "smooth", block: "start" });
-            else
-              window.scrollBy({ top: -window.innerHeight, behavior: "smooth" });
-            setTimeout(() => {
-              ignoreWheelRef.current = false;
-              isSnappingRef.current = false;
-            }, 1000);
-          }, 180);
-        }
-        return;
-      }
-
-      e.preventDefault();
-      e.stopPropagation();
-      isInSectionRef.current = true;
-      targetX = clamp(targetX + e.deltaY * DELTA_SCALE, 0, totalScrollNeeded);
-      accumulatedScrollRef.current = targetX;
-      scrollProgressRef.current = totalScrollNeeded
-        ? targetX / totalScrollNeeded
-        : 0;
-
-      if (scrollProgressRef.current >= 0.999) {
-        targetX = totalScrollNeeded;
-        accumulatedScrollRef.current = totalScrollNeeded;
-        scrollProgressRef.current = 1;
-        isInSectionRef.current = false;
-        if (!ignoreWheelRef.current) {
-          ignoreWheelRef.current = true;
-          isSnappingRef.current = true;
-          setTimeout(() => {
-            const next = section.nextElementSibling;
-            if (next)
-              next.scrollIntoView({ behavior: "smooth", block: "start" });
-            else
-              window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
-            setTimeout(() => {
-              ignoreWheelRef.current = false;
-              isSnappingRef.current = false;
-            }, 1000);
-          }, 180);
-        }
-      }
-    };
-
-    window.addEventListener("wheel", handleWheel, { passive: false });
-
-    const handleScroll = () => {
-      if (isInSectionRef.current) return;
-      const rect = section.getBoundingClientRect();
-      if (rect.top > 120) {
-        targetX = 0;
-        currentX = 0;
-        accumulatedScrollRef.current = 0;
-        scrollProgressRef.current = 0;
-        track.style.transform = "translateX(0px)";
-      }
+    const updateFromScroll = () => {
+      frameId = null;
       calculateScrollNeeded();
+
+      const scrollDistance = section.offsetHeight - window.innerHeight;
+      if (scrollDistance <= 0) return;
+
+      const sectionStart = section.offsetTop;
+      const sectionEnd = sectionStart + scrollDistance;
+      const currentY = window.scrollY;
+
+      const nextPinState =
+        currentY < sectionStart
+          ? "before"
+          : currentY > sectionEnd
+            ? "after"
+            : "fixed";
+      const progress = clamp(
+        (currentY - sectionStart) / scrollDistance,
+        0,
+        1,
+      );
+      const narrativeProgress = clamp((progress - 0.02) / 0.96, 0, 1);
+
+      track.style.transform = `translate3d(-${
+        narrativeProgress * totalScrollNeeded
+      }px, 0, 0)`;
+      setPinState(nextPinState);
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    const requestUpdate = () => {
+      if (frameId !== null) return;
+      frameId = window.requestAnimationFrame(updateFromScroll);
+    };
+
+    updateFromScroll();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate, { passive: true });
 
     return () => {
-      window.removeEventListener("resize", calculateScrollNeeded);
-      window.removeEventListener("wheel", handleWheel);
-      window.removeEventListener("scroll", handleScroll);
-      track.removeEventListener("mousedown", handleMouseDown);
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseup", handleMouseUp);
-      if (rafId) cancelAnimationFrame(rafId);
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+      if (frameId !== null) window.cancelAnimationFrame(frameId);
     };
   }, []);
-
-  // ── MOBILE: progress bar sync + bar drag ────────────────────
+  // MOBILE: sync the polished step indicator with native snap scrolling.
   useEffect(() => {
     const container = mobileScrollContainerRef.current;
-    const thumb = mobileThumbRef.current;
-    const handle = mobileHandleRef.current;
-    const bar = mobileBarRef.current;
-    if (!container || !bar) return;
+    if (!container) return;
 
-    // Keeps thumb + handle in sync with native scroll
-    const syncBar = () => {
-      const maxScroll = container.scrollWidth - container.clientWidth;
-      if (maxScroll <= 0) return;
-      const progress = container.scrollLeft / maxScroll;
-      const barW = bar.clientWidth;
-      const handleW = 28; // arrow svg width
-      const travel = barW - handleW;
-      const offset = progress * travel;
-      if (handle)
-        handle.style.transform = `translateX(${offset}px) translateY(-50%)`;
+    const syncActiveStep = () => {
+      const card = container.querySelector("[data-process-card]");
+      if (!card || !trackRef.current) return;
+
+      const gap = parseFloat(window.getComputedStyle(trackRef.current).gap) || 0;
+      const stride = card.getBoundingClientRect().width + gap;
+      const nextActive = Math.round(container.scrollLeft / stride);
+      setMobileActive(Math.max(0, Math.min(cardImages.length - 1, nextActive)));
     };
 
-    container.addEventListener("scroll", syncBar, { passive: true });
-    syncBar();
-    return () => container.removeEventListener("scroll", syncBar);
+    container.addEventListener("scroll", syncActiveStep, { passive: true });
+    window.addEventListener("resize", syncActiveStep, { passive: true });
+    syncActiveStep();
+
+    return () => {
+      container.removeEventListener("scroll", syncActiveStep);
+      window.removeEventListener("resize", syncActiveStep);
+    };
   }, []);
 
-  // ── MOBILE: nudge hint when section enters view ──────────────
-  useEffect(() => {
+  const handleMobileStepClick = (index) => {
     const container = mobileScrollContainerRef.current;
-    const section = sectionRef.current;
-    if (!container || !section || window.innerWidth > 1024) return;
+    const card = container?.querySelector("[data-process-card]");
+    if (!container || !card || !trackRef.current) return;
 
-    let hasNudged = false;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasNudged) {
-          hasNudged = true;
-          setTimeout(() => {
-            container.scrollTo({ left: 80, behavior: "smooth" });
-            setTimeout(
-              () => container.scrollTo({ left: 0, behavior: "smooth" }),
-              700,
-            );
-          }, 400);
-        }
-      },
-      { threshold: 0.4 },
-    );
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
-
-  // Pointer handler for dragging the bar (defined here so JSX can reference it)
-  const handleBarPointerDown = (e) => {
-    const bar = mobileBarRef.current;
-    const container = mobileScrollContainerRef.current;
-    const thumb = mobileThumbRef.current;
-    if (!bar || !container) return;
-
-    e.preventDefault();
-    bar.setPointerCapture(e.pointerId);
-    mobileBarDraggingRef.current = true;
-
-    const scrub = (clientX) => {
-      const { left, width } = bar.getBoundingClientRect();
-      const handleW = 28;
-      const ratio = Math.max(
-        0,
-        Math.min(1, (clientX - left - handleW / 2) / (width - handleW)),
-      );
-      container.scrollLeft =
-        ratio * (container.scrollWidth - container.clientWidth);
-    };
-
-    scrub(e.clientX);
-
-    const onMove = (ev) => {
-      if (mobileBarDraggingRef.current) scrub(ev.clientX);
-    };
-    const onUp = () => {
-      mobileBarDraggingRef.current = false;
-      bar.removeEventListener("pointermove", onMove);
-      bar.removeEventListener("pointerup", onUp);
-    };
-    bar.addEventListener("pointermove", onMove);
-    bar.addEventListener("pointerup", onUp);
+    const gap = parseFloat(window.getComputedStyle(trackRef.current).gap) || 0;
+    const stride = card.getBoundingClientRect().width + gap;
+    container.scrollTo({ left: index * stride, behavior: "smooth" });
   };
-
-  const cardImages = [Card1Svg, Card2Svg, Card3Svg, Card4Svg, Card5Svg];
 
   const tag = (top, left) => ({
     position: "absolute",
@@ -342,8 +137,17 @@ export default function OurProcess() {
     <section
       id="process"
       ref={sectionRef}
-      className="w-full bg-white overflow-hidden pb-12 md:pb-0"
+      className="relative w-full bg-white overflow-hidden pb-12 md:pb-0 lg:h-[300vh] lg:pb-0"
     >
+      <div
+        className={`bg-white lg:flex lg:flex-col lg:justify-center lg:pb-24 ${
+          pinState === "fixed"
+            ? "lg:fixed lg:left-0 lg:top-0 lg:z-10 lg:h-screen lg:w-full"
+            : pinState === "after"
+              ? "lg:absolute lg:bottom-0 lg:left-0 lg:h-screen lg:w-full"
+              : "lg:relative"
+        }`}
+      >
       <div className="max-w-[1295px] mx-auto px-6 pt-12 md:pt-24 pb-2">
         <div className="flex flex-col items-center -mt-8">
           <div
@@ -381,8 +185,8 @@ export default function OurProcess() {
         </div>
       </div>
 
-      <div className="relative md:h-[80vh]">
-        <div className="sticky top-0 flex items-start overflow-hidden pt-10 md:min-h-[100vh]">
+      <div className="relative md:h-[80vh] lg:h-auto">
+        <div className="flex items-start overflow-hidden pt-10 md:min-h-[100vh] lg:min-h-0 lg:pt-8">
           <div className="w-full pl-6 md:pl-[calc((100%-1295px)/2-80px)] pr-0 grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-10 md:gap-6 items-start h-full">
             {/* Left image — desktop only */}
             <div className="hidden lg:flex flex-col items-start mt-20">
@@ -423,14 +227,14 @@ export default function OurProcess() {
             {/* Cards scroll container */}
             <div
               ref={mobileScrollContainerRef}
-              className="overflow-x-auto md:overflow-hidden w-[calc(100%+1.5rem)] -ml-6 pl-10 md:ml-0 md:w-full md:pl-[80px]"
+              className="process-scroll overflow-x-auto lg:overflow-hidden w-screen -ml-6 px-6 lg:ml-0 lg:w-full lg:px-0 snap-x snap-mandatory scroll-smooth"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
               {/* Hide webkit scrollbar inline — no global CSS needed */}
-              <style>{`.process-track::-webkit-scrollbar{display:none}`}</style>
+              <style>{`.process-scroll::-webkit-scrollbar,.process-track::-webkit-scrollbar{display:none}`}</style>
               <div
                 ref={trackRef}
-                className="process-track flex gap-6 md:gap-8 will-change-transform"
+                className="process-track flex gap-4 md:gap-8 lg:pr-10 will-change-transform"
                 style={{ width: "max-content", transition: "none" }}
               >
                 {cardImages.map((cardImg, i) => {
@@ -465,7 +269,8 @@ export default function OurProcess() {
                   return (
                     <div
                       key={i}
-                      className="relative bg-[#1f3442] rounded-xl overflow-hidden w-[300px] md:w-[350px] h-[440px] md:h-[470px]"
+                      data-process-card
+                      className="relative shrink-0 snap-center bg-[#1f3442] rounded-xl overflow-hidden w-[calc(100vw-48px)] max-w-[350px] h-[430px] md:w-[350px] md:h-[470px]"
                       style={{ width: "350px", height: "470px" }}
                     >
                       <div className="absolute top-[40px] left-[40px] flex items-start gap-4">
@@ -630,64 +435,26 @@ export default function OurProcess() {
               </div>
             </div>
 
-            {/* ── Mobile progress bar — lg:hidden ── */}
-            <div className="lg:hidden w-full px-6 mt-4 pb-2">
-              {/*
-                mobileBarRef is the full-width interactive zone (tall for easy touch targeting).
-                Inside: a 1px track line, a filled thumb that translateX-es as you scroll,
-                and a small rounded-pill handle parked at the thumb's right edge.
-                All three are position:absolute so they don't affect layout.
-              */}
-              <div
-                ref={mobileBarRef}
-                onPointerDown={handleBarPointerDown}
-                style={{
-                  position: "relative",
-                  width: "100%",
-                  height: "20px", // invisible hit area — makes dragging easy on mobile
-                  cursor: "grab",
-                  touchAction: "none", // prevents browser from hijacking the pointer for scroll
-                }}
-              >
-                {/*
-                  Handle — a small rounded pill that sits right at the thumb's trailing edge.
-                  JS sets its transform to `translateX(offset + thumbWidth) translateY(-50%)`
-                  so it always tracks with the thumb end.
-                */}
-                <div
-                  ref={mobileHandleRef}
-                  style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: 0,
-                    transform: "translateY(-50%)", // JS will override
-                    willChange: "transform",
-                    pointerEvents: "none",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="28"
-                    height="16"
-                    viewBox="0 0 28 16"
-                    fill="none"
-                  >
-                    <path
-                      d="M0 8H22M22 8L16 3M22 8L16 13"
-                      stroke="#2A394A"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
+            {/* Mobile step indicator */}
+            <div className="lg:hidden flex items-center justify-center gap-2 mt-5 pb-2">
+              {cardImages.map((_, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => handleMobileStepClick(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    mobileActive === index
+                      ? "w-7 bg-[#2A394A]"
+                      : "w-2 bg-[#2A394A]/25"
+                  }`}
+                  aria-label={`Show process step ${index + 1}`}
+                />
+              ))}
+            </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
     </section>
   );
 }

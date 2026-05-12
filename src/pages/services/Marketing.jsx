@@ -2,20 +2,20 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "../../assets/images/logo.png";
-import aiHero from "../../assets/images/ai_hero.png";
-import pythonLogo from "../../assets/images/python.png";
-import n8nLogo from "../../assets/images/n8n.png";
-import langraphLogo from "../../assets/images/langraph.png";
-import claudeLogo from "../../assets/images/claude.png";
-import financeIcon from "../../assets/images/finance.png";
-import marketingIcon from "../../assets/images/marketing.png";
-import logisticsIcon from "../../assets/images/logistics.png";
-import healthIcon from "../../assets/images/health.png";
-import aiSolution from "../../assets/images/ai_solution.png";
+import toolLogo1 from "../../assets/images/marketing_tool_1.png";
+import toolLogo2 from "../../assets/images/marketing_tool_2.png";
+import toolLogo3 from "../../assets/images/marketing_tool_3.png";
+import toolLogo4 from "../../assets/images/marketing_tool_4.png";
+import industryIcon1 from "../../assets/images/marketing_industry_1.png";
+import industryIcon2 from "../../assets/images/marketing_industry_2.png";
+import industryIcon3 from "../../assets/images/marketing_industry_3.png";
+import industryIcon4 from "../../assets/images/marketing_industry_4.png";
 import aiIcon1 from "../../assets/images/ai_icon_1.png";
 import aiIcon2 from "../../assets/images/ai_icon_2.png";
 import aiIcon3 from "../../assets/images/ai_icon_3.png";
 import aiIcon4 from "../../assets/images/ai_icon_4.png";
+import marketingHero from "../../assets/images/marketing_hero_new.png";
+import marketingSolution from "../../assets/images/marketing_solution_new.png";
 import Footer from "../../components/layout/Footer";
 
 export default function Marketing() {
@@ -130,15 +130,17 @@ export default function Marketing() {
           padding: "20px 40px",
           boxSizing: "border-box",
           transform: `translateY(${showHeader ? "0" : "-120%"})`,
-          transition: "all 0.3s ease",
+          transition: "transform 0.3s ease",
           background: "rgba(67, 106, 117, 0.8)",
           backdropFilter: "blur(10px)",
-          boxShadow: showHeader && window.scrollY > 10 ? "0 4px 20px rgba(0,0,0,0.15)" : "none",
         }}
       >
         {/* LOGO */}
         <Link to="/" onClick={() => window.scrollTo(0, 0)}>
-          <img
+          <motion.img
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             src={logo}
             alt="Prime Ambit"
             style={{
@@ -374,7 +376,7 @@ export default function Marketing() {
             >
               <h2
                 style={{
-                  alignSelf: "stretch",
+                  width: "300.633px",
                   color: "#FFF",
                   fontFamily: "Inter, sans-serif",
                   fontSize: "22.65px",
@@ -384,11 +386,11 @@ export default function Marketing() {
                   margin: 0,
                 }}
               >
-                Marketing and Branding
+                Marketing, Branding & Strategic Communication
               </h2>
               <p
                 style={{
-                  width: "399.539px",
+                  alignSelf: "stretch",
                   color: "#FFF",
                   fontFamily: "Inter, sans-serif",
                   fontSize: "14px",
@@ -398,11 +400,13 @@ export default function Marketing() {
                   margin: 0,
                 }}
               >
-                Prime Ambit builds production-ready AI systems that turn complex
-                operations into intelligent, predictable workflows. From agentic
-                workflow automation to enterprise knowledge assistants, we
-                design AI solutions that plug into real processes and unlock
-                data driven growth.
+                Prime Ambit helps organizations design powerful brand narratives,
+                execute data-driven marketing campaigns, and drive effective
+                communication across digital and physical channels.
+                <br />
+                From corporate branding and integrated marketing campaigns to
+                stakeholder engagement and digital growth strategies, we help
+                businesses build lasting connections with their audiences.
               </p>
               <Link
                 to="/contact"
@@ -435,9 +439,10 @@ export default function Marketing() {
           {/* RIGHT SIDE IMAGE */}
           <div
             style={{
-              width: "524.055px",
-              height: "475px",
-              background: `url(${aiHero}) lightgray 50% / cover no-repeat`,
+              width: "466.023px",
+              height: "466.023px",
+              aspectRatio: "1/1",
+              background: `url(${marketingHero}) transparent 50% / cover no-repeat`,
             }}
           />
         </div>
@@ -459,7 +464,7 @@ export default function Marketing() {
       >
         <h2
           style={{
-            width: "453.465px",
+            width: "388.645px",
             color: "#D6DBC7",
             fontFamily: "Inter, sans-serif",
             fontSize: "36.65px",
@@ -471,7 +476,7 @@ export default function Marketing() {
             maxWidth: "100%",
           }}
         >
-          Marketing and Branding Solutions for Real Business Workflows
+          Strategic Marketing for Modern Organizations
         </h2>
         <p
           style={{
@@ -487,10 +492,7 @@ export default function Marketing() {
             maxWidth: "100%",
           }}
         >
-          We design intelligent systems that coordinate complex workflows,
-          process large data volumes, and automate business operations inside
-          your existing tools. Using LLMs, vector databases, autonomous agents,
-          and workflow orchestration
+          Our services combine strategic communication, digital marketing execution, brand development, and data-driven analytics to help organizations reach the right audiences with clarity and impact.
         </p>
       </div>
 
@@ -515,7 +517,7 @@ export default function Marketing() {
             alignItems: "flex-start",
             background: "#FFF",
             boxSizing: "border-box",
-            borderRadius: "24px",
+            borderRadius: "0px",
             boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
           }}
         >
@@ -616,10 +618,11 @@ export default function Marketing() {
                 {/* Image */}
                 <div
                   style={{
-                    height: "428.516px",
+                    width: "428.063px",
+                    height: "428.063px",
                     flexShrink: 0,
-                    alignSelf: "stretch",
-                    background: `url(${aiSolution}) transparent 62.421px 14.065px / 75.944% 93.436% no-repeat`,
+                    aspectRatio: "1/1",
+                    background: `url(${marketingSolution}) transparent 50% / cover no-repeat`,
                   }}
                 />
 
@@ -648,7 +651,9 @@ export default function Marketing() {
                       lineHeight: "20px",
                     }}
                   >
-                    Prime Ambit builds production-ready AI systems, Agentic workflow automation to enterprise knowledge assistants, we design AI solutions that plug into real processes and unlock data driven growth.
+                    Building a Product That Needs Structure?<br />
+                    Share your product scope, current stage (idea, MVP, v1+), and architecture<br />
+                    environment. We’ll assess build feasibility and system alignment.
                   </div>
                   <div>
                     <Link
@@ -674,7 +679,7 @@ export default function Marketing() {
                         textDecoration: "none",
                       }}
                     >
-                      Discuss Engineering Scope
+                      Discuss Product Engineering
                     </Link>
                   </div>
                 </div>
@@ -826,25 +831,20 @@ export default function Marketing() {
               textAlign: "center",
             }}
           >
-            Technologies We Work With
+            Platforms & Tools
           </h2>
           
           <div
             style={{
               display: "flex",
-              width: "760px",
-              height: "155.692px",
-              maxWidth: "100%",
-              boxSizing: "border-box",
               alignItems: "center",
-              justifyContent: "center",
               gap: "65px",
             }}
           >
-            <div style={{ width: "80px", height: "80px", background: `url(${pythonLogo}) transparent center / contain no-repeat` }} />
-            <div style={{ width: "250px", height: "79.749px", background: `url(${n8nLogo}) transparent center / contain no-repeat` }} />
-            <div style={{ width: "155px", height: "155.692px", background: `url(${langraphLogo}) transparent center / contain no-repeat` }} />
-            <div style={{ width: "80px", height: "80.661px", background: `url(${claudeLogo}) transparent center / contain no-repeat` }} />
+            <div style={{ width: "287.996px", height: "76.319px", aspectRatio: "200/53", background: `url(${toolLogo1}) transparent center / contain no-repeat` }} />
+            <div style={{ width: "200.738px", height: "69.161px", aspectRatio: "119/41", background: `url(${toolLogo2}) transparent center / contain no-repeat` }} />
+            <div style={{ width: "313.022px", height: "208.682px", aspectRatio: "3/2", background: `url(${toolLogo3}) transparent center / contain no-repeat` }} />
+            <div style={{ width: "250px", height: "74px", aspectRatio: "125/37", background: `url(${toolLogo4}) transparent center / contain no-repeat` }} />
           </div>
         </div>
       </div>
@@ -890,7 +890,7 @@ export default function Marketing() {
           </h2>
           <p
             style={{
-              width: "778.137px",
+              width: "945.824px",
               maxWidth: "100%",
               color: "#FFF",
               fontFamily: "Inter, sans-serif",
@@ -902,7 +902,7 @@ export default function Marketing() {
               margin: 0,
             }}
           >
-            Prime Ambit AI systems support organizations across
+            Our marketing and communication services support organizations across multiple industries
           </p>
 
           {/* INDUSTRIES ICONS CONTAINER */}
@@ -916,36 +916,36 @@ export default function Marketing() {
               marginTop: "80px",
             }}
           >
-            {/* 1. FinTech */}
+            {/* 1. Enterprise & B2B */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
               <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: "60px", height: "60px", background: `url(${financeIcon}) no-repeat center / contain` }} />
+                <div style={{ width: "80px", height: "80px", aspectRatio: "1/1", background: `url(${industryIcon1}) no-repeat center / contain` }} />
               </div>
-              <span style={{ color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>FinTech</span>
+              <span style={{ width: "121.313px", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px", textAlign: "center" }}>Enterprise & B2B</span>
             </div>
 
-            {/* 2. Growth & Platforms */}
+            {/* 2. Public & Regulated */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
               <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: "80px", height: "80px", background: `url(${marketingIcon}) no-repeat center / contain` }} />
+                <div style={{ width: "80px", height: "80px", aspectRatio: "1/1", background: `url(${industryIcon2}) no-repeat center / contain` }} />
               </div>
-              <span style={{ width: "156.984px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>Growth & Platforms</span>
+              <span style={{ width: "156.984px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>Public & Regulated</span>
             </div>
 
-            {/* 3. Logistics & Ops */}
+            {/* 3. Healthcare & Wellness */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
               <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: "80px", height: "80px", background: `url(${logisticsIcon}) no-repeat center / contain` }} />
+                <div style={{ width: "80px", height: "80px", aspectRatio: "1/1", background: `url(${industryIcon3}) no-repeat center / contain` }} />
               </div>
-              <span style={{ width: "110.359px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>Logistics & Ops</span>
+              <span style={{ width: "126.879px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>Healthcare & Wellness</span>
             </div>
 
-            {/* 4. Health Systems */}
+            {/* 4. Consumer & Retail */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
               <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: "71.667px", height: "65.008px", background: `url(${healthIcon}) no-repeat center / contain` }} />
+                <div style={{ width: "80px", height: "80px", aspectRatio: "1/1", background: `url(${industryIcon4}) no-repeat center / contain` }} />
               </div>
-              <span style={{ width: "139.301px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>Health Systems</span>
+              <span style={{ width: "119.324px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>Consumer & Retail</span>
             </div>
           </div>
         </div>

@@ -131,7 +131,8 @@ export default function AI() {
           boxSizing: "border-box",
           transform: `translateY(${showHeader ? "0" : "-120%"})`,
           transition: "transform 0.3s ease",
-          background: "#436A75",
+          background: "rgba(67, 106, 117, 0.8)",
+          backdropFilter: "blur(10px)",
         }}
       >
         {/* LOGO */}
@@ -479,7 +480,7 @@ export default function AI() {
         <motion.h2
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, amount: 0.3, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           style={{
             width: "453.465px",
@@ -499,7 +500,7 @@ export default function AI() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, amount: 0.3, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           style={{
             width: "1302px",
@@ -557,7 +558,7 @@ export default function AI() {
             <motion.div
               initial="hidden"
               whileInView="show"
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.3, margin: "-100px" }}
               variants={{
                 hidden: { opacity: 0, x: -30 },
                 show: {
@@ -740,7 +741,7 @@ export default function AI() {
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0.3, margin: "-100px" }}
                   transition={{ 
                     duration: 0.8, 
                     delay: 0.6 + (Math.floor(index / 2) * 0.4), 
@@ -866,7 +867,7 @@ export default function AI() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
             transition={{ duration: 0.8 }}
             style={{
               color: "#2A394A",
@@ -886,7 +887,7 @@ export default function AI() {
           <motion.div
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
             variants={{
               hidden: { opacity: 0 },
               show: {
@@ -941,7 +942,7 @@ export default function AI() {
           <motion.h2
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
             transition={{ duration: 0.8 }}
             style={{
               color: "#D6DBC7",
@@ -959,7 +960,7 @@ export default function AI() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
             style={{
               width: "778.137px",
@@ -980,7 +981,7 @@ export default function AI() {
           <motion.div
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
             variants={{
               hidden: { opacity: 0 },
               show: {
