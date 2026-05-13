@@ -493,7 +493,7 @@ export default function Software() {
         <motion.h2
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           style={{
             color: "#D6DBC7",
@@ -513,7 +513,7 @@ export default function Software() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           style={{
             width: "1302px",
@@ -569,10 +569,20 @@ export default function Software() {
           >
             {/* Left side container */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+              variants={{
+                hidden: { opacity: 0, x: -30 },
+                show: {
+                  opacity: 1,
+                  x: 0,
+                  transition: {
+                    duration: 0.8,
+                    staggerChildren: 0.2,
+                  }
+                }
+              }}
               style={{
                 width: "519px",
                 height: "610px",
@@ -590,7 +600,8 @@ export default function Software() {
                 }}
               >
                 {/* Points in button form */}
-                <div
+                <motion.div
+                  variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -654,10 +665,11 @@ export default function Software() {
                   >
                     Reliability
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Image */}
-                <div
+                <motion.div
+                  variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
                   style={{
                     height: "432.374px",
                     flexShrink: 0,
@@ -667,7 +679,8 @@ export default function Software() {
                 />
 
                 {/* Description and Button */}
-                <div
+                <motion.div
+                  variants={{ hidden: { opacity: 0, y: 15 }, show: { opacity: 1, y: 0 } }}
                   style={{
                     width: "509.188px",
                     height: "110.575px",
@@ -722,7 +735,7 @@ export default function Software() {
                       Discuss Product Engineering
                     </Link>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
 
@@ -982,7 +995,17 @@ export default function Software() {
           </motion.p>
 
           {/* INDUSTRIES ICONS CONTAINER */}
-          <div
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: { staggerChildren: 0.15 }
+              }
+            }}
             style={{
               display: "flex",
               width: "100%",
@@ -1000,10 +1023,7 @@ export default function Software() {
             ].map((industry, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 + (index * 0.1) }}
+                variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
                 style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}
               >
                 <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
@@ -1012,7 +1032,7 @@ export default function Software() {
                 <span style={{ maxWidth: "160px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>{industry.label}</span>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
 
@@ -1026,11 +1046,7 @@ export default function Software() {
           boxSizing: "border-box",
         }}
       >
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+        <div
           style={{
             display: "flex",
             width: "1301.508px",
@@ -1041,7 +1057,11 @@ export default function Software() {
           }}
         >
           <div style={{ display: "flex", flexDirection: "column", gap: "25px", width: "100%" }}>
-            <h2
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
               style={{
                 width: "100%",
                 color: "#D6DBC7",
@@ -1055,8 +1075,12 @@ export default function Software() {
               }}
             >
               Build Intelligent Systems for Your Business
-            </h2>
-            <p
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
               style={{
                 width: "100%",
                 color: "#FFF",
@@ -1069,36 +1093,43 @@ export default function Software() {
               }}
             >
               Whether you are starting with complex automation or scaling enterprise platforms, Prime Ambit helps you design and deploy systems that create measurable operational impact.
-            </p>
+            </motion.p>
           </div>
 
-          <Link
-            to="/contact"
-            style={{
-              display: "inline-flex",
-              height: "40px",
-              padding: "10px",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "10px",
-              borderRadius: "16px",
-              background: "#509AAF",
-              color: "#FFF",
-              textAlign: "center",
-              fontFamily: "Inter, sans-serif",
-              fontSize: "14px",
-              fontStyle: "normal",
-              fontWeight: 400,
-              lineHeight: "120%",
-              letterSpacing: "-0.56px",
-              textTransform: "capitalize",
-              textDecoration: "none",
-              boxSizing: "border-box",
-            }}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
           >
-            Talk to Our Team
-          </Link>
-        </motion.div>
+            <Link
+              to="/contact"
+              style={{
+                display: "inline-flex",
+                height: "40px",
+                padding: "10px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "10px",
+                borderRadius: "16px",
+                background: "#509AAF",
+                color: "#FFF",
+                textAlign: "center",
+                fontFamily: "Inter, sans-serif",
+                fontSize: "14px",
+                fontStyle: "normal",
+                fontWeight: 400,
+                lineHeight: "120%",
+                letterSpacing: "-0.56px",
+                textTransform: "capitalize",
+                textDecoration: "none",
+                boxSizing: "border-box",
+              }}
+            >
+              Talk to Our Team
+            </Link>
+          </motion.div>
+        </div>
       </div>
 
       <Footer />

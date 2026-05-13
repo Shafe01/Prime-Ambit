@@ -10,10 +10,10 @@ import industryIcon1 from "../../assets/images/marketing_industry_1.png";
 import industryIcon2 from "../../assets/images/marketing_industry_2.png";
 import industryIcon3 from "../../assets/images/marketing_industry_3.png";
 import industryIcon4 from "../../assets/images/marketing_industry_4.png";
-import aiIcon1 from "../../assets/images/ai_icon_1.png";
-import aiIcon2 from "../../assets/images/ai_icon_2.png";
-import aiIcon3 from "../../assets/images/ai_icon_3.png";
-import aiIcon4 from "../../assets/images/ai_icon_4.png";
+import marketingStrategyIcon1 from "../../assets/images/marketing_strategy_1.png";
+import marketingStrategyIcon2 from "../../assets/images/marketing_strategy_2.png";
+import marketingStrategyIcon3 from "../../assets/images/marketing_strategy_3.png";
+import marketingStrategyIcon4 from "../../assets/images/marketing_strategy_4.png";
 import marketingHero from "../../assets/images/marketing_hero_new.png";
 import marketingSolution from "../../assets/images/marketing_solution_new.png";
 import Footer from "../../components/layout/Footer";
@@ -43,66 +43,70 @@ export default function Marketing() {
     { label: "Marketing and Branding", href: "/services/marketing-branding" },
   ];
 
-  const aiCards = [
+  const marketingStrategyCards = [
     {
-      title: "Agentic Workflow & Sales Automation",
-      description: "Design and deployment of autonomous systems for business processes, lead gen, and sales pipelines with minimal manual effort.",
+      title: "Strategic Communication & Stakeholder Engagement",
+      description: "This pillar ensures that organizational change and corporate milestones are met with clarity and enthusiasm.",
       points: [
-        "Custom n8n workflows and multi-tool orchestration across SaaS/CRM platforms",
-        "Autonomous AI agents for lead sourcing, qualification, scoring, and email personalization",
-        "Advanced error handling, retry logic, and migration from Zapier/Make.com"
+        "Change Management & Transformation",
+        "Corporate Events & Town Halls",
+        "CSR & Community Programs",
+        "Stakeholder Mapping"
       ],
       bg: "#FFF",
       titleColor: "#2A394A",
       textColor: "#2A394A",
       iconBg: "#509AAF73",
       iconColor: "rgba(80, 154, 175, 0.45)",
-      icon: aiIcon1,
+      icon: marketingStrategyIcon1,
     },
     {
-      title: "Knowledge & Content Intelligence",
-      description: "RAG-powered assistants and pipelines that turn documents and media into searchable, generative assets.",
+      title: "Brand Strategy & Identity Development",
+      description: "We bridge the gap between internal values and external perception.",
       points: [
-        "Internal knowledge search, document intelligence, and structured data extraction",
-        "AI policy/SOP assistants, client chatbots, and vector database systems",
-        "Automated content generation, social scheduling, compliance checks, and digital asset management"
+        "Positioning & Messaging",
+        "Employer Branding",
+        "PR & Influencer Campaigns",
+        "Integrated Marketing"
       ],
       bg: "#FFF",
       titleColor: "#2A394A",
       textColor: "#2A394A",
       iconBg: "#509AAF73",
       iconColor: "rgba(80, 154, 175, 0.45)",
-      icon: aiIcon2,
+      icon: marketingStrategyIcon2,
     },
     {
-      title: "Data & Analytics Platforms",
-      description: "AI-driven ingestion, processing, and insights from fragmented data sources.",
+      title: "Digital Strategy & Creative Production",
+      description: "This pillar transforms brand concepts into scrolls-stopping content and high-performing digital campaigns.",
       points: [
-        "Enterprise web scraping and multi-source data pipelines",
-        "Automated reporting dashboards and real-time analytics",
-        "AI analysis agents for business intelligence and prospect enrichment"
+        "Omnichannel Social Strategy",
+        "Go-to-Market (GTM) Execution",
+        "Multimodal Content Creation",
+        "Technical & Educational Assets"
       ],
       bg: "#FFF",
       titleColor: "#2A394A",
       textColor: "#2A394A",
       iconBg: "#509AAF73",
       iconColor: "rgba(80, 154, 175, 0.45)",
-      icon: aiIcon3,
+      icon: marketingStrategyIcon3,
     },
     {
-      title: "Voice & Conversational AI",
-      description: "Real-time voice and conversation systems for calls, meetings, and customer interactions.",
+      title: "Data Intelligence & Performance Marketing",
+      description: "We move beyond intuition by using advanced analytics to measure impact and optimize ROI.",
       points: [
-        "AI voice agents for inbound/outbound calls and customer service",
-        "Meeting intelligence with summaries and action items",
-        "Voice-enabled workflow automation and conversational assistants"
+        "Performance Tracking & ROI",
+        "Social Listening & Sentiment",
+        "AI-Powered Insights",
+        "Optimization Frameworks"
       ],
       bg: "#509AAF",
       titleColor: "#FFF",
       textColor: "#FFF",
       iconBg: "#509AAF73",
       iconColor: "rgba(80, 154, 175, 0.45)",
-      icon: aiIcon4,
+      icon: marketingStrategyIcon4,
     }
   ];
 
@@ -349,7 +353,11 @@ export default function Marketing() {
               gap: "40px",
             }}
           >
-            <h1
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               style={{
                 alignSelf: "stretch",
                 color: "#FFF",
@@ -363,7 +371,7 @@ export default function Marketing() {
               }}
             >
               Our Services
-            </h1>
+            </motion.h1>
 
             <div
               style={{
@@ -374,7 +382,11 @@ export default function Marketing() {
                 gap: "25px",
               }}
             >
-              <h2
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 style={{
                   width: "300.633px",
                   color: "#FFF",
@@ -387,8 +399,12 @@ export default function Marketing() {
                 }}
               >
                 Marketing, Branding & Strategic Communication
-              </h2>
-              <p
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                 style={{
                   alignSelf: "stretch",
                   color: "#FFF",
@@ -407,37 +423,48 @@ export default function Marketing() {
                 From corporate branding and integrated marketing campaigns to
                 stakeholder engagement and digital growth strategies, we help
                 businesses build lasting connections with their audiences.
-              </p>
-              <Link
-                to="/contact"
-                style={{
-                  display: "inline-flex",
-                  height: "30.727px",
-                  padding: "10px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "10px",
-                  borderRadius: "16px",
-                  background: "#509AAF",
-                  color: "#FFF",
-                  textAlign: "center",
-                  fontFamily: "Inter, sans-serif",
-                  fontSize: "14px",
-                  fontStyle: "normal",
-                  fontWeight: 400,
-                  lineHeight: "160.5%",
-                  textTransform: "capitalize",
-                  textDecoration: "none",
-                  boxSizing: "border-box",
-                }}
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.6 }}
               >
-                Start a Build
-              </Link>
+                <Link
+                  to="/contact"
+                  style={{
+                    display: "inline-flex",
+                    height: "30.727px",
+                    padding: "10px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "10px",
+                    borderRadius: "16px",
+                    background: "#509AAF",
+                    color: "#FFF",
+                    textAlign: "center",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "160.5%",
+                    textTransform: "capitalize",
+                    textDecoration: "none",
+                    boxSizing: "border-box",
+                  }}
+                >
+                  Start a Build
+                </Link>
+              </motion.div>
             </div>
           </div>
 
           {/* RIGHT SIDE IMAGE */}
-          <div
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut" }}
             style={{
               width: "466.023px",
               height: "466.023px",
@@ -462,7 +489,11 @@ export default function Marketing() {
           boxSizing: "border-box",
         }}
       >
-        <h2
+        <motion.h2
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           style={{
             width: "388.645px",
             color: "#D6DBC7",
@@ -477,8 +508,12 @@ export default function Marketing() {
           }}
         >
           Strategic Marketing for Modern Organizations
-        </h2>
-        <p
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           style={{
             width: "1302px",
             color: "#FFF",
@@ -493,7 +528,7 @@ export default function Marketing() {
           }}
         >
           Our services combine strategic communication, digital marketing execution, brand development, and data-driven analytics to help organizations reach the right audiences with clarity and impact.
-        </p>
+        </motion.p>
       </div>
 
       {/* ── BIG WHITE CONTAINER ── */}
@@ -531,7 +566,21 @@ export default function Marketing() {
             }}
           >
             {/* Left side container */}
-            <div
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0, x: -30 },
+                show: {
+                  opacity: 1,
+                  x: 0,
+                  transition: {
+                    duration: 0.8,
+                    staggerChildren: 0.2,
+                  }
+                }
+              }}
               style={{
                 width: "519px",
                 height: "610px",
@@ -549,7 +598,8 @@ export default function Marketing() {
                 }}
               >
                 {/* Points in button form */}
-                <div
+                <motion.div
+                  variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -613,10 +663,11 @@ export default function Marketing() {
                   >
                     Reliability
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Image */}
-                <div
+                <motion.div
+                  variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
                   style={{
                     width: "428.063px",
                     height: "428.063px",
@@ -627,7 +678,8 @@ export default function Marketing() {
                 />
 
                 {/* Description and Button */}
-                <div
+                <motion.div
+                  variants={{ hidden: { opacity: 0, y: 15 }, show: { opacity: 1, y: 0 } }}
                   style={{
                     width: "509.188px",
                     height: "110.575px",
@@ -682,9 +734,9 @@ export default function Marketing() {
                       Discuss Product Engineering
                     </Link>
                   </div>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right side container */}
             <div
@@ -698,9 +750,17 @@ export default function Marketing() {
                 flexWrap: "wrap",
               }}
             >
-              {aiCards.map((card, index) => (
-                <div
+              {marketingStrategyCards.map((card, index) => (
+                <motion.div
                   key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: 0.4 + (index * 0.1), 
+                    ease: "easeOut" 
+                  }}
                   style={{
                     display: "flex",
                     width: "348px",
@@ -727,41 +787,45 @@ export default function Marketing() {
                     }}
                   >
                     {/* Heading Detail */}
-                    <div
-                      style={{
-                        display: "flex",
-                        width: "328px",
-                        padding: "10px",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        boxSizing: "border-box",
-                      }}
-                    >
                       <div
                         style={{
-                          width: "50px",
-                          height: "50px",
-                          borderRadius: "50%",
-                          background: `url(${card.icon}) no-repeat center / contain`,
-                          flexShrink: 0,
-                        }}
-                      />
-                      <div
-                        style={{
-                          width: "220.465px",
-                          flexShrink: 0,
-                          color: card.titleColor,
-                          fontFamily: "Inter, sans-serif",
-                          fontSize: "22.65px",
-                          fontStyle: "normal",
-                          fontWeight: 400,
-                          lineHeight: "24px",
-                          letterSpacing: "-0.453px",
+                          display: "flex",
+                          width: "328px",
+                          padding: "10px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "16px",
+                          boxSizing: "border-box",
                         }}
                       >
-                        {card.title}
+                        <div
+                          style={{
+                            width: "50px",
+                            height: "50px",
+                            borderRadius: "50%",
+                            background: `url(${card.icon}) no-repeat center / contain`,
+                            flexShrink: 0,
+                          }}
+                        />
+                        <div
+                          style={{
+                            width: "258px",
+                            flexShrink: 0,
+                            color: card.titleColor,
+                            fontFamily: "Inter, sans-serif",
+                            fontSize: "20px",
+                            fontStyle: "normal",
+                            fontWeight: 400,
+                            lineHeight: "22px",
+                            letterSpacing: "-0.453px",
+                            textAlign: "center",
+                          }}
+                        >
+                          <div style={{ display: "inline-block", textAlign: "left" }}>
+                            {card.title}
+                          </div>
+                        </div>
                       </div>
-                    </div>
 
                     {/* Description Text */}
                     <div
@@ -788,7 +852,7 @@ export default function Marketing() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -818,7 +882,11 @@ export default function Marketing() {
             boxSizing: "border-box",
           }}
         >
-          <h2
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
             style={{
               color: "#2A394A",
               fontFamily: "Inter, sans-serif",
@@ -832,20 +900,30 @@ export default function Marketing() {
             }}
           >
             Platforms & Tools
-          </h2>
+          </motion.h2>
           
-          <div
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: { staggerChildren: 0.2 }
+              }
+            }}
             style={{
               display: "flex",
               alignItems: "center",
               gap: "65px",
             }}
           >
-            <div style={{ width: "287.996px", height: "76.319px", aspectRatio: "200/53", background: `url(${toolLogo1}) transparent center / contain no-repeat` }} />
-            <div style={{ width: "200.738px", height: "69.161px", aspectRatio: "119/41", background: `url(${toolLogo2}) transparent center / contain no-repeat` }} />
-            <div style={{ width: "313.022px", height: "208.682px", aspectRatio: "3/2", background: `url(${toolLogo3}) transparent center / contain no-repeat` }} />
-            <div style={{ width: "250px", height: "74px", aspectRatio: "125/37", background: `url(${toolLogo4}) transparent center / contain no-repeat` }} />
-          </div>
+            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "287.996px", height: "76.319px", aspectRatio: "200/53", background: `url(${toolLogo1}) transparent center / contain no-repeat` }} />
+            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "200.738px", height: "69.161px", aspectRatio: "119/41", background: `url(${toolLogo2}) transparent center / contain no-repeat` }} />
+            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "313.022px", height: "208.682px", aspectRatio: "3/2", background: `url(${toolLogo3}) transparent center / contain no-repeat` }} />
+            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "250px", height: "74px", aspectRatio: "125/37", background: `url(${toolLogo4}) transparent center / contain no-repeat` }} />
+          </motion.div>
         </div>
       </div>
 
@@ -874,7 +952,11 @@ export default function Marketing() {
             boxSizing: "border-box",
           }}
         >
-          <h2
+          <motion.h2
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
             style={{
               color: "#D6DBC7",
               fontFamily: "Inter, sans-serif",
@@ -887,8 +969,12 @@ export default function Marketing() {
             }}
           >
             Industries We Support
-          </h2>
-          <p
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             style={{
               width: "945.824px",
               maxWidth: "100%",
@@ -903,10 +989,20 @@ export default function Marketing() {
             }}
           >
             Our marketing and communication services support organizations across multiple industries
-          </p>
+          </motion.p>
 
           {/* INDUSTRIES ICONS CONTAINER */}
-          <div
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: { staggerChildren: 0.15 }
+              }
+            }}
             style={{
               display: "flex",
               width: "100%",
@@ -916,38 +1012,24 @@ export default function Marketing() {
               marginTop: "80px",
             }}
           >
-            {/* 1. Enterprise & B2B */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
-              <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: "80px", height: "80px", aspectRatio: "1/1", background: `url(${industryIcon1}) no-repeat center / contain` }} />
-              </div>
-              <span style={{ width: "121.313px", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px", textAlign: "center" }}>Enterprise & B2B</span>
-            </div>
-
-            {/* 2. Public & Regulated */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
-              <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: "80px", height: "80px", aspectRatio: "1/1", background: `url(${industryIcon2}) no-repeat center / contain` }} />
-              </div>
-              <span style={{ width: "156.984px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>Public & Regulated</span>
-            </div>
-
-            {/* 3. Healthcare & Wellness */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
-              <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: "80px", height: "80px", aspectRatio: "1/1", background: `url(${industryIcon3}) no-repeat center / contain` }} />
-              </div>
-              <span style={{ width: "126.879px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>Healthcare & Wellness</span>
-            </div>
-
-            {/* 4. Consumer & Retail */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
-              <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: "80px", height: "80px", aspectRatio: "1/1", background: `url(${industryIcon4}) no-repeat center / contain` }} />
-              </div>
-              <span style={{ width: "119.324px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>Consumer & Retail</span>
-            </div>
-          </div>
+            {[
+              { icon: industryIcon1, label: "Enterprise & B2B", width: "80px", height: "80px" },
+              { icon: industryIcon2, label: "Public & Regulated", width: "80px", height: "80px" },
+              { icon: industryIcon3, label: "Healthcare & Wellness", width: "80px", height: "80px" },
+              { icon: industryIcon4, label: "Consumer & Retail", width: "80px", height: "80px" },
+            ].map((industry, index) => (
+              <motion.div
+                key={index}
+                variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
+                style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}
+              >
+                <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
+                  <div style={{ width: industry.width, height: industry.height, background: `url(${industry.icon}) no-repeat center / contain` }} />
+                </div>
+                <span style={{ maxWidth: "160px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>{industry.label}</span>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
 
@@ -972,7 +1054,11 @@ export default function Marketing() {
           }}
         >
           <div style={{ display: "flex", flexDirection: "column", gap: "25px", width: "100%" }}>
-            <h2
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
               style={{
                 width: "100%",
                 color: "#D6DBC7",
@@ -986,8 +1072,12 @@ export default function Marketing() {
               }}
             >
               Build Intelligent Systems for Your Business
-            </h2>
-            <p
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
               style={{
                 width: "100%",
                 color: "#FFF",
@@ -1000,35 +1090,42 @@ export default function Marketing() {
               }}
             >
               Whether you are starting with AI automation or scaling enterprise AI, Prime Ambit helps you design and deploy intelligent systems that create measurable operational impact.
-            </p>
+            </motion.p>
           </div>
 
-          <Link
-            to="/contact"
-            style={{
-              display: "inline-flex",
-              height: "40px",
-              padding: "10px",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "10px",
-              borderRadius: "16px",
-              background: "#509AAF",
-              color: "#FFF",
-              textAlign: "center",
-              fontFamily: "Inter, sans-serif",
-              fontSize: "14px",
-              fontStyle: "normal",
-              fontWeight: 400,
-              lineHeight: "120%",
-              letterSpacing: "-0.56px",
-              textTransform: "capitalize",
-              textDecoration: "none",
-              boxSizing: "border-box",
-            }}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
           >
-            Talk to Our Team
-          </Link>
+            <Link
+              to="/contact"
+              style={{
+                display: "inline-flex",
+                height: "40px",
+                padding: "10px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "10px",
+                borderRadius: "16px",
+                background: "#509AAF",
+                color: "#FFF",
+                textAlign: "center",
+                fontFamily: "Inter, sans-serif",
+                fontSize: "14px",
+                fontStyle: "normal",
+                fontWeight: 400,
+                lineHeight: "120%",
+                letterSpacing: "-0.56px",
+                textTransform: "capitalize",
+                textDecoration: "none",
+                boxSizing: "border-box",
+              }}
+            >
+              Talk to Our Team
+            </Link>
+          </motion.div>
         </div>
       </div>
 

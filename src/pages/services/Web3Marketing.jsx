@@ -462,7 +462,11 @@ export default function Web3Marketing() {
           </div>
 
           {/* RIGHT SIDE IMAGE */}
-          <div
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut" }}
             style={{
               width: "469.241px",
               height: "422.042px",
@@ -487,7 +491,11 @@ export default function Web3Marketing() {
           boxSizing: "border-box",
         }}
       >
-        <h2
+        <motion.h2
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           style={{
             width: "388.645px",
             color: "#D6DBC7",
@@ -502,8 +510,12 @@ export default function Web3Marketing() {
           }}
         >
           Growth Strategies Built for Web3 Ecosystems
-        </h2>
-        <p
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           style={{
             width: "1302px",
             color: "#FFF",
@@ -518,7 +530,7 @@ export default function Web3Marketing() {
           }}
         >
           We specialize in crypto-native growth strategies that combine community engagement, token incentives, on-chain analytics, and technical storytelling from pre-launch token strategy to post-launch ecosystem expansion.
-        </p>
+        </motion.p>
       </div>
 
       {/* ── BIG WHITE CONTAINER ── */}
@@ -556,7 +568,21 @@ export default function Web3Marketing() {
             }}
           >
             {/* Left side container */}
-            <div
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0, x: -30 },
+                show: {
+                  opacity: 1,
+                  x: 0,
+                  transition: {
+                    duration: 0.8,
+                    staggerChildren: 0.2,
+                  }
+                }
+              }}
               style={{
                 width: "519px",
                 height: "610px",
@@ -574,7 +600,8 @@ export default function Web3Marketing() {
                 }}
               >
                 {/* Points in button form */}
-                <div
+                <motion.div
+                  variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -638,10 +665,11 @@ export default function Web3Marketing() {
                   >
                     Reliability
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Image */}
-                <div
+                <motion.div
+                  variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
                   style={{
                     width: "432.374px",
                     height: "432.374px",
@@ -653,7 +681,8 @@ export default function Web3Marketing() {
                 />
 
                 {/* Description and Button */}
-                <div
+                <motion.div
+                  variants={{ hidden: { opacity: 0, y: 15 }, show: { opacity: 1, y: 0 } }}
                   style={{
                     width: "509.188px",
                     height: "110.575px",
@@ -708,9 +737,9 @@ export default function Web3Marketing() {
                       Discuss Product Engineering
                     </Link>
                   </div>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right side container */}
             <div
@@ -729,10 +758,10 @@ export default function Web3Marketing() {
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+                  viewport={{ once: true, amount: 0.3 }}
                   transition={{ 
                     duration: 0.8, 
-                    delay: 0.6 + (Math.floor(index / 2) * 0.4), 
+                    delay: 0.4 + (index * 0.1), 
                     ease: "easeOut" 
                   }}
                   style={{
@@ -856,7 +885,11 @@ export default function Web3Marketing() {
             boxSizing: "border-box",
           }}
         >
-          <h2
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
             style={{
               color: "#2A394A",
               fontFamily: "Inter, sans-serif",
@@ -870,9 +903,19 @@ export default function Web3Marketing() {
             }}
           >
             Platforms & Tools We Use
-          </h2>
+          </motion.h2>
           
-          <div
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: { staggerChildren: 0.2 }
+              }
+            }}
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -880,11 +923,11 @@ export default function Web3Marketing() {
               boxSizing: "border-box",
             }}
           >
-            <div style={{ width: "402.309px", height: "87.876px", background: `url(${web3Tool1}) transparent center / contain no-repeat` }} />
-            <div style={{ width: "209.75px", height: "157.434px", background: `url(${web3Tool2}) transparent center / contain no-repeat` }} />
-            <div style={{ width: "116.912px", height: "112.5px", background: `url(${web3Tool3}) transparent center / contain no-repeat` }} />
-            <div style={{ width: "256px", height: "52px", background: `url(${web3Tool4}) transparent center / contain no-repeat` }} />
-          </div>
+            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "402.309px", height: "87.876px", background: `url(${web3Tool1}) transparent center / contain no-repeat` }} />
+            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "209.75px", height: "157.434px", background: `url(${web3Tool2}) transparent center / contain no-repeat` }} />
+            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "116.912px", height: "112.5px", background: `url(${web3Tool3}) transparent center / contain no-repeat` }} />
+            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "256px", height: "52px", background: `url(${web3Tool4}) transparent center / contain no-repeat` }} />
+          </motion.div>
         </div>
       </div>
 
@@ -913,7 +956,11 @@ export default function Web3Marketing() {
             boxSizing: "border-box",
           }}
         >
-          <h2
+          <motion.h2
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
             style={{
               color: "#D6DBC7",
               fontFamily: "Inter, sans-serif",
@@ -926,8 +973,12 @@ export default function Web3Marketing() {
             }}
           >
             Web3 Projects We Support
-          </h2>
-          <p
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             style={{
               width: "778.137px",
               height: "74px",
@@ -943,10 +994,20 @@ export default function Web3Marketing() {
             }}
           >
             Prime Ambit AI systems support organizations across
-          </p>
+          </motion.p>
 
           {/* INDUSTRIES ICONS CONTAINER */}
-          <div
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: { staggerChildren: 0.15 }
+              }
+            }}
             style={{
               display: "flex",
               width: "100%",
@@ -956,38 +1017,24 @@ export default function Web3Marketing() {
               marginTop: "32px",
             }}
           >
-            {/* 1. Ecosystem Foundations */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
-              <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: "80px", height: "80px", background: `url(${web3Industry1}) no-repeat center / contain` }} />
-              </div>
-              <span style={{ color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px", textAlign: "center", width: "150px" }}>Ecosystem Foundations</span>
-            </div>
-
-            {/* 2. DeFi Protocols */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
-              <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: "80px", height: "80px", background: `url(${web3Industry2}) no-repeat center / contain` }} />
-              </div>
-              <span style={{ color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px", textAlign: "center", width: "120px" }}>DeFi Protocols</span>
-            </div>
-
-            {/* 3. Digital Culture */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
-              <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: "80px", height: "80px", background: `url(${web3Industry3}) no-repeat center / contain` }} />
-              </div>
-              <span style={{ color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px", textAlign: "center", width: "120px" }}>Digital Culture</span>
-            </div>
-
-            {/* 4. Consumer dApps */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
-              <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: "80px", height: "80px", background: `url(${web3Industry4}) no-repeat center / contain` }} />
-              </div>
-              <span style={{ color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px", textAlign: "center", width: "140px" }}>Consumer dApps</span>
-            </div>
-          </div>
+            {[
+              { icon: web3Industry1, label: "Ecosystem Foundations", width: "80px", height: "80px" },
+              { icon: web3Industry2, label: "DeFi Protocols", width: "80px", height: "80px" },
+              { icon: web3Industry3, label: "Digital Culture", width: "80px", height: "80px" },
+              { icon: web3Industry4, label: "Consumer dApps", width: "80px", height: "80px" },
+            ].map((industry, index) => (
+              <motion.div
+                key={index}
+                variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
+                style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}
+              >
+                <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
+                  <div style={{ width: industry.width, height: industry.height, background: `url(${industry.icon}) no-repeat center / contain` }} />
+                </div>
+                <span style={{ maxWidth: "160px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>{industry.label}</span>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
 
@@ -1012,7 +1059,11 @@ export default function Web3Marketing() {
           }}
         >
           <div style={{ display: "flex", flexDirection: "column", gap: "25px", width: "100%" }}>
-            <h2
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
               style={{
                 width: "100%",
                 color: "#D6DBC7",
@@ -1026,8 +1077,12 @@ export default function Web3Marketing() {
               }}
             >
               Build Intelligent Systems for Your Business
-            </h2>
-            <p
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
               style={{
                 width: "100%",
                 color: "#FFF",
@@ -1040,35 +1095,42 @@ export default function Web3Marketing() {
               }}
             >
               Whether you are starting with AI automation or scaling enterprise AI, Prime Ambit helps you design and deploy intelligent systems that create measurable operational impact.
-            </p>
+            </motion.p>
           </div>
 
-          <Link
-            to="/contact"
-            style={{
-              display: "inline-flex",
-              height: "40px",
-              padding: "10px",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "10px",
-              borderRadius: "16px",
-              background: "#509AAF",
-              color: "#FFF",
-              textAlign: "center",
-              fontFamily: "Inter, sans-serif",
-              fontSize: "14px",
-              fontStyle: "normal",
-              fontWeight: 400,
-              lineHeight: "120%",
-              letterSpacing: "-0.56px",
-              textTransform: "capitalize",
-              textDecoration: "none",
-              boxSizing: "border-box",
-            }}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
           >
-            Talk to Our Team
-          </Link>
+            <Link
+              to="/contact"
+              style={{
+                display: "inline-flex",
+                height: "40px",
+                padding: "10px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "10px",
+                borderRadius: "16px",
+                background: "#509AAF",
+                color: "#FFF",
+                textAlign: "center",
+                fontFamily: "Inter, sans-serif",
+                fontSize: "14px",
+                fontStyle: "normal",
+                fontWeight: 400,
+                lineHeight: "120%",
+                letterSpacing: "-0.56px",
+                textTransform: "capitalize",
+                textDecoration: "none",
+                boxSizing: "border-box",
+              }}
+            >
+              Talk to Our Team
+            </Link>
+          </motion.div>
         </div>
       </div>
 
