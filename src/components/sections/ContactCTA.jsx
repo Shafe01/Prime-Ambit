@@ -25,8 +25,8 @@ export default function ContactCTA() {
     if (allFilled) {
       try {
         await emailjs.send(
-          "service_v1s1bpk",
-          "template_uqui8mo",
+          "service_eseq49z",
+          "template_ej3i0gx",
           {
             name: name,
             email: email,
@@ -35,7 +35,7 @@ export default function ContactCTA() {
             goals: goals,
             message: messageText,
           },
-          "NHL0TJUONdUD00Kzy",
+          "M6IiS5P0nTx7SHodD",
         );
 
         setStatus({

@@ -13,6 +13,7 @@ import smartContractIcon from "../../assets/images/industry_blockchain_1.png";
 import supplyChainIcon from "../../assets/images/industry_blockchain_2.png";
 import mediaInteractiveIcon from "../../assets/images/industry_blockchain_3.png";
 import enterpriseCoreIcon from "../../assets/images/industry_blockchain_4.png";
+import bitcoinLogo from "../../assets/images/bitcoin_logo_icon_170476.webp";
 import blockchainSolution from "../../assets/images/blockchain_solution.png";
 import nodeValidatorIcon from "../../assets/images/infra_blockchain_1.png";
 import contractExecutionIcon from "../../assets/images/infra_blockchain_2.png";
@@ -48,13 +49,14 @@ export default function Blockchain() {
   const infrastructureCards = [
     {
       title: "Node & Validator Architecture",
-      description: "We set up and operate the core execution environment your protocol depends on.",
+      description:
+        "We set up and operate the core execution environment your protocol depends on.",
       points: [
         "Full node deployment and configuration",
         "Validator setup, orchestration, and lifecycle management",
         "RPC endpoint design and traffic handling",
         "High‑availability clustering and redundancy",
-        "Monitoring, alerting, and failover strategies"
+        "Monitoring, alerting, and failover strategies",
       ],
       bg: "#FFF",
       titleColor: "#2A394A",
@@ -66,13 +68,14 @@ export default function Blockchain() {
     },
     {
       title: "Smart Contract Execution Infrastructure",
-      description: "Contracts are only as reliable as the infrastructure they run on.",
+      description:
+        "Contracts are only as reliable as the infrastructure they run on.",
       points: [
         "CI/CD pipelines for contract deployment",
         "Upgrade‑safe, versioned deployment frameworks",
         "Multi‑contract architecture and dependency mapping",
         "Event indexing and data capture for on‑chain activity",
-        "Cost and execution path optimization"
+        "Cost and execution path optimization",
       ],
       bg: "#FFF",
       titleColor: "#2A394A",
@@ -84,13 +87,14 @@ export default function Blockchain() {
     },
     {
       title: "Indexing & Data Layers",
-      description: "We make on‑chain data usable for products, analytics, and operations.",
+      description:
+        "We make on‑chain data usable for products, analytics, and operations.",
       points: [
         "Custom indexers for protocol‑specific needs",
         "Event listeners and stream processors",
         "On‑chain to off‑chain data pipelines",
         "Subgraph‑style architectures and query endpoints",
-        "Real‑time analytics feeds and dashboards"
+        "Real‑time analytics feeds and dashboards",
       ],
       bg: "#FFF",
       titleColor: "#2A394A",
@@ -108,7 +112,7 @@ export default function Blockchain() {
         "Secure key management setups and policies",
         "Multi‑signature schemes and signing infrastructure",
         "Transaction orchestration and queuing systems",
-        "Chain abstraction flows for multi‑chain products"
+        "Chain abstraction flows for multi‑chain products",
       ],
       bg: "#509AAF",
       titleColor: "#FFF",
@@ -117,7 +121,7 @@ export default function Blockchain() {
       iconColor: "rgba(80, 154, 175, 0.45)",
       icon: walletCustodyIcon,
       titleWidth: "203.305px",
-    }
+    },
   ];
 
   return (
@@ -200,7 +204,10 @@ export default function Blockchain() {
                 alignItems: "center",
                 gap: "6px",
                 borderRadius: "20px",
-                background: hoveredNav === "Services" ? "rgba(255, 255, 255, 0.23)" : "transparent",
+                background:
+                  hoveredNav === "Services"
+                    ? "rgba(255, 255, 255, 0.23)"
+                    : "transparent",
                 color: "#FFF",
                 fontFamily: "Inter, sans-serif",
                 fontSize: "14px",
@@ -210,8 +217,26 @@ export default function Blockchain() {
               }}
             >
               Services
-              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: isServicesHovered ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}>
-                <path d="M1 1L5 5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg
+                width="10"
+                height="6"
+                viewBox="0 0 10 6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{
+                  transform: isServicesHovered
+                    ? "rotate(180deg)"
+                    : "rotate(0deg)",
+                  transition: "transform 0.3s",
+                }}
+              >
+                <path
+                  d="M1 1L5 5L9 1"
+                  stroke="white"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </div>
 
@@ -251,8 +276,13 @@ export default function Blockchain() {
                         borderRadius: "8px",
                         transition: "background 0.2s",
                       }}
-                      onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.1)")}
-                      onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.background =
+                          "rgba(255,255,255,0.1)")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.background = "transparent")
+                      }
                     >
                       {service.label}
                     </Link>
@@ -408,7 +438,7 @@ export default function Blockchain() {
                   margin: 0,
                 }}
               >
-                Web3 Infrastructure & Blockchain Development
+                Production-Grade Web3 & Blockchain Systems
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -426,7 +456,12 @@ export default function Blockchain() {
                   margin: 0,
                 }}
               >
-                Prime Ambit builds scalable blockchain systems, decentralized applications, and tokenized ecosystems that help your organization launch secure, future ready Web3 platforms. From smart contracts and DeFi protocols to modular blockchains and decentralized identity, we engineer the infrastructure behind the next generation of digital economies.
+                Prime Ambit builds scalable blockchain systems, decentralized
+                applications, and tokenized ecosystems that help your
+                organization launch secure, future ready Web3 platforms. From
+                smart contracts and DeFi protocols to modular blockchains and
+                decentralized identity, we engineer the infrastructure behind
+                the next generation of digital economies.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -446,7 +481,10 @@ export default function Blockchain() {
                     alignItems: "center",
                     gap: "10px",
                     borderRadius: "16px",
-                    background: hoveredNav === "Start a Build" ? "rgba(255, 255, 255, 0.23)" : "#509AAF",
+                    background:
+                      hoveredNav === "Start a Build"
+                        ? "rgba(255, 255, 255, 0.23)"
+                        : "#509AAF",
                     color: "#FFF",
                     textAlign: "center",
                     fontFamily: "Inter, sans-serif",
@@ -460,14 +498,18 @@ export default function Blockchain() {
                     transition: "background 0.2s ease",
                   }}
                 >
-                  Start a Build
+                  Learn More
                 </Link>
               </motion.div>
             </div>
           </div>
 
           {/* RIGHT SIDE IMAGE */}
-          <div
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut" }}
             style={{
               width: "582.902px",
               height: "419.427px",
@@ -582,8 +624,8 @@ export default function Blockchain() {
                   transition: {
                     duration: 0.8,
                     staggerChildren: 0.2,
-                  }
-                }
+                  },
+                },
               }}
               style={{
                 width: "519px",
@@ -603,7 +645,10 @@ export default function Blockchain() {
               >
                 {/* Points in button form */}
                 <motion.div
-                  variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    show: { opacity: 1, y: 0 },
+                  }}
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -671,7 +716,10 @@ export default function Blockchain() {
 
                 {/* Image */}
                 <motion.div
-                  variants={{ hidden: { opacity: 0, scale: 0.95 }, show: { opacity: 1, scale: 1 } }}
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.95 },
+                    show: { opacity: 1, scale: 1 },
+                  }}
                   style={{
                     width: "518.969px",
                     height: "432.374px",
@@ -682,7 +730,10 @@ export default function Blockchain() {
 
                 {/* Description and Button */}
                 <motion.div
-                  variants={{ hidden: { opacity: 0, y: 15 }, show: { opacity: 1, y: 0 } }}
+                  variants={{
+                    hidden: { opacity: 0, y: 15 },
+                    show: { opacity: 1, y: 0 },
+                  }}
                   style={{
                     width: "519px",
                     height: "110.575px",
@@ -715,7 +766,9 @@ export default function Blockchain() {
                   <div>
                     <Link
                       to="/contact"
-                      onMouseEnter={() => setHoveredNav("Review Infrastructure Scope")}
+                      onMouseEnter={() =>
+                        setHoveredNav("Review Infrastructure Scope")
+                      }
                       onMouseLeave={() => setHoveredNav(null)}
                       style={{
                         display: "inline-flex",
@@ -725,7 +778,10 @@ export default function Blockchain() {
                         alignItems: "center",
                         gap: "10px",
                         borderRadius: "16px",
-                        background: hoveredNav === "Review Infrastructure Scope" ? "rgba(255, 255, 255, 0.23)" : "#509AAF",
+                        background:
+                          hoveredNav === "Review Infrastructure Scope"
+                            ? "rgba(255, 255, 255, 0.23)"
+                            : "#509AAF",
                         color: "#FFF",
                         textAlign: "center",
                         fontFamily: "Inter, sans-serif",
@@ -753,6 +809,7 @@ export default function Blockchain() {
                 width: "716px",
                 alignItems: "flex-start",
                 alignContent: "flex-start",
+                gap: "20px",
                 flexWrap: "wrap",
               }}
             >
@@ -762,10 +819,10 @@ export default function Blockchain() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3, margin: "-100px" }}
-                  transition={{ 
-                    duration: 0.8, 
-                    delay: 0.6 + (Math.floor(index / 2) * 0.4), 
-                    ease: "easeOut" 
+                  transition={{
+                    duration: 0.8,
+                    delay: 0.6 + Math.floor(index / 2) * 0.4,
+                    ease: "easeOut",
                   }}
                   style={{
                     display: "flex",
@@ -856,9 +913,17 @@ export default function Blockchain() {
                       }}
                     >
                       <p style={{ margin: "0 0 8px 0" }}>{card.description}</p>
-                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "4px",
+                        }}
+                      >
                         {card.points.map((point, i) => (
-                          <div key={i}>{i + 1}. {point}</div>
+                          <div key={i}>
+                            {i + 1}. {point}
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -912,7 +977,7 @@ export default function Blockchain() {
           >
             Technologies We Work With
           </motion.h2>
-          
+
           <motion.div
             initial="hidden"
             whileInView="show"
@@ -921,12 +986,12 @@ export default function Blockchain() {
               hidden: { opacity: 0 },
               show: {
                 opacity: 1,
-                transition: { staggerChildren: 0.2 }
-              }
+                transition: { staggerChildren: 0.2 },
+              },
             }}
             style={{
               display: "flex",
-              width: "1004px",
+              width: "1183px",
               height: "155.692px",
               maxWidth: "100%",
               boxSizing: "border-box",
@@ -935,12 +1000,97 @@ export default function Blockchain() {
               gap: "70px",
             }}
           >
-            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "109px", height: "109px", aspectRatio: "1/1", borderRadius: "50%", background: `url(${solidityLogo}) transparent center / contain no-repeat` }} />
-            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "109px", height: "109px", aspectRatio: "1/1", borderRadius: "50%", background: `url(${ethereumLogo}) transparent center / contain no-repeat` }} />
-            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "109px", height: "109px", aspectRatio: "1/1", borderRadius: "50%", background: `url(${polygonLogo}) transparent center / contain no-repeat` }} />
-            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "109px", height: "109px", aspectRatio: "1/1", borderRadius: "50%", background: `url(${rustLogo}) transparent center / contain no-repeat` }} />
-            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "109px", height: "109px", aspectRatio: "1/1", borderRadius: "50%", background: `url(${hyperledgerLogo}) transparent center / contain no-repeat` }} />
-            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "109px", height: "109px", aspectRatio: "1/1", borderRadius: "50%", background: `url(${ipfsLogo}) transparent center / contain no-repeat` }} />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0 },
+              }}
+              style={{
+                width: "109px",
+                height: "109px",
+                aspectRatio: "1/1",
+                borderRadius: "50%",
+                background: `url(${solidityLogo}) transparent center / contain no-repeat`,
+              }}
+            />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0 },
+              }}
+              style={{
+                width: "109px",
+                height: "109px",
+                aspectRatio: "1/1",
+                borderRadius: "50%",
+                background: `url(${ethereumLogo}) transparent center / contain no-repeat`,
+              }}
+            />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0 },
+              }}
+              style={{
+                width: "109px",
+                height: "109px",
+                aspectRatio: "1/1",
+                borderRadius: "50%",
+                background: `url(${polygonLogo}) transparent center / contain no-repeat`,
+              }}
+            />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0 },
+              }}
+              style={{
+                width: "109px",
+                height: "109px",
+                aspectRatio: "1/1",
+                borderRadius: "50%",
+                background: `url(${rustLogo}) transparent center / contain no-repeat`,
+              }}
+            />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0 },
+              }}
+              style={{
+                width: "109px",
+                height: "109px",
+                aspectRatio: "1/1",
+                borderRadius: "50%",
+                background: `url(${hyperledgerLogo}) transparent center / contain no-repeat`,
+              }}
+            />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0 },
+              }}
+              style={{
+                width: "109px",
+                height: "109px",
+                aspectRatio: "1/1",
+                borderRadius: "50%",
+                background: `url(${ipfsLogo}) transparent center / 124px 124px no-repeat`,
+              }}
+            />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0 },
+              }}
+              style={{
+                width: "109px",
+                height: "109px",
+                aspectRatio: "1/1",
+                borderRadius: "50%",
+                background: `url(${bitcoinLogo}) transparent center / contain no-repeat`,
+              }}
+            />
           </motion.div>
         </div>
       </div>
@@ -1006,7 +1156,8 @@ export default function Blockchain() {
               margin: 0,
             }}
           >
-            Our blockchain solutions support organizations across multiple sectors
+            Our blockchain solutions support organizations across multiple
+            sectors
           </motion.p>
 
           {/* INDUSTRIES ICONS CONTAINER */}
@@ -1018,21 +1169,21 @@ export default function Blockchain() {
               hidden: { opacity: 0 },
               show: {
                 opacity: 1,
-                transition: { staggerChildren: 0.15 }
-              }
+                transition: { staggerChildren: 0.15 },
+              },
             }}
             style={{
               display: "flex",
               width: "100%",
               justifyContent: "center",
               alignItems: "flex-start",
-              gap: "100px",
+              gap: "80px",
               marginTop: "80px",
             }}
           >
             {/* 1. Smart Contract */}
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
-              <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
+              <div style={{ display: "flex", width: "80px", height: "80px", alignItems: "center", justifyContent: "center" }}>
                 <div style={{ width: "80px", height: "80px", background: `url(${smartContractIcon}) no-repeat center / contain` }} />
               </div>
               <span style={{ width: "132.852px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>Smart Contract</span>
@@ -1040,7 +1191,7 @@ export default function Blockchain() {
 
             {/* 2. Supply Chain */}
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
-              <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
+              <div style={{ display: "flex", width: "80px", height: "80px", alignItems: "center", justifyContent: "center" }}>
                 <div style={{ width: "80px", height: "80px", background: `url(${supplyChainIcon}) no-repeat center / contain` }} />
               </div>
               <span style={{ width: "128.813px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>Supply Chain</span>
@@ -1048,7 +1199,7 @@ export default function Blockchain() {
 
             {/* 3. Media & Interactive */}
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
-              <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
+              <div style={{ display: "flex", width: "80px", height: "80px", alignItems: "center", justifyContent: "center" }}>
                 <div style={{ width: "80px", height: "80px", background: `url(${mediaInteractiveIcon}) no-repeat center / contain` }} />
               </div>
               <span style={{ width: "110.359px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>Media & Interactive</span>
@@ -1056,11 +1207,12 @@ export default function Blockchain() {
 
             {/* 4. Enterprise Core */}
             <motion.div variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
-              <div style={{ display: "flex", height: "85px", alignItems: "center", justifyContent: "center" }}>
+              <div style={{ display: "flex", width: "80px", height: "80px", alignItems: "center", justifyContent: "center" }}>
                 <div style={{ width: "80px", height: "80px", background: `url(${enterpriseCoreIcon}) no-repeat center / contain` }} />
               </div>
               <span style={{ width: "139.301px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>Enterprise Core</span>
             </motion.div>
+
           </motion.div>
         </div>
       </div>
@@ -1085,7 +1237,14 @@ export default function Blockchain() {
             gap: "35px",
           }}
         >
-          <div style={{ display: "flex", flexDirection: "column", gap: "25px", width: "100%" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "25px",
+              width: "100%",
+            }}
+          >
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1121,7 +1280,9 @@ export default function Blockchain() {
                 margin: 0,
               }}
             >
-              Prime Ambit helps organizations design and deploy secure blockchain platforms, decentralized applications, and tokenized ecosystems that power the future of digital economies.
+              Prime Ambit helps organizations design and deploy secure
+              blockchain platforms, decentralized applications, and tokenized
+              ecosystems that power the future of digital economies.
             </motion.p>
           </div>
 
@@ -1143,7 +1304,10 @@ export default function Blockchain() {
                 alignItems: "center",
                 gap: "10px",
                 borderRadius: "16px",
-                background: hoveredNav === "CTA Start a Build" ? "rgba(255, 255, 255, 0.23)" : "#509AAF",
+                background:
+                  hoveredNav === "CTA Start a Build"
+                    ? "rgba(255, 255, 255, 0.23)"
+                    : "#509AAF",
                 color: "#FFF",
                 textAlign: "center",
                 fontFamily: "Inter, sans-serif",

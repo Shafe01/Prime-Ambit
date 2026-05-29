@@ -47,12 +47,13 @@ export default function Software() {
   const softwareCards = [
     {
       title: "SaaS & Product Engineering",
-      description: "We focus on creating stable foundations rather than disposable prototypes.",
+      description:
+        "We focus on creating stable foundations rather than disposable prototypes.",
       points: [
         "SaaS & Multi-tenant Applications",
         "MVP Architecture",
         "Product Dashboards",
-        "Growth Kits"
+        "Growth Kits",
       ],
       bg: "#FFF",
       titleColor: "#2A394A",
@@ -63,12 +64,13 @@ export default function Software() {
     },
     {
       title: "Enterprise Systems & API Integrations",
-      description: "We specialize in building the \"connective tissue\" of modern business operations.",
+      description:
+        'We specialize in building the "connective tissue" of modern business operations.',
       points: [
         "Custom Enterprise Software",
         "API Design",
         "Third-Party Integrations",
-        "Data & Reporting"
+        "Data & Reporting",
       ],
       bg: "#FFF",
       titleColor: "#2A394A",
@@ -79,11 +81,12 @@ export default function Software() {
     },
     {
       title: "Mobile Application Development",
-      description: "We build high-performance mobile interfaces that act as seamless extensions of your core system architecture",
+      description:
+        "We build high-performance mobile interfaces that act as seamless extensions of your core system architecture",
       points: [
         "Cross-Platform Excellence",
         "Secure Ecosystems",
-        "Mobile Workflows"
+        "Mobile Workflows",
       ],
       bg: "#FFF",
       titleColor: "#2A394A",
@@ -98,11 +101,12 @@ export default function Software() {
           Cloud Infrastructure <br />& System Reliability
         </span>
       ),
-      description: "Every system we build is designed for long-term health, focusing on the underlying architecture that keeps platforms running under load.",
+      description:
+        "Every system we build is designed for long-term health, focusing on the underlying architecture that keeps platforms running under load.",
       points: [
         "Operational Observability",
         "System Boundaries",
-        "Scalable Backend Foundations"
+        "Scalable Backend Foundations",
       ],
       bg: "#509AAF",
       titleColor: "#FFF",
@@ -110,7 +114,7 @@ export default function Software() {
       iconBg: "#509AAF73",
       iconColor: "rgba(80, 154, 175, 0.45)",
       icon: softwareIcon4,
-    }
+    },
   ];
 
   return (
@@ -194,7 +198,10 @@ export default function Software() {
                 alignItems: "center",
                 gap: "6px",
                 borderRadius: "20px",
-                background: hoveredNav === "Services" ? "rgba(255, 255, 255, 0.23)" : "transparent",
+                background:
+                  hoveredNav === "Services"
+                    ? "rgba(255, 255, 255, 0.23)"
+                    : "transparent",
                 color: "#FFF",
                 fontFamily: "Inter, sans-serif",
                 fontSize: "14px",
@@ -204,8 +211,26 @@ export default function Software() {
               }}
             >
               Services
-              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: isServicesHovered ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}>
-                <path d="M1 1L5 5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg
+                width="10"
+                height="6"
+                viewBox="0 0 10 6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{
+                  transform: isServicesHovered
+                    ? "rotate(180deg)"
+                    : "rotate(0deg)",
+                  transition: "transform 0.3s",
+                }}
+              >
+                <path
+                  d="M1 1L5 5L9 1"
+                  stroke="white"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </div>
 
@@ -245,8 +270,13 @@ export default function Software() {
                         borderRadius: "8px",
                         transition: "background 0.2s",
                       }}
-                      onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.1)")}
-                      onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.background =
+                          "rgba(255,255,255,0.1)")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.background = "transparent")
+                      }
                     >
                       {service.label}
                     </Link>
@@ -401,7 +431,7 @@ export default function Software() {
                   margin: 0,
                 }}
               >
-                Software Platforms
+                Intelligent Platforms for Operations & Insight
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -419,11 +449,12 @@ export default function Software() {
                   margin: 0,
                 }}
               >
-                Prime Ambit builds production-ready AI systems that turn complex
-                operations into intelligent, predictable workflows. From agentic
-                workflow automation to enterprise knowledge assistants, we
-                design AI solutions that plug into real processes and unlock
-                data driven growth.
+                We create fast, reliable web and mobile applications, along with
+                custom ERP and CRM systems that streamline everyday operations,
+                cut manual work, and improve team productivity. Every platform
+                is built with clean architecture, strong security, and
+                performance in mind, so it scales smoothly as you grow from
+                first release to heavy real-world usage.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -454,7 +485,7 @@ export default function Software() {
                     boxSizing: "border-box",
                   }}
                 >
-                  Start a Build
+                  Learn More
                 </Link>
               </motion.div>
             </div>
@@ -471,6 +502,7 @@ export default function Software() {
               height: "527.855px",
               aspectRatio: "116/129",
               background: `url(${softwareHero}) lightgray 50% / cover no-repeat`,
+              marginTop: "40px",
             }}
           />
         </div>
@@ -530,8 +562,8 @@ export default function Software() {
         >
           We design and build modern software platforms for the real world. Web
           applications, SaaS products, and enterprise systems that focus on
-          architecture, usability, and operational reliability from first product 
-          versions to large scale platforms.
+          architecture, usability, and operational reliability from first
+          product versions to large scale platforms.
         </motion.p>
       </div>
 
@@ -580,8 +612,8 @@ export default function Software() {
                   transition: {
                     duration: 0.8,
                     staggerChildren: 0.2,
-                  }
-                }
+                  },
+                },
               }}
               style={{
                 width: "519px",
@@ -601,7 +633,10 @@ export default function Software() {
               >
                 {/* Points in button form */}
                 <motion.div
-                  variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    show: { opacity: 1, y: 0 },
+                  }}
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -669,7 +704,10 @@ export default function Software() {
 
                 {/* Image */}
                 <motion.div
-                  variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    show: { opacity: 1, y: 0 },
+                  }}
                   style={{
                     height: "432.374px",
                     flexShrink: 0,
@@ -680,7 +718,10 @@ export default function Software() {
 
                 {/* Description and Button */}
                 <motion.div
-                  variants={{ hidden: { opacity: 0, y: 15 }, show: { opacity: 1, y: 0 } }}
+                  variants={{
+                    hidden: { opacity: 0, y: 15 },
+                    show: { opacity: 1, y: 0 },
+                  }}
                   style={{
                     width: "509.188px",
                     height: "110.575px",
@@ -704,9 +745,13 @@ export default function Software() {
                       lineHeight: "20px",
                     }}
                   >
-                    Building a Product That Needs Structure?<br />
-                    Share your product scope, current stage (idea, MVP, v1+), and architecture<br />
-                    environment. We’ll assess build feasibility and system alignment.
+                    Building a Product That Needs Structure?
+                    <br />
+                    Share your product scope, current stage (idea, MVP, v1+),
+                    and architecture
+                    <br />
+                    environment. We’ll assess build feasibility and system
+                    alignment.
                   </div>
                   <div>
                     <Link
@@ -757,10 +802,10 @@ export default function Software() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
-                  transition={{ 
-                    duration: 0.8, 
-                    delay: 0.4 + (index * 0.1), 
-                    ease: "easeOut" 
+                  transition={{
+                    duration: 0.8,
+                    delay: 0.4 + index * 0.1,
+                    ease: "easeOut",
                   }}
                   style={{
                     display: "flex",
@@ -842,9 +887,17 @@ export default function Software() {
                       }}
                     >
                       <p style={{ margin: "0 0 8px 0" }}>{card.description}</p>
-                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "4px",
+                        }}
+                      >
                         {card.points.map((point, i) => (
-                          <div key={i}>{i + 1}. {point}</div>
+                          <div key={i}>
+                            {i + 1}. {point}
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -898,7 +951,7 @@ export default function Software() {
           >
             Technologies We Work With
           </motion.h2>
-          
+
           <motion.div
             initial="hidden"
             whileInView="show"
@@ -907,8 +960,8 @@ export default function Software() {
               hidden: { opacity: 0 },
               show: {
                 opacity: 1,
-                transition: { staggerChildren: 0.2 }
-              }
+                transition: { staggerChildren: 0.2 },
+              },
             }}
             style={{
               display: "flex",
@@ -921,11 +974,61 @@ export default function Software() {
               gap: "65px",
             }}
           >
-            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "178px", height: "102px", background: `url(${techLogo7}) transparent center / contain no-repeat` }} />
-            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "98px", height: "102px", background: `url(${techLogo8}) transparent center / contain no-repeat` }} />
-            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "93px", height: "102px", background: `url(${techLogo9}) transparent center / contain no-repeat` }} />
-            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "121px", height: "102px", background: `url(${techLogo10}) transparent center / contain no-repeat` }} />
-            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "87px", height: "93px", background: `url(${techLogo11}) transparent center / contain no-repeat` }} />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0 },
+              }}
+              style={{
+                width: "178px",
+                height: "102px",
+                background: `url(${techLogo7}) transparent center / contain no-repeat`,
+              }}
+            />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0 },
+              }}
+              style={{
+                width: "98px",
+                height: "102px",
+                background: `url(${techLogo8}) transparent center / contain no-repeat`,
+              }}
+            />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0 },
+              }}
+              style={{
+                width: "93px",
+                height: "102px",
+                background: `url(${techLogo9}) transparent center / contain no-repeat`,
+              }}
+            />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0 },
+              }}
+              style={{
+                width: "121px",
+                height: "102px",
+                background: `url(${techLogo10}) transparent center / contain no-repeat`,
+              }}
+            />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0 },
+              }}
+              style={{
+                width: "87px",
+                height: "93px",
+                background: `url(${techLogo11}) transparent center / contain no-repeat`,
+              }}
+            />
           </motion.div>
         </div>
       </div>
@@ -1003,8 +1106,8 @@ export default function Software() {
               hidden: { opacity: 0 },
               show: {
                 opacity: 1,
-                transition: { staggerChildren: 0.15 }
-              }
+                transition: { staggerChildren: 0.15 },
+              },
             }}
             style={{
               display: "flex",
@@ -1016,20 +1119,74 @@ export default function Software() {
             }}
           >
             {[
-              { icon: financeIcon, label: "FinTech", width: "60px", height: "60px" },
-              { icon: marketingIcon, label: "Growth & Platforms", width: "80px", height: "80px" },
-              { icon: logisticsIcon, label: "Logistics & Ops", width: "80px", height: "80px" },
-              { icon: healthIcon, label: "Health Systems", width: "71.667px", height: "65.008px" },
+              {
+                icon: financeIcon,
+                label: "FinTech",
+                width: "60px",
+                height: "60px",
+              },
+              {
+                icon: marketingIcon,
+                label: "Growth & Platforms",
+                width: "80px",
+                height: "80px",
+              },
+              {
+                icon: logisticsIcon,
+                label: "Logistics & Ops",
+                width: "80px",
+                height: "80px",
+              },
+              {
+                icon: healthIcon,
+                label: "Health Systems",
+                width: "71.667px",
+                height: "65.008px",
+              },
             ].map((industry, index) => (
               <motion.div
                 key={index}
-                variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
-                style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  show: { opacity: 1, y: 0 },
+                }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "16px",
+                }}
               >
-                <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                  <div style={{ width: industry.width, height: industry.height, background: `url(${industry.icon}) no-repeat center / contain` }} />
+                <div
+                  style={{
+                    display: "flex",
+                    height: "80px",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: industry.width,
+                      height: industry.height,
+                      background: `url(${industry.icon}) no-repeat center / contain`,
+                    }}
+                  />
                 </div>
-                <span style={{ maxWidth: "160px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>{industry.label}</span>
+                <span
+                  style={{
+                    maxWidth: "160px",
+                    textAlign: "center",
+                    color: "#FFF",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "22.65px",
+                    fontWeight: 300,
+                    lineHeight: "24px",
+                    letterSpacing: "-0.453px",
+                  }}
+                >
+                  {industry.label}
+                </span>
               </motion.div>
             ))}
           </motion.div>
@@ -1056,7 +1213,14 @@ export default function Software() {
             gap: "35px",
           }}
         >
-          <div style={{ display: "flex", flexDirection: "column", gap: "25px", width: "100%" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "25px",
+              width: "100%",
+            }}
+          >
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1074,7 +1238,7 @@ export default function Software() {
                 margin: 0,
               }}
             >
-              Build Intelligent Systems for Your Business
+              Build Reliable Software Platforms for Your Business
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -1092,7 +1256,8 @@ export default function Software() {
                 margin: 0,
               }}
             >
-              Whether you are starting with complex automation or scaling enterprise platforms, Prime Ambit helps you design and deploy systems that create measurable operational impact.
+              Prime Ambit helps you build sustainable software solutions focused
+              on quality, <br /> speed, and reliable delivery.
             </motion.p>
           </div>
 

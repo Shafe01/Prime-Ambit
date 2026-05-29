@@ -1,1 +1,16 @@
-{"projectId":"prj_SecvBxoViaeulAgwXPXqg0ky8ofy","orgId":"team_mOmEnveAGnD2zMG32Zxdzxi6","projectName":"primeambit"}
+{
+  "projectId": "prj_SecvBxoViaeulAgwXPXqg0ky8ofy",
+  "orgId": "team_mOmEnveAGnD2zMG32Zxdzxi6",
+  "projectName": "primeambit",
+  "settings": {
+    "createdAt": 1770373467389,
+    "framework": "vite",
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": null,
+    "outputDirectory": null,
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "24.x"
+  }
+}

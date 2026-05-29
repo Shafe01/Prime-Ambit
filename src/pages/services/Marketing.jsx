@@ -46,12 +46,13 @@ export default function Marketing() {
   const marketingStrategyCards = [
     {
       title: "Strategic Communication & Stakeholder Engagement",
-      description: "This pillar ensures that organizational change and corporate milestones are met with clarity and enthusiasm.",
+      description:
+        "This pillar ensures that organizational change and corporate milestones are met with clarity and enthusiasm.",
       points: [
         "Change Management & Transformation",
         "Corporate Events & Town Halls",
         "CSR & Community Programs",
-        "Stakeholder Mapping"
+        "Stakeholder Mapping",
       ],
       bg: "#FFF",
       titleColor: "#2A394A",
@@ -62,12 +63,13 @@ export default function Marketing() {
     },
     {
       title: "Brand Strategy & Identity Development",
-      description: "We bridge the gap between internal values and external perception.",
+      description:
+        "We bridge the gap between internal values and external perception.",
       points: [
         "Positioning & Messaging",
         "Employer Branding",
         "PR & Influencer Campaigns",
-        "Integrated Marketing"
+        "Integrated Marketing",
       ],
       bg: "#FFF",
       titleColor: "#2A394A",
@@ -78,12 +80,13 @@ export default function Marketing() {
     },
     {
       title: "Digital Strategy & Creative Production",
-      description: "This pillar transforms brand concepts into scrolls-stopping content and high-performing digital campaigns.",
+      description:
+        "This pillar transforms brand concepts into scrolls-stopping content and high-performing digital campaigns.",
       points: [
         "Omnichannel Social Strategy",
         "Go-to-Market (GTM) Execution",
         "Multimodal Content Creation",
-        "Technical & Educational Assets"
+        "Technical & Educational Assets",
       ],
       bg: "#FFF",
       titleColor: "#2A394A",
@@ -94,12 +97,13 @@ export default function Marketing() {
     },
     {
       title: "Data Intelligence & Performance Marketing",
-      description: "We move beyond intuition by using advanced analytics to measure impact and optimize ROI.",
+      description:
+        "We move beyond intuition by using advanced analytics to measure impact and optimize ROI.",
       points: [
         "Performance Tracking & ROI",
         "Social Listening & Sentiment",
         "AI-Powered Insights",
-        "Optimization Frameworks"
+        "Optimization Frameworks",
       ],
       bg: "#509AAF",
       titleColor: "#FFF",
@@ -107,7 +111,7 @@ export default function Marketing() {
       iconBg: "#509AAF73",
       iconColor: "rgba(80, 154, 175, 0.45)",
       icon: marketingStrategyIcon4,
-    }
+    },
   ];
 
   return (
@@ -191,7 +195,10 @@ export default function Marketing() {
                 alignItems: "center",
                 gap: "6px",
                 borderRadius: "20px",
-                background: hoveredNav === "Services" ? "rgba(255, 255, 255, 0.23)" : "transparent",
+                background:
+                  hoveredNav === "Services"
+                    ? "rgba(255, 255, 255, 0.23)"
+                    : "transparent",
                 color: "#FFF",
                 fontFamily: "Inter, sans-serif",
                 fontSize: "14px",
@@ -201,8 +208,26 @@ export default function Marketing() {
               }}
             >
               Services
-              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: isServicesHovered ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}>
-                <path d="M1 1L5 5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg
+                width="10"
+                height="6"
+                viewBox="0 0 10 6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{
+                  transform: isServicesHovered
+                    ? "rotate(180deg)"
+                    : "rotate(0deg)",
+                  transition: "transform 0.3s",
+                }}
+              >
+                <path
+                  d="M1 1L5 5L9 1"
+                  stroke="white"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </div>
 
@@ -242,8 +267,13 @@ export default function Marketing() {
                         borderRadius: "8px",
                         transition: "background 0.2s",
                       }}
-                      onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.1)")}
-                      onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.background =
+                          "rgba(255,255,255,0.1)")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.background = "transparent")
+                      }
                     >
                       {service.label}
                     </Link>
@@ -398,7 +428,7 @@ export default function Marketing() {
                   margin: 0,
                 }}
               >
-                Marketing, Branding & Strategic Communication
+                Marketing Systems That Grow Brands People Trust
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -416,9 +446,9 @@ export default function Marketing() {
                   margin: 0,
                 }}
               >
-                Prime Ambit helps organizations design powerful brand narratives,
-                execute data-driven marketing campaigns, and drive effective
-                communication across digital and physical channels.
+                Prime Ambit helps organizations design powerful brand
+                narratives, execute data-driven marketing campaigns, and drive
+                effective communication across digital and physical channels.
                 <br />
                 From corporate branding and integrated marketing campaigns to
                 stakeholder engagement and digital growth strategies, we help
@@ -453,7 +483,7 @@ export default function Marketing() {
                     boxSizing: "border-box",
                   }}
                 >
-                  Start a Build
+                  Learn More
                 </Link>
               </motion.div>
             </div>
@@ -527,7 +557,9 @@ export default function Marketing() {
             maxWidth: "100%",
           }}
         >
-          Our services combine strategic communication, digital marketing execution, brand development, and data-driven analytics to help organizations reach the right audiences with clarity and impact.
+          Our services combine strategic communication, digital marketing
+          execution, brand development, and data-driven analytics to help
+          organizations reach the right audiences with clarity and impact.
         </motion.p>
       </div>
 
@@ -578,8 +610,8 @@ export default function Marketing() {
                   transition: {
                     duration: 0.8,
                     staggerChildren: 0.2,
-                  }
-                }
+                  },
+                },
               }}
               style={{
                 width: "519px",
@@ -599,7 +631,10 @@ export default function Marketing() {
               >
                 {/* Points in button form */}
                 <motion.div
-                  variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    show: { opacity: 1, y: 0 },
+                  }}
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -667,7 +702,10 @@ export default function Marketing() {
 
                 {/* Image */}
                 <motion.div
-                  variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    show: { opacity: 1, y: 0 },
+                  }}
                   style={{
                     width: "428.063px",
                     height: "428.063px",
@@ -679,7 +717,10 @@ export default function Marketing() {
 
                 {/* Description and Button */}
                 <motion.div
-                  variants={{ hidden: { opacity: 0, y: 15 }, show: { opacity: 1, y: 0 } }}
+                  variants={{
+                    hidden: { opacity: 0, y: 15 },
+                    show: { opacity: 1, y: 0 },
+                  }}
                   style={{
                     width: "509.188px",
                     height: "110.575px",
@@ -703,9 +744,13 @@ export default function Marketing() {
                       lineHeight: "20px",
                     }}
                   >
-                    Building a Product That Needs Structure?<br />
-                    Share your product scope, current stage (idea, MVP, v1+), and architecture<br />
-                    environment. We’ll assess build feasibility and system alignment.
+                    Building a Product That Needs Structure?
+                    <br />
+                    Share your product scope, current stage (idea, MVP, v1+),
+                    and architecture
+                    <br />
+                    environment. We’ll assess build feasibility and system
+                    alignment.
                   </div>
                   <div>
                     <Link
@@ -756,10 +801,10 @@ export default function Marketing() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
-                  transition={{ 
-                    duration: 0.8, 
-                    delay: 0.4 + (index * 0.1), 
-                    ease: "easeOut" 
+                  transition={{
+                    duration: 0.8,
+                    delay: 0.4 + index * 0.1,
+                    ease: "easeOut",
                   }}
                   style={{
                     display: "flex",
@@ -787,45 +832,47 @@ export default function Marketing() {
                     }}
                   >
                     {/* Heading Detail */}
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "328px",
+                        padding: "10px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "16px",
+                        boxSizing: "border-box",
+                      }}
+                    >
                       <div
                         style={{
-                          display: "flex",
-                          width: "328px",
-                          padding: "10px",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          gap: "16px",
-                          boxSizing: "border-box",
+                          width: "50px",
+                          height: "50px",
+                          borderRadius: "50%",
+                          background: `url(${card.icon}) no-repeat center / contain`,
+                          flexShrink: 0,
+                        }}
+                      />
+                      <div
+                        style={{
+                          width: "258px",
+                          flexShrink: 0,
+                          color: card.titleColor,
+                          fontFamily: "Inter, sans-serif",
+                          fontSize: "20px",
+                          fontStyle: "normal",
+                          fontWeight: 400,
+                          lineHeight: "22px",
+                          letterSpacing: "-0.453px",
+                          textAlign: "center",
                         }}
                       >
                         <div
-                          style={{
-                            width: "50px",
-                            height: "50px",
-                            borderRadius: "50%",
-                            background: `url(${card.icon}) no-repeat center / contain`,
-                            flexShrink: 0,
-                          }}
-                        />
-                        <div
-                          style={{
-                            width: "258px",
-                            flexShrink: 0,
-                            color: card.titleColor,
-                            fontFamily: "Inter, sans-serif",
-                            fontSize: "20px",
-                            fontStyle: "normal",
-                            fontWeight: 400,
-                            lineHeight: "22px",
-                            letterSpacing: "-0.453px",
-                            textAlign: "center",
-                          }}
+                          style={{ display: "inline-block", textAlign: "left" }}
                         >
-                          <div style={{ display: "inline-block", textAlign: "left" }}>
-                            {card.title}
-                          </div>
+                          {card.title}
                         </div>
                       </div>
+                    </div>
 
                     {/* Description Text */}
                     <div
@@ -845,9 +892,17 @@ export default function Marketing() {
                       }}
                     >
                       <p style={{ margin: "0 0 8px 0" }}>{card.description}</p>
-                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "4px",
+                        }}
+                      >
                         {card.points.map((point, i) => (
-                          <div key={i}>{i + 1}. {point}</div>
+                          <div key={i}>
+                            {i + 1}. {point}
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -901,7 +956,7 @@ export default function Marketing() {
           >
             Platforms & Tools
           </motion.h2>
-          
+
           <motion.div
             initial="hidden"
             whileInView="show"
@@ -910,8 +965,8 @@ export default function Marketing() {
               hidden: { opacity: 0 },
               show: {
                 opacity: 1,
-                transition: { staggerChildren: 0.2 }
-              }
+                transition: { staggerChildren: 0.2 },
+              },
             }}
             style={{
               display: "flex",
@@ -919,10 +974,54 @@ export default function Marketing() {
               gap: "65px",
             }}
           >
-            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "287.996px", height: "76.319px", aspectRatio: "200/53", background: `url(${toolLogo1}) transparent center / contain no-repeat` }} />
-            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "200.738px", height: "69.161px", aspectRatio: "119/41", background: `url(${toolLogo2}) transparent center / contain no-repeat` }} />
-            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "313.022px", height: "208.682px", aspectRatio: "3/2", background: `url(${toolLogo3}) transparent center / contain no-repeat` }} />
-            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "250px", height: "74px", aspectRatio: "125/37", background: `url(${toolLogo4}) transparent center / contain no-repeat` }} />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0 },
+              }}
+              style={{
+                width: "287.996px",
+                height: "76.319px",
+                aspectRatio: "200/53",
+                background: `url(${toolLogo1}) transparent center / contain no-repeat`,
+              }}
+            />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0 },
+              }}
+              style={{
+                width: "200.738px",
+                height: "69.161px",
+                aspectRatio: "119/41",
+                background: `url(${toolLogo2}) transparent center / contain no-repeat`,
+              }}
+            />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0 },
+              }}
+              style={{
+                width: "313.022px",
+                height: "208.682px",
+                aspectRatio: "3/2",
+                background: `url(${toolLogo3}) transparent center / contain no-repeat`,
+              }}
+            />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0 },
+              }}
+              style={{
+                width: "250px",
+                height: "74px",
+                aspectRatio: "125/37",
+                background: `url(${toolLogo4}) transparent center / contain no-repeat`,
+              }}
+            />
           </motion.div>
         </div>
       </div>
@@ -988,7 +1087,8 @@ export default function Marketing() {
               margin: 0,
             }}
           >
-            Our marketing and communication services support organizations across multiple industries
+            Our marketing and communication services support organizations
+            across multiple industries
           </motion.p>
 
           {/* INDUSTRIES ICONS CONTAINER */}
@@ -1000,8 +1100,8 @@ export default function Marketing() {
               hidden: { opacity: 0 },
               show: {
                 opacity: 1,
-                transition: { staggerChildren: 0.15 }
-              }
+                transition: { staggerChildren: 0.15 },
+              },
             }}
             style={{
               display: "flex",
@@ -1013,20 +1113,74 @@ export default function Marketing() {
             }}
           >
             {[
-              { icon: industryIcon1, label: "Enterprise & B2B", width: "80px", height: "80px" },
-              { icon: industryIcon2, label: "Public & Regulated", width: "80px", height: "80px" },
-              { icon: industryIcon3, label: "Healthcare & Wellness", width: "80px", height: "80px" },
-              { icon: industryIcon4, label: "Consumer & Retail", width: "80px", height: "80px" },
+              {
+                icon: industryIcon1,
+                label: "Enterprise & B2B",
+                width: "80px",
+                height: "80px",
+              },
+              {
+                icon: industryIcon2,
+                label: "Public & Regulated",
+                width: "80px",
+                height: "80px",
+              },
+              {
+                icon: industryIcon3,
+                label: "Healthcare & Wellness",
+                width: "80px",
+                height: "80px",
+              },
+              {
+                icon: industryIcon4,
+                label: "Consumer & Retail",
+                width: "80px",
+                height: "80px",
+              },
             ].map((industry, index) => (
               <motion.div
                 key={index}
-                variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
-                style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  show: { opacity: 1, y: 0 },
+                }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "16px",
+                }}
               >
-                <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                  <div style={{ width: industry.width, height: industry.height, background: `url(${industry.icon}) no-repeat center / contain` }} />
+                <div
+                  style={{
+                    display: "flex",
+                    height: "80px",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: industry.width,
+                      height: industry.height,
+                      background: `url(${industry.icon}) no-repeat center / contain`,
+                    }}
+                  />
                 </div>
-                <span style={{ maxWidth: "160px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>{industry.label}</span>
+                <span
+                  style={{
+                    maxWidth: "160px",
+                    textAlign: "center",
+                    color: "#FFF",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "22.65px",
+                    fontWeight: 300,
+                    lineHeight: "24px",
+                    letterSpacing: "-0.453px",
+                  }}
+                >
+                  {industry.label}
+                </span>
               </motion.div>
             ))}
           </motion.div>
@@ -1053,7 +1207,14 @@ export default function Marketing() {
             gap: "35px",
           }}
         >
-          <div style={{ display: "flex", flexDirection: "column", gap: "25px", width: "100%" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "25px",
+              width: "100%",
+            }}
+          >
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1071,7 +1232,7 @@ export default function Marketing() {
                 margin: 0,
               }}
             >
-              Build Intelligent Systems for Your Business
+              Design Digital Marketing Systems That Actually Grow Your Business
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -1089,7 +1250,9 @@ export default function Marketing() {
                 margin: 0,
               }}
             >
-              Whether you are starting with AI automation or scaling enterprise AI, Prime Ambit helps you design and deploy intelligent systems that create measurable operational impact.
+              Prime Ambit helps you plan, execute, and optimize digital
+              campaigns that connect with the right audiences, strengthen your
+              brand, and turn marketing into a predictable growth engine.
             </motion.p>
           </div>
 

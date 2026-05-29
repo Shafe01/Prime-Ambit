@@ -7,6 +7,8 @@ import web3Tool1 from "../../assets/images/web3_tool_1.png";
 import web3Tool2 from "../../assets/images/web3_tool_2.png";
 import web3Tool3 from "../../assets/images/web3_tool_3.png";
 import web3Tool4 from "../../assets/images/web3_tool_4.png";
+import galxeLogo from "../../assets/images/galxe_logo.png";
+import zealyLogo from "../../assets/images/zealy_logo.png";
 import web3Industry1 from "../../assets/images/web3_industry_1.png";
 import web3Industry2 from "../../assets/images/web3_industry_2.png";
 import web3Industry3 from "../../assets/images/web3_industry_3.png";
@@ -47,12 +49,13 @@ export default function Web3Marketing() {
     {
       title: "Token Strategy & Product Go-To-Market",
       titleWidth: "236.5px",
-      description: "We ensure that your launch is not just a singular event, but a sustainable entry into the decentralized economy.",
+      description:
+        "We ensure that your launch is not just a singular event, but a sustainable entry into the decentralized economy.",
       points: [
         "Tokenomics & Governance",
         "Launch Execution",
         "Vertical-Specific Marketing",
-        "Liquidity & Ecosystem Growth"
+        "Liquidity & Ecosystem Growth",
       ],
       bg: "#FFF",
       titleColor: "#2A394A",
@@ -69,7 +72,7 @@ export default function Web3Marketing() {
         "Platform Operations",
         "Live Engagement",
         "Growth Mechanics",
-        "Moderation & Security"
+        "Moderation & Security",
       ],
       bg: "#FFF",
       titleColor: "#2A394A",
@@ -79,14 +82,19 @@ export default function Web3Marketing() {
       icon: web3Icon2,
     },
     {
-      title: <span>Strategic PR, <br /> Content & Authority</span>,
+      title: (
+        <span>
+          Strategic PR, <br /> Content & Authority
+        </span>
+      ),
       titleWidth: "254.441px",
-      description: "We translate complex blockchain concepts into compelling narratives that build trust with investors, developers, and the media.",
+      description:
+        "We translate complex blockchain concepts into compelling narratives that build trust with investors, developers, and the media.",
       points: [
         "Technical Literacy",
         "KOL & Influencer Outreach",
         "Media & Brand Identity",
-        "Strategic Partnerships"
+        "Strategic Partnerships",
       ],
       bg: "#FFF",
       titleColor: "#2A394A",
@@ -96,14 +104,19 @@ export default function Web3Marketing() {
       icon: web3Icon3,
     },
     {
-      title: <span>Growth Advertising <br />& Acquisition</span>,
+      title: (
+        <span>
+          Growth Advertising <br />& Acquisition
+        </span>
+      ),
       titleWidth: "232.004px",
-      description: "We utilize specialized Web3 advertising channels and technical optimization to attract high-intent users and liquidity without relying on traditional, restrictive ad platforms.",
+      description:
+        "We utilize specialized Web3 advertising channels and technical optimization to attract high-intent users and liquidity without relying on traditional, restrictive ad platforms.",
       points: [
         "Native Ad Platforms",
         "Blockchain SEO",
         "Onboarding Optimization",
-        "Performance Tracking"
+        "Performance Tracking",
       ],
       bg: "#509AAF",
       titleColor: "#FFF",
@@ -111,7 +124,7 @@ export default function Web3Marketing() {
       iconBg: "#509AAF73",
       iconColor: "rgba(80, 154, 175, 0.45)",
       icon: web3Icon4,
-    }
+    },
   ];
 
   return (
@@ -195,7 +208,10 @@ export default function Web3Marketing() {
                 alignItems: "center",
                 gap: "6px",
                 borderRadius: "20px",
-                background: hoveredNav === "Services" ? "rgba(255, 255, 255, 0.23)" : "transparent",
+                background:
+                  hoveredNav === "Services"
+                    ? "rgba(255, 255, 255, 0.23)"
+                    : "transparent",
                 color: "#FFF",
                 fontFamily: "Inter, sans-serif",
                 fontSize: "14px",
@@ -205,8 +221,26 @@ export default function Web3Marketing() {
               }}
             >
               Services
-              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: isServicesHovered ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}>
-                <path d="M1 1L5 5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg
+                width="10"
+                height="6"
+                viewBox="0 0 10 6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{
+                  transform: isServicesHovered
+                    ? "rotate(180deg)"
+                    : "rotate(0deg)",
+                  transition: "transform 0.3s",
+                }}
+              >
+                <path
+                  d="M1 1L5 5L9 1"
+                  stroke="white"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </div>
 
@@ -246,8 +280,13 @@ export default function Web3Marketing() {
                         borderRadius: "8px",
                         transition: "background 0.2s",
                       }}
-                      onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.1)")}
-                      onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.background =
+                          "rgba(255,255,255,0.1)")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.background = "transparent")
+                      }
                     >
                       {service.label}
                     </Link>
@@ -402,7 +441,7 @@ export default function Web3Marketing() {
                   margin: 0,
                 }}
               >
-                Web3 Marketing & Ecosystem Growth
+                Smart Marketing & Ecosystem Strategy
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -455,7 +494,7 @@ export default function Web3Marketing() {
                     boxSizing: "border-box",
                   }}
                 >
-                  Start a Build
+                  Learn More
                 </Link>
               </motion.div>
             </div>
@@ -529,7 +568,10 @@ export default function Web3Marketing() {
             maxWidth: "100%",
           }}
         >
-          We specialize in crypto-native growth strategies that combine community engagement, token incentives, on-chain analytics, and technical storytelling from pre-launch token strategy to post-launch ecosystem expansion.
+          We specialize in crypto-native growth strategies that combine
+          community engagement, token incentives, on-chain analytics, and
+          technical storytelling from pre-launch token strategy to post-launch
+          ecosystem expansion.
         </motion.p>
       </div>
 
@@ -580,8 +622,8 @@ export default function Web3Marketing() {
                   transition: {
                     duration: 0.8,
                     staggerChildren: 0.2,
-                  }
-                }
+                  },
+                },
               }}
               style={{
                 width: "519px",
@@ -601,7 +643,10 @@ export default function Web3Marketing() {
               >
                 {/* Points in button form */}
                 <motion.div
-                  variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    show: { opacity: 1, y: 0 },
+                  }}
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -669,7 +714,10 @@ export default function Web3Marketing() {
 
                 {/* Image */}
                 <motion.div
-                  variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    show: { opacity: 1, y: 0 },
+                  }}
                   style={{
                     width: "432.374px",
                     height: "432.374px",
@@ -682,7 +730,10 @@ export default function Web3Marketing() {
 
                 {/* Description and Button */}
                 <motion.div
-                  variants={{ hidden: { opacity: 0, y: 15 }, show: { opacity: 1, y: 0 } }}
+                  variants={{
+                    hidden: { opacity: 0, y: 15 },
+                    show: { opacity: 1, y: 0 },
+                  }}
                   style={{
                     width: "509.188px",
                     height: "110.575px",
@@ -706,9 +757,13 @@ export default function Web3Marketing() {
                       lineHeight: "20px",
                     }}
                   >
-                    Building a Product That Needs Structure?<br />
-                    Share your product scope, current stage (idea, MVP, v1+), and architecture<br />
-                    environment. We’ll assess build feasibility and system alignment.
+                    Building a Product That Needs Structure?
+                    <br />
+                    Share your product scope, current stage (idea, MVP, v1+),
+                    and architecture
+                    <br />
+                    environment. We’ll assess build feasibility and system
+                    alignment.
                   </div>
                   <div>
                     <Link
@@ -759,10 +814,10 @@ export default function Web3Marketing() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
-                  transition={{ 
-                    duration: 0.8, 
-                    delay: 0.4 + (index * 0.1), 
-                    ease: "easeOut" 
+                  transition={{
+                    duration: 0.8,
+                    delay: 0.4 + index * 0.1,
+                    ease: "easeOut",
                   }}
                   style={{
                     display: "flex",
@@ -824,7 +879,9 @@ export default function Web3Marketing() {
                           textAlign: "center",
                         }}
                       >
-                        <div style={{ display: "inline-block", textAlign: "left" }}>
+                        <div
+                          style={{ display: "inline-block", textAlign: "left" }}
+                        >
                           {card.title}
                         </div>
                       </div>
@@ -848,9 +905,17 @@ export default function Web3Marketing() {
                       }}
                     >
                       <p style={{ margin: "0 0 8px 0" }}>{card.description}</p>
-                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "4px",
+                        }}
+                      >
                         {card.points.map((point, i) => (
-                          <div key={i}>{i + 1}. {point}</div>
+                          <div key={i}>
+                            {i + 1}. {point}
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -904,7 +969,7 @@ export default function Web3Marketing() {
           >
             Platforms & Tools We Use
           </motion.h2>
-          
+
           <motion.div
             initial="hidden"
             whileInView="show"
@@ -913,8 +978,8 @@ export default function Web3Marketing() {
               hidden: { opacity: 0 },
               show: {
                 opacity: 1,
-                transition: { staggerChildren: 0.2 }
-              }
+                transition: { staggerChildren: 0.2 },
+              },
             }}
             style={{
               display: "inline-flex",
@@ -923,10 +988,74 @@ export default function Web3Marketing() {
               boxSizing: "border-box",
             }}
           >
-            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "402.309px", height: "87.876px", background: `url(${web3Tool1}) transparent center / contain no-repeat` }} />
-            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "209.75px", height: "157.434px", background: `url(${web3Tool2}) transparent center / contain no-repeat` }} />
-            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "116.912px", height: "112.5px", background: `url(${web3Tool3}) transparent center / contain no-repeat` }} />
-            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }} style={{ width: "256px", height: "52px", background: `url(${web3Tool4}) transparent center / contain no-repeat` }} />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0 },
+              }}
+              style={{
+                width: "318.049px",
+                height: "69.471px",
+                background: `url(${web3Tool1}) transparent center / contain no-repeat`,
+              }}
+            />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0 },
+              }}
+              style={{
+                width: "180px",
+                height: "35.5px",
+                aspectRatio: "180 / 35.5",
+                background: `url(${galxeLogo}) transparent center / contain no-repeat`,
+              }}
+            />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0 },
+              }}
+              style={{
+                width: "107.969px",
+                height: "112.009px",
+                background: `url(${web3Tool2}) transparent center / contain no-repeat`,
+              }}
+            />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0 },
+              }}
+              style={{
+                width: "75.076px",
+                height: "75.076px",
+                aspectRatio: "1/1",
+                background: `url(${zealyLogo}) transparent center / contain no-repeat`,
+              }}
+            />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0 },
+              }}
+              style={{
+                width: "84.548px",
+                height: "81.357px",
+                background: `url(${web3Tool3}) transparent center / contain no-repeat`,
+              }}
+            />
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0 },
+              }}
+              style={{
+                width: "172.318px",
+                height: "35.002px",
+                background: `url(${web3Tool4}) transparent center / contain no-repeat`,
+              }}
+            />
           </motion.div>
         </div>
       </div>
@@ -1005,8 +1134,8 @@ export default function Web3Marketing() {
               hidden: { opacity: 0 },
               show: {
                 opacity: 1,
-                transition: { staggerChildren: 0.15 }
-              }
+                transition: { staggerChildren: 0.15 },
+              },
             }}
             style={{
               display: "flex",
@@ -1018,20 +1147,74 @@ export default function Web3Marketing() {
             }}
           >
             {[
-              { icon: web3Industry1, label: "Ecosystem Foundations", width: "80px", height: "80px" },
-              { icon: web3Industry2, label: "DeFi Protocols", width: "80px", height: "80px" },
-              { icon: web3Industry3, label: "Digital Culture", width: "80px", height: "80px" },
-              { icon: web3Industry4, label: "Consumer dApps", width: "80px", height: "80px" },
+              {
+                icon: web3Industry1,
+                label: "Ecosystem Foundations",
+                width: "80px",
+                height: "80px",
+              },
+              {
+                icon: web3Industry2,
+                label: "DeFi Protocols",
+                width: "80px",
+                height: "80px",
+              },
+              {
+                icon: web3Industry3,
+                label: "Digital Culture",
+                width: "80px",
+                height: "80px",
+              },
+              {
+                icon: web3Industry4,
+                label: "Consumer dApps",
+                width: "80px",
+                height: "80px",
+              },
             ].map((industry, index) => (
               <motion.div
                 key={index}
-                variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
-                style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  show: { opacity: 1, y: 0 },
+                }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "16px",
+                }}
               >
-                <div style={{ display: "flex", height: "80px", alignItems: "center", justifyContent: "center" }}>
-                  <div style={{ width: industry.width, height: industry.height, background: `url(${industry.icon}) no-repeat center / contain` }} />
+                <div
+                  style={{
+                    display: "flex",
+                    height: "80px",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: industry.width,
+                      height: industry.height,
+                      background: `url(${industry.icon}) no-repeat center / contain`,
+                    }}
+                  />
                 </div>
-                <span style={{ maxWidth: "160px", textAlign: "center", color: "#FFF", fontFamily: "Inter, sans-serif", fontSize: "22.65px", fontWeight: 300, lineHeight: "24px", letterSpacing: "-0.453px" }}>{industry.label}</span>
+                <span
+                  style={{
+                    maxWidth: "160px",
+                    textAlign: "center",
+                    color: "#FFF",
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: "22.65px",
+                    fontWeight: 300,
+                    lineHeight: "24px",
+                    letterSpacing: "-0.453px",
+                  }}
+                >
+                  {industry.label}
+                </span>
               </motion.div>
             ))}
           </motion.div>
@@ -1058,7 +1241,14 @@ export default function Web3Marketing() {
             gap: "35px",
           }}
         >
-          <div style={{ display: "flex", flexDirection: "column", gap: "25px", width: "100%" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "25px",
+              width: "100%",
+            }}
+          >
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1076,7 +1266,7 @@ export default function Web3Marketing() {
                 margin: 0,
               }}
             >
-              Build Intelligent Systems for Your Business
+              Scale Your Web3 Ecosystem Today
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -1094,7 +1284,10 @@ export default function Web3Marketing() {
                 margin: 0,
               }}
             >
-              Whether you are starting with AI automation or scaling enterprise AI, Prime Ambit helps you design and deploy intelligent systems that create measurable operational impact.
+              Ready to turn code into a thriving, decentralized community? Let’s
+              design a hyper-targeted growth strategy that attracts high-intent
+              users, optimizes token incentives, and scales your protocol
+              securely.
             </motion.p>
           </div>
 

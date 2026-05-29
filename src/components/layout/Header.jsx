@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "../../assets/images/logo.png";
-import logoOpen from "../../assets/images/Menu.svg";
 
 export default function Header({ bgColor }) {
   const [show, setShow] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [isServicesHovered, setIsServicesHovered] = useState(false);
   const [hoveredNav, setHoveredNav] = useState(null);
   const navigate = useNavigate();
@@ -35,6 +35,7 @@ export default function Header({ bgColor }) {
 
   return (
     <header
+      className="px-4 py-4 lg:px-[40px] lg:py-[20px]"
       style={{
         position: "fixed",
         top: 0,
@@ -44,8 +45,6 @@ export default function Header({ bgColor }) {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        gap: "280px",
-        padding: "20px 40px",
         boxSizing: "border-box",
         transform: `translateY(${show ? "0" : "-120%"})`,
         transition: "transform 0.3s ease",
@@ -53,10 +52,13 @@ export default function Header({ bgColor }) {
       }}
     >
       {/* DESKTOP HEADER */}
-      <div className="hidden lg:flex items-center" style={{ gap: "280px" }}>
+      <div className="hidden lg:flex w-full items-center justify-center" style={{ gap: "280px" }}>
         {/* LOGO */}
         <Link to="/" onClick={() => window.scrollTo(0, 0)}>
-          <img
+          <motion.img
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             src={logo}
             alt="Prime Ambit"
             style={{
@@ -226,54 +228,250 @@ export default function Header({ bgColor }) {
       </div>
 
       {/* MOBILE HEADER */}
-      <div className="flex lg:hidden w-full items-center justify-between px-4" style={{ height: "60px" }}>
+      <div className="flex lg:hidden w-full items-center justify-between px-0" style={{ height: "60px" }}>
         <Link to="/" onClick={() => window.scrollTo(0, 0)}>
-          <img src={logo} alt="Logo" style={{ height: "32px", width: "auto" }} />
+          <motion.img 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            src={logo} 
+            alt="Logo" 
+            style={{
+              width: "120px",
+              height: "40px",
+              flexShrink: 0,
+              objectFit: "cover",
+            }} 
+          />
         </Link>
-        <div
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          style={{ width: "32px", height: "32px", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}
+        <button
+          id="mobile-menu-toggle"
+          onClick={() => {
+            setMobileMenuOpen((prev) => {
+              if (prev) setMobileServicesOpen(false);
+              return !prev;
+            });
+          }}
+          aria-label="Toggle navigation menu"
+          aria-expanded={mobileMenuOpen}
+          style={{
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "5px",
+            padding: "8px",
+            flexShrink: 0,
+          }}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 12H21M3 6H21M3 18H21" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
+          <span
+            style={{
+              display: "block",
+              width: "24px",
+              height: "2px",
+              background: "#FFF",
+              borderRadius: "2px",
+              transition: "transform 0.3s ease, opacity 0.3s ease",
+              transform: mobileMenuOpen
+                ? "rotate(45deg) translate(5px, 5px)"
+                : "none",
+            }}
+          />
+          <span
+            style={{
+              display: "block",
+              width: "24px",
+              height: "2px",
+              background: "#FFF",
+              borderRadius: "2px",
+              transition: "opacity 0.3s ease",
+              opacity: mobileMenuOpen ? 0 : 1,
+            }}
+          />
+          <span
+            style={{
+              display: "block",
+              width: "24px",
+              height: "2px",
+              background: "#FFF",
+              borderRadius: "2px",
+              transition: "transform 0.3s ease, opacity 0.3s ease",
+              transform: mobileMenuOpen
+                ? "rotate(-45deg) translate(5px, -5px)"
+                : "none",
+            }}
+          />
+        </button>
       </div>
 
       {/* MOBILE MENU */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
             style={{
               position: "fixed",
               top: 0,
-              right: 0,
-              width: "100%",
-              height: "100dvh",
-              background: "#1E293B",
-              zIndex: 1002,
-              padding: "20px",
+              left: 0,
+              width: "100vw",
+              minHeight: "100dvh",
+              background: "rgba(42, 57, 74, 0.98)",
+              backdropFilter: "blur(14px)",
+              padding: "80px 20px 24px",
               display: "flex",
               flexDirection: "column",
+              gap: "2px",
+              boxSizing: "border-box",
+              borderTop: "1px solid rgba(255,255,255,0.08)",
+              boxShadow: "0 8px 32px rgba(0,0,0,0.25)",
+              overflowY: "auto",
+              zIndex: -1,
             }}
           >
-            <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "40px" }}>
-              <img src={logoOpen} alt="Close" onClick={() => setMobileMenuOpen(false)} style={{ width: "32px", height: "32px", cursor: "pointer" }} />
-            </div>
-            <div style={{ overflowY: "auto", flex: 1 }}>
-              <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "12px", textTransform: "uppercase", marginBottom: "16px" }}>Services</p>
-              {serviceLinks.map((s) => (
-                <Link key={s.label} to={s.href} onClick={() => setMobileMenuOpen(false)} style={{ display: "block", padding: "12px 0", color: "#FFF", fontSize: "18px", textDecoration: "none" }}>{s.label}</Link>
-              ))}
-              <div style={{ marginTop: "32px" }}>
-                {["About Us", "Blog", "Our Works", "Contact Us"].map((item) => (
-                  <Link key={item} to={item === "Contact Us" ? "/contact" : "#"} onClick={() => setMobileMenuOpen(false)} style={{ display: "block", padding: "12px 0", color: "#FFF", fontSize: "18px", textDecoration: "none" }}>{item}</Link>
-                ))}
-              </div>
-            </div>
+            <button
+              type="button"
+              onClick={() => setMobileServicesOpen((prev) => !prev)}
+              style={{
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                color: "#FFF",
+                background: "transparent",
+                border: "none",
+                fontSize: "15px",
+                fontFamily: "Inter, sans-serif",
+                fontWeight: 400,
+                padding: "12px 12px",
+                borderRadius: "8px",
+                cursor: "pointer",
+              }}
+            >
+              Services
+              <svg
+                width="10"
+                height="6"
+                viewBox="0 0 10 6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{
+                  transform: mobileServicesOpen
+                    ? "rotate(180deg)"
+                    : "rotate(0deg)",
+                  transition: "transform 0.3s",
+                }}
+              >
+                <path
+                  d="M1 1L5 5L9 1"
+                  stroke="white"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            <AnimatePresence initial={false}>
+              {mobileServicesOpen && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  style={{
+                    overflow: "hidden",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "2px",
+                  }}
+                >
+                  {serviceLinks.map((service) => (
+                    <Link
+                      key={service.label}
+                      to={service.href}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setMobileServicesOpen(false);
+                      }}
+                      style={{
+                        display: "block",
+                        padding: "10px 12px",
+                        color: "#fff",
+                        textDecoration: "none",
+                        fontSize: "15px",
+                        fontFamily: "Inter, sans-serif",
+                        fontWeight: 400,
+                        borderRadius: "8px",
+                      }}
+                    >
+                      {service.label}
+                    </Link>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <div
+              style={{
+                height: "1px",
+                background: "rgba(255,255,255,0.08)",
+                margin: "8px 0",
+              }}
+            />
+
+            {["About Us", "Blog", "Our Works"].map((item) => (
+              <a
+                key={item}
+                href="#"
+                onClick={() => setMobileMenuOpen(false)}
+                style={{
+                  display: "block",
+                  padding: "12px 12px",
+                  color: "#FFF",
+                  textDecoration: "none",
+                  fontSize: "15px",
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: 400,
+                  borderRadius: "8px",
+                }}
+              >
+                {item}
+              </a>
+            ))}
+
+            <div
+              style={{
+                height: "1px",
+                background: "rgba(255,255,255,0.08)",
+                margin: "8px 0",
+              }}
+            />
+
+            <Link
+              to="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                padding: "13px",
+                borderRadius: "16px",
+                background: "#509AAF",
+                color: "#FFF",
+                textDecoration: "none",
+                fontSize: "15px",
+                fontFamily: "Inter, sans-serif",
+                fontWeight: 400,
+                marginTop: "4px",
+              }}
+            >
+              Contact Us
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

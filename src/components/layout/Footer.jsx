@@ -229,63 +229,54 @@ export default function Footer() {
                   Contact
                 </h4>
                 <ul className="space-y-2">
-                  <li
-                    onClick={() => {
-                      const section = document.getElementById("contact-cta");
-                      if (section)
-                        section.scrollIntoView({ behavior: "smooth" });
-                    }}
+                  <Link
+                    to="/contact"
                     style={{
-                      flex: "1 0 0",
+                      display: "block",
                       color: "rgba(255,255,255,0.70)",
                       fontFamily: "Inter",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 400,
                       lineHeight: "20px",
+                      textDecoration: "none",
                       cursor: "pointer",
                     }}
                   >
                     Get in Touch
-                  </li>
-                  <li
-                    onClick={() => {
-                      const section = document.getElementById("contact-cta");
-                      if (section)
-                        section.scrollIntoView({ behavior: "smooth" });
-                    }}
+                  </Link>
+                  <Link
+                    to="/contact"
                     style={{
-                      flex: "1 0 0",
+                      display: "block",
                       color: "rgba(255,255,255,0.70)",
                       fontFamily: "Inter",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 400,
                       lineHeight: "20px",
+                      textDecoration: "none",
                       cursor: "pointer",
                     }}
                   >
                     Careers
-                  </li>
-                  <li
-                    onClick={() => {
-                      const section = document.getElementById("contact-cta");
-                      if (section)
-                        section.scrollIntoView({ behavior: "smooth" });
-                    }}
+                  </Link>
+                  <Link
+                    to="/contact"
                     style={{
-                      flex: "1 0 0",
+                      display: "block",
                       color: "rgba(255,255,255,0.70)",
                       fontFamily: "Inter",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 400,
                       lineHeight: "20px",
+                      textDecoration: "none",
                       cursor: "pointer",
                     }}
                   >
                     Partners
-                  </li>
+                  </Link>
                 </ul>
               </div>
             </div>
