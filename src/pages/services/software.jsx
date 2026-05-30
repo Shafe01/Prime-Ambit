@@ -1021,7 +1021,7 @@ export default function Software() {
                         : "432.374px",
                     flexShrink: 0,
                     alignSelf: "stretch",
-                    background: isMobile ? `url(${productEngineeringSolution}) transparent center 34.462px / 71.413% 84.059% no-repeat` : `url(${productEngineeringSolution}) transparent 74.18px 34.462px / 71.413% 84.059% no-repeat`,
+                    background: isMobile ? `url(${productEngineeringSolution}) transparent center / contain no-repeat` : `url(${productEngineeringSolution}) transparent 74.18px 34.462px / 71.413% 84.059% no-repeat`,
                   }}
                 />
 
