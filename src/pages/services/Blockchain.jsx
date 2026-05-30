@@ -635,7 +635,7 @@ export default function Blockchain() {
         style={{
           display: "flex",
           width: "100%",
-          minHeight: isMobile ? "auto" : "475px",
+          minHeight: isMobile ? "calc(100vh - 100px)" : "475px",
           justifyContent: "center",
           alignItems: "center",
           background: "#2A394A",
@@ -647,7 +647,7 @@ export default function Blockchain() {
             display: "flex",
             width: "100%",
             maxWidth: "1440px",
-            minHeight: isMobile ? "auto" : "475px",
+            minHeight: isMobile ? "calc(100vh - 100px)" : "475px",
             padding: isMobile
               ? "48px 24px 40px"
               : isTablet
@@ -781,22 +781,23 @@ export default function Blockchain() {
             </div>
           </div>
 
-          {/* RIGHT SIDE IMAGE — hidden on mobile, scaled on tablet */}
-          {!isMobile && (
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              style={{
-                width: isTablet ? "42%" : "582.902px",
-                height: isTablet ? "320px" : "419.427px",
-                transform: "rotate(-10.219deg)",
-                background: `url(${blockchainHero}) transparent -93.267px 0px / 127.826% 100% no-repeat`,
-                flexShrink: 0,
-              }}
-            />
-          )}
+          {/* RIGHT SIDE IMAGE — scaled appropriately on all devices */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            style={{
+              width: isMobile ? "100%" : isTablet ? "42%" : "582.902px",
+              height: isMobile ? "300px" : isTablet ? "320px" : "419.427px",
+              flex: isMobile ? "1" : "none",
+              transform: isMobile ? "none" : "rotate(-10.219deg)",
+              background: isMobile 
+                ? `url(${blockchainHero}) transparent center / contain no-repeat`
+                : `url(${blockchainHero}) transparent -93.267px 0px / 127.826% 100% no-repeat`,
+              flexShrink: 0,
+            }}
+          />
         </div>
       </div>
 

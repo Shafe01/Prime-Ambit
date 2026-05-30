@@ -617,7 +617,7 @@ export default function AI() {
         style={{
           display: "flex",
           width: "100%",
-          minHeight: isMobile ? "auto" : "475px",
+          minHeight: isMobile ? "calc(100vh - 100px)" : "475px",
           justifyContent: "center",
           alignItems: "center",
           background: "#2A394A",
@@ -628,7 +628,7 @@ export default function AI() {
             display: "flex",
             width: "100%",
             maxWidth: "1440px",
-            minHeight: isMobile ? "auto" : "475px",
+            minHeight: isMobile ? "calc(100vh - 100px)" : "475px",
             padding: isMobile
               ? "48px 24px 40px"
               : isTablet
@@ -755,21 +755,20 @@ export default function AI() {
             </div>
           </div>
 
-          {/* RIGHT SIDE IMAGE — hidden on mobile, scaled on tablet */}
-          {!isMobile && (
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              style={{
-                width: isTablet ? "42%" : "524.055px",
-                height: isTablet ? "320px" : "475px",
-                background: `url(${aiHero}) #2A394A 50% / cover no-repeat`,
-                flexShrink: 0,
-              }}
-            />
-          )}
+          {/* RIGHT SIDE IMAGE — scaled appropriately on all devices */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            style={{
+              width: isMobile ? "100%" : isTablet ? "42%" : "524.055px",
+              height: isMobile ? "300px" : isTablet ? "320px" : "475px",
+              flex: isMobile ? "1" : "none",
+              background: `url(${aiHero}) #2A394A 50% / ${isMobile ? "contain" : "cover"} no-repeat`,
+              flexShrink: 0,
+            }}
+          />
         </div>
       </div>
 
