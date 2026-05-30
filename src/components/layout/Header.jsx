@@ -116,7 +116,7 @@ export default function Header({ bgColor }) {
             >
               Services
               <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: isServicesHovered ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}>
-                <path d="M1 1L5 5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M1 1L5 5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
 
@@ -230,18 +230,18 @@ export default function Header({ bgColor }) {
       {/* MOBILE HEADER */}
       <div className="flex lg:hidden w-full items-center justify-between px-0" style={{ height: "60px" }}>
         <Link to="/" onClick={() => window.scrollTo(0, 0)}>
-          <motion.img 
+          <motion.img
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            src={logo} 
-            alt="Logo" 
+            src={logo}
+            alt="Logo"
             style={{
               width: "120px",
               height: "40px",
               flexShrink: 0,
               objectFit: "cover",
-            }} 
+            }}
           />
         </Link>
         <button

@@ -261,22 +261,7 @@ export default function Footer() {
                   >
                     Careers
                   </Link>
-                  <Link
-                    to="/contact"
-                    style={{
-                      display: "block",
-                      color: "rgba(255,255,255,0.70)",
-                      fontFamily: "Inter",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "20px",
-                      textDecoration: "none",
-                      cursor: "pointer",
-                    }}
-                  >
-                    Partners
-                  </Link>
+
                 </ul>
               </div>
             </div>

@@ -159,7 +159,7 @@ export default function AI() {
           justifyContent: isDesktop ? "center" : "space-between",
           alignItems: "center",
           gap: isDesktop ? "280px" : "0",
-          padding: isMobile ? "14px 20px" : isTablet ? "16px 32px" : "20px 40px",
+          padding: isMobile ? "26px 20px" : isTablet ? "16px 32px" : "20px 40px",
           boxSizing: "border-box",
           transform: `translateY(${showHeader ? "0" : "-120%"})`,
           transition: "transform 0.3s ease",
@@ -293,8 +293,8 @@ export default function AI() {
                           transition: "background 0.2s",
                         }}
                         onMouseEnter={(e) =>
-                          (e.currentTarget.style.background =
-                            "rgba(255,255,255,0.1)")
+                        (e.currentTarget.style.background =
+                          "rgba(255,255,255,0.1)")
                         }
                         onMouseLeave={(e) =>
                           (e.currentTarget.style.background = "transparent")
@@ -632,8 +632,8 @@ export default function AI() {
             padding: isMobile
               ? "48px 24px 40px"
               : isTablet
-              ? "48px 40px"
-              : "0 237.898px 0 237.902px",
+                ? "48px 40px"
+                : "0 237.898px 0 237.902px",
             justifyContent: isMobile ? "center" : "space-between",
             alignItems: "center",
             flexDirection: isMobile ? "column" : "row",
@@ -783,8 +783,8 @@ export default function AI() {
           padding: isMobile
             ? "40px 24px"
             : isTablet
-            ? "48px 40px"
-            : "60px 61.22px",
+              ? "48px 40px"
+              : "60px 61.22px",
           flexDirection: "column",
           alignItems: "flex-start",
           gap: "32px",
@@ -845,8 +845,8 @@ export default function AI() {
           padding: isMobile
             ? "0 24px 60px"
             : isTablet
-            ? "0 40px 60px"
-            : "0 61.22px 80px 61.22px",
+              ? "0 40px 60px"
+              : "0 61.22px 80px 61.22px",
           boxSizing: "border-box",
         }}
       >
@@ -915,17 +915,17 @@ export default function AI() {
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    gap: isMobile ? "6px" : "15px",
+                    gap: isMobile ? "8px" : "15px",
                     flexWrap: isMobile ? "nowrap" : "wrap",
                     width: isMobile ? "100%" : "auto",
-                    justifyContent: isMobile ? "space-between" : "flex-start",
+                    justifyContent: "flex-start",
                   }}
                 >
                   <div
                     style={{
                       display: "flex",
                       padding: isMobile
-                        ? "4px 6px"
+                        ? "4px 8px"
                         : "4px 5.158px 4px 5.063px",
                       justifyContent: "center",
                       alignItems: "center",
@@ -948,7 +948,7 @@ export default function AI() {
                   <div
                     style={{
                       display: "flex",
-                      padding: isMobile ? "4px 6px" : "4px 15.5px",
+                      padding: isMobile ? "4px 8px" : "4px 15.5px",
                       justifyContent: "center",
                       alignItems: "center",
                       flexShrink: 1,
@@ -970,7 +970,7 @@ export default function AI() {
                   <div
                     style={{
                       display: "flex",
-                      padding: isMobile ? "4px 6px" : "4px 11.5px",
+                      padding: isMobile ? "4px 8px" : "4px 11.5px",
                       justifyContent: "center",
                       alignItems: "center",
                       flexShrink: 1,
@@ -1097,8 +1097,8 @@ export default function AI() {
                     width: isMobile
                       ? "100%"
                       : isTablet
-                      ? "calc(50% - 10px)"
-                      : "348px",
+                        ? "calc(50% - 10px)"
+                        : "348px",
                     minHeight: "295px",
                     padding: "10px",
                     flexDirection: "column",
@@ -1217,8 +1217,8 @@ export default function AI() {
             padding: isMobile
               ? "48px 24px 52px"
               : isTablet
-              ? "52px 60px 56px"
-              : "60.837px 340px 79.873px 340px",
+                ? "52px 60px 56px"
+                : "60.837px 340px 79.873px 340px",
             flexDirection: "column",
             alignItems: "center",
             gap: "40.597px",
@@ -1599,8 +1599,8 @@ export default function AI() {
           padding: isMobile
             ? "48px 24px 60px"
             : isTablet
-            ? "56px 40px 72px"
-            : "67px 67px 92px 67px",
+              ? "56px 40px 72px"
+              : "67px 67px 92px 67px",
           boxSizing: "border-box",
         }}
       >
