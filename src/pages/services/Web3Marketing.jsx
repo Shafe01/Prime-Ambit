@@ -25,6 +25,13 @@ export default function Web3Marketing() {
   const [showHeader, setShowHeader] = useState(true);
   const [isServicesHovered, setIsServicesHovered] = useState(false);
 
+  // ── Responsive breakpoint state ─────────────────────────────────────────────
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1440
+  );
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -36,6 +43,25 @@ export default function Web3Marketing() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Track window width for responsive values
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const isMobile = windowWidth < 768;
+  const isTablet = windowWidth >= 768 && windowWidth < 1100;
+  const isDesktop = windowWidth >= 1100;
+
+  // Close mobile menu on resize to desktop
+  useEffect(() => {
+    if (isDesktop) {
+      setMobileMenuOpen(false);
+      setMobileServicesOpen(false);
+    }
+  }, [isDesktop]);
 
   const serviceLinks = [
     { label: "AI Development", href: "/services/ai-development" },
@@ -131,12 +157,14 @@ export default function Web3Marketing() {
     <div
       style={{
         width: "100%",
-        minHeight: "2714px",
+        minHeight: "100vh",
         background: "#436A75",
         display: "flow-root",
         paddingTop: "100px",
+        overflowX: "hidden",
       }}
     >
+      {/* ── HEADER ─────────────────────────────────────────────────────────────── */}
       <header
         style={{
           position: "fixed",
@@ -145,10 +173,10 @@ export default function Web3Marketing() {
           width: "100%",
           zIndex: 1000,
           display: "flex",
-          justifyContent: "center",
+          justifyContent: isDesktop ? "center" : "space-between",
           alignItems: "center",
-          gap: "280px",
-          padding: "20px 40px",
+          gap: isDesktop ? "280px" : "0",
+          padding: isMobile ? "26px 20px" : isTablet ? "16px 32px" : "20px 40px",
           boxSizing: "border-box",
           transform: `translateY(${showHeader ? "0" : "-120%"})`,
           transition: "transform 0.3s ease",
@@ -165,201 +193,440 @@ export default function Web3Marketing() {
             src={logo}
             alt="Prime Ambit"
             style={{
-              width: "151.544px",
-              height: "50px",
+              width: isMobile ? "120px" : "151.544px",
+              height: isMobile ? "40px" : "50px",
               flexShrink: 0,
               objectFit: "cover",
             }}
           />
         </Link>
 
-        {/* CENTER NAV */}
-        <nav
-          style={{
-            display: "flex",
-            height: "50px",
-            padding: "12px",
-            alignItems: "center",
-            gap: "4px",
-            borderRadius: "32px",
-            border: "1px solid rgba(255, 255, 255, 0.01)",
-            background: "rgba(255, 255, 255, 0.15)",
-            backdropFilter: "blur(4.8px)",
-          }}
-        >
-          {/* Services with Hover Dropdown */}
-          <div
-            onMouseEnter={() => {
-              setIsServicesHovered(true);
-              setHoveredNav("Services");
+        {/* CENTER NAV — desktop only */}
+        {isDesktop && (
+          <nav
+            style={{
+              display: "flex",
+              height: "50px",
+              padding: "12px",
+              alignItems: "center",
+              gap: "4px",
+              borderRadius: "32px",
+              border: "1px solid rgba(255, 255, 255, 0.01)",
+              background: "rgba(255, 255, 255, 0.15)",
+              backdropFilter: "blur(4.8px)",
             }}
-            onMouseLeave={() => {
-              setIsServicesHovered(false);
-              setHoveredNav(null);
-            }}
-            style={{ position: "relative" }}
           >
+            {/* Services with Hover Dropdown */}
             <div
-              style={{
-                display: "flex",
-                height: "36px",
-                padding: "8px 16px",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "6px",
-                borderRadius: "20px",
-                background:
-                  hoveredNav === "Services"
-                    ? "rgba(255, 255, 255, 0.23)"
-                    : "transparent",
-                color: "#FFF",
-                fontFamily: "Inter, sans-serif",
-                fontSize: "14px",
-                fontWeight: 400,
-                cursor: "default",
-                transition: "background 0.2s ease",
+              onMouseEnter={() => {
+                setIsServicesHovered(true);
+                setHoveredNav("Services");
               }}
+              onMouseLeave={() => {
+                setIsServicesHovered(false);
+                setHoveredNav(null);
+              }}
+              style={{ position: "relative" }}
             >
-              Services
-              <svg
-                width="10"
-                height="6"
-                viewBox="0 0 10 6"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
                 style={{
-                  transform: isServicesHovered
-                    ? "rotate(180deg)"
-                    : "rotate(0deg)",
-                  transition: "transform 0.3s",
+                  display: "flex",
+                  height: "36px",
+                  padding: "8px 16px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: "6px",
+                  borderRadius: "20px",
+                  background:
+                    hoveredNav === "Services"
+                      ? "rgba(255, 255, 255, 0.23)"
+                      : "transparent",
+                  color: "#FFF",
+                  fontFamily: "Inter, sans-serif",
+                  fontSize: "14px",
+                  fontWeight: 400,
+                  cursor: "default",
+                  transition: "background 0.2s ease",
                 }}
               >
-                <path
-                  d="M1 1L5 5L9 1"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-
-            <AnimatePresence>
-              {isServicesHovered && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ duration: 0.2 }}
+                Services
+                <svg
+                  width="10"
+                  height="6"
+                  viewBox="0 0 10 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
                   style={{
-                    position: "absolute",
-                    top: "100%",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    marginTop: "12px",
-                    background: "rgba(30, 41, 59, 0.95)",
-                    backdropFilter: "blur(10px)",
-                    borderRadius: "16px",
-                    padding: "8px",
-                    width: "220px",
-                    border: "1px solid rgba(255,255,255,0.1)",
-                    boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.3)",
-                    zIndex: 1001,
+                    transform: isServicesHovered
+                      ? "rotate(180deg)"
+                      : "rotate(0deg)",
+                    transition: "transform 0.3s",
                   }}
                 >
-                  {serviceLinks.map((service) => (
-                    <Link
-                      key={service.label}
-                      to={service.href}
-                      style={{
-                        display: "block",
-                        padding: "10px 16px",
-                        color: "#fff",
-                        textDecoration: "none",
-                        fontSize: "13px",
-                        borderRadius: "8px",
-                        transition: "background 0.2s",
-                      }}
-                      onMouseEnter={(e) =>
+                  <path
+                    d="M1 1L5 5L9 1"
+                    stroke="white"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+
+              <AnimatePresence>
+                {isServicesHovered && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    style={{
+                      position: "absolute",
+                      top: "100%",
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      marginTop: "12px",
+                      background: "rgba(30, 41, 59, 0.95)",
+                      backdropFilter: "blur(10px)",
+                      borderRadius: "16px",
+                      padding: "8px",
+                      width: "220px",
+                      border: "1px solid rgba(255,255,255,0.1)",
+                      boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.3)",
+                      zIndex: 1001,
+                    }}
+                  >
+                    {serviceLinks.map((service) => (
+                      <Link
+                        key={service.label}
+                        to={service.href}
+                        style={{
+                          display: "block",
+                          padding: "10px 16px",
+                          color: "#fff",
+                          textDecoration: "none",
+                          fontSize: "13px",
+                          borderRadius: "8px",
+                          transition: "background 0.2s",
+                        }}
+                        onMouseEnter={(e) =>
                         (e.currentTarget.style.background =
                           "rgba(255,255,255,0.1)")
-                      }
-                      onMouseLeave={(e) =>
-                        (e.currentTarget.style.background = "transparent")
-                      }
-                    >
-                      {service.label}
-                    </Link>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+                        }
+                        onMouseLeave={(e) =>
+                          (e.currentTarget.style.background = "transparent")
+                        }
+                      >
+                        {service.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
-          {["About Us", "Blog", "Our Works"].map((item) => (
-            <a
-              key={item}
-              href="#"
-              onMouseEnter={() => setHoveredNav(item)}
-              onMouseLeave={() => setHoveredNav(null)}
+            {["About Us", "Blog", "Our Works"].map((item) => (
+              <a
+                key={item}
+                href="#"
+                onMouseEnter={() => setHoveredNav(item)}
+                onMouseLeave={() => setHoveredNav(null)}
+                style={{
+                  display: "flex",
+                  height: "36px",
+                  padding: "8px 16px",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: "20px",
+                  background:
+                    hoveredNav === item
+                      ? "rgba(255, 255, 255, 0.23)"
+                      : "transparent",
+                  color: "#FFF",
+                  textAlign: "center",
+                  fontFamily: "Inter, sans-serif",
+                  fontSize: "14px",
+                  fontWeight: 400,
+                  lineHeight: "20px",
+                  textDecoration: "none",
+                  transition: "background 0.2s ease",
+                }}
+              >
+                {item}
+              </a>
+            ))}
+          </nav>
+        )}
+
+        {/* CONTACT US BUTTON — desktop only */}
+        {isDesktop && (
+          <Link
+            to="/contact"
+            onMouseEnter={() => setHoveredNav("Contact Us")}
+            onMouseLeave={() => setHoveredNav(null)}
+            style={{
+              display: "flex",
+              width: "145px",
+              height: "50px",
+              padding: "12px",
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: "32px",
+              border: "1px solid rgba(255, 255, 255, 0.01)",
+              background:
+                hoveredNav === "Contact Us"
+                  ? "rgba(255, 255, 255, 0.23)"
+                  : "rgba(255, 255, 255, 0.15)",
+              backdropFilter: "blur(4.8px)",
+              color: "#FFF",
+              textAlign: "center",
+              fontFamily: "Inter, sans-serif",
+              fontSize: "14px",
+              fontStyle: "normal",
+              fontWeight: 400,
+              lineHeight: "20px",
+              textDecoration: "none",
+            }}
+          >
+            Contact Us
+          </Link>
+        )}
+
+        {/* HAMBURGER BUTTON — mobile & tablet only */}
+        {!isDesktop && (
+          <button
+            id="mobile-menu-toggle"
+            onClick={() => {
+              setMobileMenuOpen((prev) => {
+                if (prev) setMobileServicesOpen(false);
+                return !prev;
+              });
+            }}
+            aria-label="Toggle navigation menu"
+            aria-expanded={mobileMenuOpen}
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "5px",
+              padding: "8px",
+              flexShrink: 0,
+            }}
+          >
+            <span
               style={{
+                display: "block",
+                width: "24px",
+                height: "2px",
+                background: "#FFF",
+                borderRadius: "2px",
+                transition: "transform 0.3s ease, opacity 0.3s ease",
+                transform: mobileMenuOpen
+                  ? "rotate(45deg) translate(5px, 5px)"
+                  : "none",
+              }}
+            />
+            <span
+              style={{
+                display: "block",
+                width: "24px",
+                height: "2px",
+                background: "#FFF",
+                borderRadius: "2px",
+                transition: "opacity 0.3s ease",
+                opacity: mobileMenuOpen ? 0 : 1,
+              }}
+            />
+            <span
+              style={{
+                display: "block",
+                width: "24px",
+                height: "2px",
+                background: "#FFF",
+                borderRadius: "2px",
+                transition: "transform 0.3s ease, opacity 0.3s ease",
+                transform: mobileMenuOpen
+                  ? "rotate(-45deg) translate(5px, -5px)"
+                  : "none",
+              }}
+            />
+          </button>
+        )}
+
+        {/* MOBILE DROPDOWN MENU */}
+        <AnimatePresence>
+          {!isDesktop && mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
+              style={{
+                position: "fixed",
+                top: 0,
+                left: 0,
+                width: "100vw",
+                minHeight: "100dvh",
+                background: "rgba(42, 57, 74, 0.98)",
+                backdropFilter: "blur(14px)",
+                padding: isMobile ? "80px 20px 24px" : "92px 32px 32px",
                 display: "flex",
-                height: "36px",
-                padding: "8px 16px",
                 flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                borderRadius: "20px",
-                background:
-                  hoveredNav === item
-                    ? "rgba(255, 255, 255, 0.23)"
-                    : "transparent",
-                color: "#FFF",
-                textAlign: "center",
-                fontFamily: "Inter, sans-serif",
-                fontSize: "14px",
-                fontWeight: 400,
-                lineHeight: "20px",
-                textDecoration: "none",
-                transition: "background 0.2s ease",
+                gap: "2px",
+                boxSizing: "border-box",
+                borderTop: "1px solid rgba(255,255,255,0.08)",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.25)",
+                overflowY: "auto",
+                zIndex: -1,
               }}
             >
-              {item}
-            </a>
-          ))}
-        </nav>
+              {/* Services sub-list */}
+              <button
+                type="button"
+                onClick={() => setMobileServicesOpen((prev) => !prev)}
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  color: "#FFF",
+                  background: "transparent",
+                  border: "none",
+                  fontSize: "15px",
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: 400,
+                  padding: "12px 12px",
+                  borderRadius: "8px",
+                  cursor: "pointer",
+                }}
+              >
+                Services
+                <svg
+                  width="10"
+                  height="6"
+                  viewBox="0 0 10 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{
+                    transform: mobileServicesOpen
+                      ? "rotate(180deg)"
+                      : "rotate(0deg)",
+                    transition: "transform 0.3s",
+                  }}
+                >
+                  <path
+                    d="M1 1L5 5L9 1"
+                    stroke="white"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+              <AnimatePresence initial={false}>
+                {mobileServicesOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                    style={{
+                      overflow: "hidden",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "2px",
+                    }}
+                  >
+                    {serviceLinks.map((service) => (
+                      <Link
+                        key={service.label}
+                        to={service.href}
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          setMobileServicesOpen(false);
+                        }}
+                        style={{
+                          display: "block",
+                          padding: "10px 12px",
+                          color: "#fff",
+                          textDecoration: "none",
+                          fontSize: "15px",
+                          fontFamily: "Inter, sans-serif",
+                          fontWeight: 400,
+                          borderRadius: "8px",
+                        }}
+                      >
+                        {service.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
-        {/* CONTACT US BUTTON */}
-        <Link
-          to="/contact"
-          onMouseEnter={() => setHoveredNav("Contact Us")}
-          onMouseLeave={() => setHoveredNav(null)}
-          style={{
-            display: "flex",
-            width: "145px",
-            height: "50px",
-            padding: "12px",
-            justifyContent: "center",
-            alignItems: "center",
-            borderRadius: "32px",
-            border: "1px solid rgba(255, 255, 255, 0.01)",
-            background:
-              hoveredNav === "Contact Us"
-                ? "rgba(255, 255, 255, 0.23)"
-                : "rgba(255, 255, 255, 0.15)",
-            backdropFilter: "blur(4.8px)",
-            color: "#FFF",
-            textAlign: "center",
-            fontFamily: "Inter, sans-serif",
-            fontSize: "14px",
-            fontStyle: "normal",
-            fontWeight: 400,
-            lineHeight: "20px",
-            textDecoration: "none",
-          }}
-        >
-          Contact Us
-        </Link>
+              <div
+                style={{
+                  height: "1px",
+                  background: "rgba(255,255,255,0.08)",
+                  margin: "8px 0",
+                }}
+              />
+
+              {["About Us", "Blog", "Our Works"].map((item) => (
+                <a
+                  key={item}
+                  href="#"
+                  onClick={() => setMobileMenuOpen(false)}
+                  style={{
+                    display: "block",
+                    padding: "12px 12px",
+                    color: "#FFF",
+                    textDecoration: "none",
+                    fontSize: "15px",
+                    fontFamily: "Inter, sans-serif",
+                    fontWeight: 400,
+                    borderRadius: "8px",
+                  }}
+                >
+                  {item}
+                </a>
+              ))}
+
+              <div
+                style={{
+                  height: "1px",
+                  background: "rgba(255,255,255,0.08)",
+                  margin: "8px 0",
+                }}
+              />
+
+              <Link
+                to="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  padding: "13px",
+                  borderRadius: "16px",
+                  background: "#509AAF",
+                  color: "#FFF",
+                  textDecoration: "none",
+                  fontSize: "15px",
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: 400,
+                  marginTop: "4px",
+                }}
+              >
+                Contact Us
+              </Link>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       {/* ── HERO OUTER CONTAINER ── */}
@@ -367,7 +634,7 @@ export default function Web3Marketing() {
         style={{
           display: "flex",
           width: "100%",
-          height: "475px",
+          minHeight: isMobile ? "calc(100vh - 100px)" : "475px",
           justifyContent: "center",
           alignItems: "center",
           background: "#2A394A",
@@ -378,10 +645,16 @@ export default function Web3Marketing() {
             display: "flex",
             width: "100%",
             maxWidth: "1440px",
-            height: "100%",
-            padding: "0 237.898px 0 237.902px",
-            justifyContent: "space-between",
+            minHeight: isMobile ? "calc(100vh - 100px)" : "475px",
+            padding: isMobile
+              ? "48px 24px 40px"
+              : isTablet
+                ? "48px 40px"
+                : "0 237.898px 0 237.902px",
+            justifyContent: isMobile ? "center" : "space-between",
             alignItems: "center",
+            flexDirection: isMobile ? "column" : "row",
+            gap: isMobile ? "32px" : "0",
             boxSizing: "border-box",
           }}
         >
@@ -389,8 +662,7 @@ export default function Web3Marketing() {
           <div
             style={{
               display: "flex",
-              width: "429px",
-              height: "365.276px",
+              width: isMobile ? "100%" : isTablet ? "55%" : "429px",
               flexDirection: "column",
               alignItems: "flex-start",
               gap: "40px",
@@ -405,11 +677,11 @@ export default function Web3Marketing() {
                 alignSelf: "stretch",
                 color: "#FFF",
                 fontFamily: "Inter, sans-serif",
-                fontSize: "59.3px",
+                fontSize: isMobile ? "40px" : isTablet ? "48px" : "59.3px",
                 fontStyle: "normal",
                 fontWeight: 400,
-                lineHeight: "54px", // 91.062%
-                letterSpacing: "-4px",
+                lineHeight: isMobile ? "44px" : "54px",
+                letterSpacing: isMobile ? "-2px" : "-4px",
                 margin: 0,
               }}
             >
@@ -419,7 +691,7 @@ export default function Web3Marketing() {
             <div
               style={{
                 display: "flex",
-                width: "429px",
+                width: "100%",
                 flexDirection: "column",
                 alignItems: "flex-start",
                 gap: "25px",
@@ -431,13 +703,13 @@ export default function Web3Marketing() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 style={{
-                  width: "300.633px",
+                  alignSelf: "stretch",
                   color: "#FFF",
                   fontFamily: "Inter, sans-serif",
-                  fontSize: "22.65px",
+                  fontSize: isMobile ? "18px" : "22.65px",
                   fontStyle: "normal",
                   fontWeight: 400,
-                  lineHeight: "160.5%", // 36.353px
+                  lineHeight: "160.5%",
                   margin: 0,
                 }}
               >
@@ -449,13 +721,13 @@ export default function Web3Marketing() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                 style={{
-                  width: "390.109px",
+                  width: "100%",
                   color: "#FFF",
                   fontFamily: "Inter, sans-serif",
                   fontSize: "14px",
                   fontStyle: "normal",
                   fontWeight: 300,
-                  lineHeight: "160.5%", // 22.47px
+                  lineHeight: "160.5%",
                   margin: 0,
                 }}
               >
@@ -507,10 +779,12 @@ export default function Web3Marketing() {
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeOut" }}
             style={{
-              width: "469.241px",
-              height: "422.042px",
+              width: isMobile ? "100%" : isTablet ? "42%" : "469.241px",
+              height: isMobile ? "280px" : isTablet ? "320px" : "422.042px",
+              flex: isMobile ? "1" : "none",
               aspectRatio: "169/152",
-              background: `url(${web3Hero}) transparent center / contain no-repeat`,
+              background: `url(${web3Hero}) transparent center / ${isMobile ? "contain" : "contain"} no-repeat`,
+              flexShrink: 0,
             }}
           />
         </div>
@@ -523,10 +797,14 @@ export default function Web3Marketing() {
           width: "100%",
           maxWidth: "1440px",
           margin: "0 auto",
-          padding: "60px 61.22px", // Updated to match Figma 61.22px margin
+          padding: isMobile
+            ? "40px 24px"
+            : isTablet
+              ? "48px 40px"
+              : "60px 61.22px",
           flexDirection: "column",
           alignItems: "flex-start",
-          gap: "32px", // Increased gap between heading and description
+          gap: "32px",
           boxSizing: "border-box",
         }}
       >
@@ -536,16 +814,16 @@ export default function Web3Marketing() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           style={{
-            width: "388.645px",
+            width: "100%",
+            maxWidth: isDesktop ? "453.465px" : "100%",
             color: "#D6DBC7",
             fontFamily: "Inter, sans-serif",
-            fontSize: "36.65px",
+            fontSize: isMobile ? "28px" : isTablet ? "32px" : "36.65px",
             fontStyle: "normal",
             fontWeight: 400,
-            lineHeight: "38px",
-            letterSpacing: "-1.833px",
+            lineHeight: isMobile ? "34px" : "38px",
+            letterSpacing: isMobile ? "-1px" : "-1.833px",
             margin: 0,
-            maxWidth: "100%",
           }}
         >
           Growth Strategies Built for Web3 Ecosystems
@@ -556,16 +834,16 @@ export default function Web3Marketing() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           style={{
-            width: "1302px",
+            width: "100%",
+            maxWidth: "100%",
             color: "#FFF",
             fontFamily: "Inter, sans-serif",
-            fontSize: "22.65px",
+            fontSize: isMobile ? "16px" : isTablet ? "19px" : "22.65px",
             fontStyle: "normal",
             fontWeight: 300,
-            lineHeight: "24px",
+            lineHeight: isMobile ? "26px" : "24px",
             letterSpacing: "-0.453px",
             margin: 0,
-            maxWidth: "100%",
           }}
         >
           We specialize in crypto-native growth strategies that combine
@@ -581,31 +859,35 @@ export default function Web3Marketing() {
           width: "100%",
           maxWidth: "1440px",
           margin: "0 auto",
-          padding: "0 61.22px 80px 61.22px",
+          padding: isMobile
+            ? "0 24px 60px"
+            : isTablet
+              ? "0 40px 60px"
+              : "0 61.22px 80px 61.22px",
           boxSizing: "border-box",
         }}
       >
         <div
           style={{
             display: "flex",
-            width: "1296px",
+            width: "100%",
             maxWidth: "100%",
-            height: "650px",
+            minHeight: isDesktop ? "650px" : "auto",
             padding: "20px",
             flexDirection: "column",
             alignItems: "flex-start",
             background: "#FFF",
             boxSizing: "border-box",
-            borderRadius: "0px",
             boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
           }}
         >
-          {/* Inner content for the white container will go here */}
+          {/* Inner layout: left info + right cards */}
           <div
             style={{
               display: "flex",
-              width: "1255.005px",
-              alignItems: "center",
+              width: "100%",
+              alignItems: isMobile || isTablet ? "flex-start" : "center",
+              flexDirection: isMobile || isTablet ? "column" : "row",
               gap: "20px",
             }}
           >
@@ -613,7 +895,7 @@ export default function Web3Marketing() {
             <motion.div
               initial="hidden"
               whileInView="show"
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.3, margin: "-100px" }}
               variants={{
                 hidden: { opacity: 0, x: -30 },
                 show: {
@@ -626,19 +908,20 @@ export default function Web3Marketing() {
                 },
               }}
               style={{
-                width: "519px",
-                height: "610px",
-                flexShrink: 0,
+                width: isDesktop ? "519px" : "100%",
+                minHeight: isDesktop ? "610px" : "auto",
+                flexShrink: isDesktop ? 0 : 1,
               }}
             >
               <div
                 style={{
-                  width: "519px",
-                  height: "610px",
+                  width: "100%",
+                  minHeight: isDesktop ? "610px" : "auto",
                   flexShrink: 0,
                   display: "flex",
                   flexDirection: "column",
-                  justifyContent: "space-between",
+                  justifyContent: isDesktop ? "space-between" : "flex-start",
+                  gap: isMobile ? "24px" : isTablet ? "28px" : "0",
                 }}
               >
                 {/* Points in button form */}
@@ -650,24 +933,32 @@ export default function Web3Marketing() {
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    gap: "15px",
+                    gap: isMobile ? "8px" : "15px",
+                    flexWrap: isMobile ? "nowrap" : "wrap",
+                    width: isMobile ? "100%" : "auto",
+                    justifyContent: "flex-start",
                   }}
                 >
                   <div
                     style={{
                       display: "flex",
-                      padding: "4px 5.158px 4px 5.063px",
+                      padding: isMobile
+                        ? "4px 8px"
+                        : "4px 5.158px 4px 5.063px",
                       justifyContent: "center",
                       alignItems: "center",
+                      flexShrink: 1,
                       borderRadius: "6px",
                       border: "1px solid #000",
                       color: "#000",
                       fontFamily: "Inter, sans-serif",
-                      fontSize: "14px",
+                      fontSize: isMobile ? "11px" : "14px",
                       fontStyle: "normal",
                       fontWeight: 400,
-                      lineHeight: "18px",
-                      letterSpacing: "-0.1px",
+                      lineHeight: isMobile ? "16px" : "18px",
+                      letterSpacing: isMobile ? 0 : "-0.1px",
+                      whiteSpace: "nowrap",
+                      boxSizing: "border-box",
                     }}
                   >
                     easy deployment
@@ -675,18 +966,21 @@ export default function Web3Marketing() {
                   <div
                     style={{
                       display: "flex",
-                      padding: "4px 15.5px",
+                      padding: isMobile ? "4px 8px" : "4px 15.5px",
                       justifyContent: "center",
                       alignItems: "center",
+                      flexShrink: 1,
                       borderRadius: "6px",
                       border: "1px solid #000",
                       color: "#000",
                       fontFamily: "Inter, sans-serif",
-                      fontSize: "14px",
+                      fontSize: isMobile ? "11px" : "14px",
                       fontStyle: "normal",
                       fontWeight: 400,
-                      lineHeight: "18px",
-                      letterSpacing: "-0.1px",
+                      lineHeight: isMobile ? "16px" : "18px",
+                      letterSpacing: isMobile ? 0 : "-0.1px",
+                      whiteSpace: "nowrap",
+                      boxSizing: "border-box",
                     }}
                   >
                     Scalability
@@ -694,18 +988,21 @@ export default function Web3Marketing() {
                   <div
                     style={{
                       display: "flex",
-                      padding: "4px 11.5px",
+                      padding: isMobile ? "4px 8px" : "4px 11.5px",
                       justifyContent: "center",
                       alignItems: "center",
+                      flexShrink: 1,
                       borderRadius: "6px",
                       border: "1px solid #000",
                       color: "#000",
                       fontFamily: "Inter, sans-serif",
-                      fontSize: "14px",
+                      fontSize: isMobile ? "11px" : "14px",
                       fontStyle: "normal",
                       fontWeight: 400,
-                      lineHeight: "18px",
-                      letterSpacing: "-0.1px",
+                      lineHeight: isMobile ? "16px" : "18px",
+                      letterSpacing: isMobile ? 0 : "-0.1px",
+                      whiteSpace: "nowrap",
+                      boxSizing: "border-box",
                     }}
                   >
                     Reliability
@@ -719,12 +1016,10 @@ export default function Web3Marketing() {
                     show: { opacity: 1, y: 0 },
                   }}
                   style={{
-                    width: "432.374px",
-                    height: "432.374px",
+                    height: isMobile ? "220px" : isTablet ? "300px" : "432.374px",
                     flexShrink: 0,
-                    aspectRatio: "1/1",
-                    background: `url(${web3Solution}) transparent 50% / cover no-repeat`,
-                    alignSelf: "center",
+                    alignSelf: "stretch",
+                    background: `url(${web3Solution}) transparent 50% / contain no-repeat`,
                   }}
                 />
 
@@ -735,18 +1030,17 @@ export default function Web3Marketing() {
                     show: { opacity: 1, y: 0 },
                   }}
                   style={{
-                    width: "509.188px",
-                    height: "110.575px",
+                    width: "100%",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
+                    gap: "16px",
                   }}
                 >
                   <div
                     style={{
                       display: "flex",
-                      width: "509.188px",
-                      height: "60.493px",
+                      width: "100%",
                       flexDirection: "column",
                       justifyContent: "center",
                       color: "#000",
@@ -762,7 +1056,7 @@ export default function Web3Marketing() {
                     Share your product scope, current stage (idea, MVP, v1+),
                     and architecture
                     <br />
-                    environment. We’ll assess build feasibility and system
+                    environment. We'll assess build feasibility and system
                     alignment.
                   </div>
                   <div>
@@ -796,11 +1090,11 @@ export default function Web3Marketing() {
               </div>
             </motion.div>
 
-            {/* Right side container */}
+            {/* Right side container — Cards grid */}
             <div
               style={{
                 display: "flex",
-                width: "716px",
+                width: isDesktop ? "716px" : "100%",
                 alignItems: "flex-start",
                 alignContent: "flex-start",
                 gap: "20px",
@@ -813,16 +1107,20 @@ export default function Web3Marketing() {
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
+                  viewport={{ once: true, amount: 0.3, margin: "-100px" }}
                   transition={{
                     duration: 0.8,
-                    delay: 0.4 + index * 0.1,
+                    delay: 0.6 + Math.floor(index / 2) * 0.4,
                     ease: "easeOut",
                   }}
                   style={{
                     display: "flex",
-                    width: "348px",
-                    height: "295px",
+                    width: isMobile
+                      ? "100%"
+                      : isTablet
+                        ? "calc(50% - 10px)"
+                        : "348px",
+                    minHeight: "295px",
                     padding: "10px",
                     flexDirection: "column",
                     alignItems: "flex-start",
@@ -836,7 +1134,7 @@ export default function Web3Marketing() {
                   <div
                     style={{
                       display: "flex",
-                      height: "275px",
+                      minHeight: "275px",
                       flexDirection: "column",
                       alignItems: "flex-start",
                       gap: "10px",
@@ -848,11 +1146,10 @@ export default function Web3Marketing() {
                     <div
                       style={{
                         display: "flex",
-                        width: "328px",
+                        width: "100%",
                         padding: "10px",
-                        justifyContent: "center",
+                        justifyContent: "space-between",
                         alignItems: "center",
-                        gap: "12px",
                         boxSizing: "border-box",
                       }}
                     >
@@ -867,11 +1164,11 @@ export default function Web3Marketing() {
                       />
                       <div
                         style={{
-                          width: card.titleWidth,
+                          width: isMobile ? "calc(100% - 66px)" : card.titleWidth,
                           flexShrink: 0,
                           color: card.titleColor,
                           fontFamily: "Inter, sans-serif",
-                          fontSize: "22.65px",
+                          fontSize: isMobile ? "18px" : "22.65px",
                           fontStyle: "normal",
                           fontWeight: 400,
                           lineHeight: "24px",
@@ -879,9 +1176,7 @@ export default function Web3Marketing() {
                           textAlign: "center",
                         }}
                       >
-                        <div
-                          style={{ display: "inline-block", textAlign: "left" }}
-                        >
+                        <div style={{ display: "inline-block", textAlign: "left" }}>
                           {card.title}
                         </div>
                       </div>
@@ -891,8 +1186,8 @@ export default function Web3Marketing() {
                     <div
                       style={{
                         display: "flex",
-                        width: "328px",
-                        height: "173px",
+                        width: "100%",
+                        minHeight: "173px",
                         flexDirection: "column",
                         justifyContent: "center",
                         flexShrink: 0,
@@ -927,7 +1222,7 @@ export default function Web3Marketing() {
         </div>
       </div>
 
-      {/* ── TECHNOLOGIES WE WORK SECTION ── */}
+      {/* ── TECHNOLOGIES / PLATFORMS WE USE SECTION ── */}
       <div
         style={{
           display: "flex",
@@ -942,8 +1237,12 @@ export default function Web3Marketing() {
             display: "flex",
             width: "100%",
             maxWidth: "1440px",
-            height: "375px",
-            padding: "60.837px 340px 79.873px 340px",
+            minHeight: isDesktop ? "375px" : "auto",
+            padding: isMobile
+              ? "48px 24px 52px"
+              : isTablet
+                ? "52px 60px 56px"
+                : "60.837px 340px 79.873px 340px",
             flexDirection: "column",
             alignItems: "center",
             gap: "40.597px",
@@ -958,11 +1257,11 @@ export default function Web3Marketing() {
             style={{
               color: "#2A394A",
               fontFamily: "Inter, sans-serif",
-              fontSize: "36.65px",
+              fontSize: isMobile ? "28px" : isTablet ? "32px" : "36.65px",
               fontStyle: "normal",
               fontWeight: 400,
               lineHeight: "38px",
-              letterSpacing: "-1.833px",
+              letterSpacing: isMobile ? "-1px" : "-1.833px",
               margin: 0,
               textAlign: "center",
             }}
@@ -982,90 +1281,86 @@ export default function Web3Marketing() {
               },
             }}
             style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "65px",
+              display: "flex",
+              width: "100%",
+              maxWidth: "900px",
               boxSizing: "border-box",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: isMobile ? "24px" : "40px",
+              flexWrap: isMobile ? "wrap" : "nowrap",
             }}
           >
+            {/* web3Tool1 */}
             <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 10 },
-                show: { opacity: 1, y: 0 },
-              }}
+              variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
               style={{
-                width: "318.049px",
-                height: "69.471px",
+                width: isMobile ? "140px" : "318.049px",
+                height: isMobile ? "30px" : "69.471px",
                 background: `url(${web3Tool1}) transparent center / contain no-repeat`,
+                flexShrink: 0,
               }}
             />
+            {/* galxeLogo */}
             <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 10 },
-                show: { opacity: 1, y: 0 },
-              }}
+              variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
               style={{
-                width: "180px",
-                height: "35.5px",
-                aspectRatio: "180 / 35.5",
+                width: isMobile ? "90px" : "180px",
+                height: isMobile ? "18px" : "35.5px",
                 background: `url(${galxeLogo}) transparent center / contain no-repeat`,
+                flexShrink: 0,
               }}
             />
+            {/* web3Tool2 */}
             <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 10 },
-                show: { opacity: 1, y: 0 },
-              }}
+              variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
               style={{
-                width: "107.969px",
-                height: "112.009px",
+                width: isMobile ? "48px" : "107.969px",
+                height: isMobile ? "50px" : "112.009px",
                 background: `url(${web3Tool2}) transparent center / contain no-repeat`,
+                flexShrink: 0,
               }}
             />
+            {/* zealyLogo */}
             <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 10 },
-                show: { opacity: 1, y: 0 },
-              }}
+              variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
               style={{
-                width: "75.076px",
-                height: "75.076px",
-                aspectRatio: "1/1",
+                width: isMobile ? "36px" : "75.076px",
+                height: isMobile ? "36px" : "75.076px",
                 background: `url(${zealyLogo}) transparent center / contain no-repeat`,
+                flexShrink: 0,
               }}
             />
+            {/* web3Tool3 */}
             <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 10 },
-                show: { opacity: 1, y: 0 },
-              }}
+              variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
               style={{
-                width: "84.548px",
-                height: "81.357px",
+                width: isMobile ? "40px" : "84.548px",
+                height: isMobile ? "38px" : "81.357px",
                 background: `url(${web3Tool3}) transparent center / contain no-repeat`,
+                flexShrink: 0,
               }}
             />
+            {/* web3Tool4 */}
             <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 10 },
-                show: { opacity: 1, y: 0 },
-              }}
+              variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}
               style={{
-                width: "172.318px",
-                height: "35.002px",
+                width: isMobile ? "80px" : "172.318px",
+                height: isMobile ? "16px" : "35.002px",
                 background: `url(${web3Tool4}) transparent center / contain no-repeat`,
+                flexShrink: 0,
               }}
             />
           </motion.div>
         </div>
       </div>
 
-      {/* ── INDUSTRIES WE SUPPORT SECTION ── */}
+      {/* ── WEB3 PROJECTS WE SUPPORT SECTION ── */}
       <div
         style={{
           display: "flex",
           width: "100%",
-          height: "425px",
+          minHeight: isDesktop ? "425px" : "auto",
           justifyContent: "center",
           background: "#2A394A",
         }}
@@ -1075,10 +1370,10 @@ export default function Web3Marketing() {
             display: "flex",
             width: "100%",
             maxWidth: "1440px",
-            height: "100%",
-            paddingTop: "48.4px",
-            paddingLeft: "66.49px",
-            paddingRight: "66.49px",
+            paddingTop: isMobile ? "40px" : "48.4px",
+            paddingBottom: isMobile ? "52px" : "48px",
+            paddingLeft: isMobile ? "24px" : isTablet ? "40px" : "66.49px",
+            paddingRight: isMobile ? "24px" : isTablet ? "40px" : "66.49px",
             flexDirection: "column",
             alignItems: "flex-start",
             gap: "16px",
@@ -1093,11 +1388,11 @@ export default function Web3Marketing() {
             style={{
               color: "#D6DBC7",
               fontFamily: "Inter, sans-serif",
-              fontSize: "36.65px",
+              fontSize: isMobile ? "28px" : isTablet ? "32px" : "36.65px",
               fontStyle: "normal",
               fontWeight: 400,
               lineHeight: "38px",
-              letterSpacing: "-1.833px",
+              letterSpacing: isMobile ? "-1px" : "-1.833px",
               margin: 0,
             }}
           >
@@ -1109,12 +1404,11 @@ export default function Web3Marketing() {
             viewport={{ once: true, amount: 0.3, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
             style={{
-              width: "778.137px",
-              height: "74px",
+              width: "100%",
               maxWidth: "100%",
               color: "#FFF",
               fontFamily: "Inter, sans-serif",
-              fontSize: "22.65px",
+              fontSize: isMobile ? "16px" : isTablet ? "19px" : "22.65px",
               fontStyle: "normal",
               fontWeight: 300,
               lineHeight: "24px",
@@ -1129,7 +1423,7 @@ export default function Web3Marketing() {
           <motion.div
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
             variants={{
               hidden: { opacity: 0 },
               show: {
@@ -1140,36 +1434,37 @@ export default function Web3Marketing() {
             style={{
               display: "flex",
               width: "100%",
-              justifyContent: "center",
+              justifyContent: isMobile ? "space-around" : "center",
               alignItems: "flex-start",
-              gap: "100px",
-              marginTop: "32px",
+              gap: isMobile ? "16px" : isTablet ? "48px" : "100px",
+              marginTop: isMobile ? "32px" : "80px",
+              flexWrap: isMobile ? "wrap" : "nowrap",
             }}
           >
             {[
               {
                 icon: web3Industry1,
                 label: "Ecosystem Foundations",
-                width: "80px",
-                height: "80px",
+                width: isMobile ? "48px" : "80px",
+                height: isMobile ? "48px" : "80px",
               },
               {
                 icon: web3Industry2,
                 label: "DeFi Protocols",
-                width: "80px",
-                height: "80px",
+                width: isMobile ? "48px" : "80px",
+                height: isMobile ? "48px" : "80px",
               },
               {
                 icon: web3Industry3,
                 label: "Digital Culture",
-                width: "80px",
-                height: "80px",
+                width: isMobile ? "48px" : "80px",
+                height: isMobile ? "48px" : "80px",
               },
               {
                 icon: web3Industry4,
                 label: "Consumer dApps",
-                width: "80px",
-                height: "80px",
+                width: isMobile ? "48px" : "80px",
+                height: isMobile ? "48px" : "80px",
               },
             ].map((industry, index) => (
               <motion.div
@@ -1183,12 +1478,13 @@ export default function Web3Marketing() {
                   flexDirection: "column",
                   alignItems: "center",
                   gap: "16px",
+                  width: isMobile ? "calc(50% - 8px)" : "auto",
                 }}
               >
                 <div
                   style={{
                     display: "flex",
-                    height: "80px",
+                    height: isMobile ? "60px" : "80px",
                     alignItems: "center",
                     justifyContent: "center",
                   }}
@@ -1203,11 +1499,11 @@ export default function Web3Marketing() {
                 </div>
                 <span
                   style={{
-                    maxWidth: "160px",
+                    maxWidth: isMobile ? "auto" : "160px",
                     textAlign: "center",
                     color: "#FFF",
                     fontFamily: "Inter, sans-serif",
-                    fontSize: "22.65px",
+                    fontSize: isMobile ? "16px" : "22.65px",
                     fontWeight: 300,
                     lineHeight: "24px",
                     letterSpacing: "-0.453px",
@@ -1227,14 +1523,18 @@ export default function Web3Marketing() {
           width: "100%",
           maxWidth: "1440px",
           margin: "0 auto",
-          padding: "67px 67px 92px 67px",
+          padding: isMobile
+            ? "48px 24px 60px"
+            : isTablet
+              ? "56px 40px 72px"
+              : "67px 67px 92px 67px",
           boxSizing: "border-box",
         }}
       >
         <div
           style={{
             display: "flex",
-            width: "1301.508px",
+            width: "100%",
             maxWidth: "100%",
             flexDirection: "column",
             alignItems: "flex-start",
@@ -1258,11 +1558,11 @@ export default function Web3Marketing() {
                 width: "100%",
                 color: "#D6DBC7",
                 fontFamily: "Inter, sans-serif",
-                fontSize: "36.65px",
+                fontSize: isMobile ? "28px" : isTablet ? "32px" : "36.65px",
                 fontStyle: "normal",
                 fontWeight: 400,
-                lineHeight: "38px",
-                letterSpacing: "-1.833px",
+                lineHeight: isMobile ? "34px" : "38px",
+                letterSpacing: isMobile ? "-1px" : "-1.833px",
                 margin: 0,
               }}
             >
@@ -1277,14 +1577,14 @@ export default function Web3Marketing() {
                 width: "100%",
                 color: "#FFF",
                 fontFamily: "Inter, sans-serif",
-                fontSize: "22.65px",
+                fontSize: isMobile ? "16px" : isTablet ? "19px" : "22.65px",
                 fontStyle: "normal",
                 fontWeight: 400,
                 lineHeight: "160.5%",
                 margin: 0,
               }}
             >
-              Ready to turn code into a thriving, decentralized community? Let’s
+              Ready to turn code into a thriving, decentralized community? Let's
               design a hyper-targeted growth strategy that attracts high-intent
               users, optimizes token incentives, and scales your protocol
               securely.

@@ -268,8 +268,8 @@ export default function Marketing() {
                         transition: "background 0.2s",
                       }}
                       onMouseEnter={(e) =>
-                        (e.currentTarget.style.background =
-                          "rgba(255,255,255,0.1)")
+                      (e.currentTarget.style.background =
+                        "rgba(255,255,255,0.1)")
                       }
                       onMouseLeave={(e) =>
                         (e.currentTarget.style.background = "transparent")
