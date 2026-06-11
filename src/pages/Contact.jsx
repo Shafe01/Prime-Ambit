@@ -7,6 +7,19 @@ import contactHero from "../assets/images/contact_hero.png";
 
 const fieldLine = "border-b border-[#AEB7B8]";
 
+const revealUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0 },
+};
+
+const staggerGroup = {
+  hidden: { opacity: 1 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.09 },
+  },
+};
+
 const contactItems = [
   {
     label: "Phone",
@@ -160,20 +173,16 @@ export default function Contact() {
     <div className="min-h-screen bg-[#509AAF] font-['Inter',sans-serif] text-[#2A394A]">
       <Header />
 
-      <main className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-[45px] px-5 pb-[45px] pt-[126px] md:px-[67px] md:pt-[157px]">
-        <section className="grid w-full bg-white p-5 md:p-[45px] lg:grid-cols-[1.1fr_0.9fr] lg:gap-[48px]">
+      <main className="mx-auto flex w-full max-w-[1440px] flex-col items-center gap-7 px-4 pb-8 pt-[112px] sm:px-6 md:gap-[45px] md:px-[67px] md:pb-[45px] md:pt-[157px]">
+        <section className="grid w-full gap-7 bg-white p-4 sm:p-6 md:p-[45px] min-[1340px]:grid-cols-[1.1fr_0.9fr] min-[1340px]:gap-[48px]">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="w-full bg-[#2A394A]"
+            className="h-[min(78vw,390px)] w-full max-w-full bg-[#2A394A] bg-cover bg-center bg-no-repeat sm:h-[420px] min-[1340px]:h-[650px] min-[1340px]:w-[640px]"
             style={{ 
-              width: '640px',
-              height: '650px',
-              aspectRatio: '64/65',
               background: `url(${contactHero}) lightgray 50% / cover no-repeat`,
-              maxWidth: '100%' 
             }}
           />
 
@@ -182,66 +191,60 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex w-full flex-col pt-8 lg:pt-0"
-            style={{
-              width: '524.904px',
-              height: '651.613px',
-              maxWidth: '100%'
-            }}
+            className="flex w-full max-w-full flex-col pt-0 min-[1340px]:h-[651.613px] min-[1340px]:w-[524.904px]"
           >
-            <h1 
-              className="mb-4 font-normal text-[#0C0A08]"
-              style={{
-                display: 'flex',
-                width: '218.303px',
-                height: '43.045px',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                fontSize: '36.65px',
-                lineHeight: '40px',
-                letterSpacing: '-0.01px'
-              }}
+            <motion.h1 
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              className="mb-3 flex h-auto w-full flex-col justify-center text-[30px] font-normal leading-9 text-[#0C0A08] sm:text-[34px] sm:leading-10 min-[1340px]:mb-4 min-[1340px]:h-[43.045px] min-[1340px]:w-[218.303px] min-[1340px]:text-[36.65px] min-[1340px]:leading-[40px]"
+              style={{ letterSpacing: "-0.01px" }}
             >
               Get in touch
-            </h1>
-            <p 
-              className="m-0 font-light text-[#132528]"
-              style={{
-                display: 'flex',
-                width: '524.904px',
-                height: '21.522px',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                fontSize: '22.65px',
-                lineHeight: '20px',
-                maxWidth: '100%'
-              }}
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.18, ease: "easeOut" }}
+              className="m-0 flex h-auto w-full max-w-full flex-col justify-center text-[17px] font-light leading-6 text-[#132528] sm:text-[19px] min-[1340px]:h-[21.522px] min-[1340px]:w-[524.904px] min-[1340px]:text-[22.65px] min-[1340px]:leading-[20px]"
             >
               Send us a message and we will reach out to you!
-            </p>
+            </motion.p>
 
-            <form className="mt-12 flex flex-grow flex-col gap-[14px]" onSubmit={handleSubmit}>
-              <input
+            <motion.form
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={staggerGroup}
+              className="mt-8 flex flex-grow flex-col gap-[14px] sm:mt-10 min-[1340px]:mt-12"
+              onSubmit={handleSubmit}
+            >
+              <motion.input
+                variants={revealUp}
                 value={form.name}
                 onChange={updateForm("name")}
                 placeholder="Name"
                 className={`h-[34px] w-full bg-transparent text-[13px] font-light text-black outline-none placeholder:text-[#2A394A] ${fieldLine}`}
               />
-              <input
+              <motion.input
+                variants={revealUp}
                 type="email"
                 value={form.email}
                 onChange={updateForm("email")}
                 placeholder="Email address"
                 className={`h-[34px] w-full bg-transparent text-[13px] font-light text-black outline-none placeholder:text-[#2A394A] ${fieldLine}`}
               />
-              <input
+              <motion.input
+                variants={revealUp}
                 value={form.phone}
                 onChange={updateForm("phone")}
                 placeholder="Phone number"
                 className={`h-[34px] w-full bg-transparent text-[13px] font-light text-black outline-none placeholder:text-[#2A394A] ${fieldLine}`}
               />
 
-              <div className={`relative h-[34px] ${fieldLine}`}>
+              <motion.div variants={revealUp} className={`relative h-[34px] ${fieldLine}`}>
                 <select
                   value={form.budget}
                   onChange={updateForm("budget")}
@@ -262,9 +265,9 @@ export default function Contact() {
                     <path d="M4 6L8 10L12 6" stroke="#2A394A" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
-              </div>
+              </motion.div>
 
-              <div className={`relative h-[34px] ${fieldLine}`}>
+              <motion.div variants={revealUp} className={`relative h-[34px] ${fieldLine}`}>
                 <select
                   value={form.goals}
                   onChange={updateForm("goals")}
@@ -285,25 +288,27 @@ export default function Contact() {
                     <path d="M4 6L8 10L12 6" stroke="#2A394A" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
-              </div>
+              </motion.div>
 
-              <div className="mt-2 flex flex-col gap-2">
+              <motion.div variants={revealUp} className="mt-2 flex flex-col gap-2">
                 <label className="text-[13px] font-light text-[#2A394A]">Message</label>
                 <textarea
                   value={form.message}
                   onChange={updateForm("message")}
-                  className="h-[168px] w-full resize-none border-0 border-b border-[#AEB7B8] bg-[#F3F6FA] p-3 text-[13px] font-light text-black outline-none placeholder:text-[#2A394A]"
+                  className="h-[140px] w-full resize-none border-0 border-b border-[#AEB7B8] bg-[#F3F6FA] p-3 text-[13px] font-light text-black outline-none placeholder:text-[#2A394A] sm:h-[156px] lg:h-[168px]"
                 />
-              </div>
+              </motion.div>
 
-              <div className="mt-auto flex min-h-[55px] flex-col items-start gap-2 pt-4">
-                <button
+              <motion.div variants={revealUp} className="mt-2 flex min-h-[55px] flex-col items-start gap-2 pt-4 min-[1340px]:mt-auto">
+                <motion.button
                   type="submit"
                   disabled={isSubmitting}
+                  whileHover={{ scale: isSubmitting ? 1 : 1.03 }}
+                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                   className="flex h-[40px] w-[135.387px] items-center justify-center gap-[10px] rounded-[16px] bg-[#509AAF] text-center font-['Inter'] text-[14px] font-normal capitalize leading-[120%] text-[#000] tracking-[-0.56px] transition hover:bg-[#437f91] disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   {isSubmitting ? "Sending" : "Submit"}
-                </button>
+                </motion.button>
                 <p
                   className={`m-0 min-h-[16px] text-[12px] leading-[16px] ${
                     status.type === "success" ? "text-[#2A7A53]" : "text-[#8A2C2C]"
@@ -311,35 +316,43 @@ export default function Contact() {
                 >
                   {status.text}
                 </p>
-              </div>
-            </form>
+              </motion.div>
+            </motion.form>
           </motion.div>
         </section>
 
-        <section className="grid w-full gap-[50px] lg:grid-cols-2">
+        <section className="grid w-full gap-6 md:gap-[50px] lg:grid-cols-2">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex min-h-[347px] flex-col items-start justify-center bg-[#2A394A] px-8 py-10 text-white md:px-[45px]"
+            className="flex min-h-[292px] flex-col items-start justify-center bg-[#2A394A] px-5 py-8 text-white sm:px-8 md:min-h-[347px] md:px-[45px] md:py-10"
           >
-            <h2 className="m-0 max-w-[540px] text-[28px] font-normal leading-[34px] md:text-[36.65px] md:leading-[38px]">
+            <motion.h2
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              className="m-0 max-w-[540px] text-[25px] font-normal leading-[31px] sm:text-[28px] sm:leading-[34px] md:text-[36.65px] md:leading-[38px]"
+            >
               Schedule a Meeting to Discuss Your Project in Detail.
-            </h2>
+            </motion.h2>
             <p className="mb-7 mt-6 max-w-[570px] text-[13px] font-light leading-[160.5%] text-white/80 md:text-[14px]">
               Book a call using the calendar below and connect 1:1 with our
               team. We'll walk through your requirements, address your
-              questions, and work with you to find <br /> the best solution.
+              questions, and work with you to find <br className="hidden md:block" /> the best solution.
             </p>
-            <a
+            <motion.a
               href="https://calendly.com/connect-primeambit/30min"
               target="_blank"
               rel="noopener noreferrer"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
               className="flex h-[40px] w-[134.38px] items-center justify-center gap-[10px] rounded-[16px] bg-[#509AAF] text-center font-['Inter'] text-[14px] font-normal capitalize leading-[120%] text-[#000] no-underline tracking-[-0.56px] transition hover:bg-[#437f91]"
             >
               Schedule a Call
-            </a>
+            </motion.a>
           </motion.div>
 
           <motion.div 
@@ -347,19 +360,32 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="flex min-h-[347px] flex-col justify-center bg-[#2A394A] px-8 py-10 text-white md:px-[45px]"
+            className="flex min-h-[292px] flex-col justify-center bg-[#2A394A] px-5 py-8 text-white sm:px-8 md:min-h-[347px] md:px-[45px] md:py-10"
           >
-            <h2 className="m-0 text-[28px] font-normal leading-[34px] md:text-[36.65px] md:leading-[38px]">
+            <motion.h2
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              className="m-0 text-[25px] font-normal leading-[31px] sm:text-[28px] sm:leading-[34px] md:text-[36.65px] md:leading-[38px]"
+            >
               You can reach us here.
-            </h2>
+            </motion.h2>
 
-            <div className="mt-8 flex flex-col gap-6">
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={staggerGroup}
+              className="mt-8 flex flex-col gap-6"
+            >
               {contactItems.map((item) => (
-                <a
+                <motion.a
                   key={item.label}
                   href={item.href}
                   target={item.icon === "pin" ? "_blank" : undefined}
                   rel={item.icon === "pin" ? "noopener noreferrer" : undefined}
+                  variants={revealUp}
                   className="grid grid-cols-[32px_1fr] items-start gap-4 text-white no-underline"
                 >
                   <div className="flex h-full items-start pt-1">
@@ -373,9 +399,9 @@ export default function Contact() {
                       {item.value}
                     </span>
                   </span>
-                </a>
+                </motion.a>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         </section>
       </main>
