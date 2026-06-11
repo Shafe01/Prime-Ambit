@@ -167,11 +167,15 @@ export default function Header({ bgColor }) {
             </AnimatePresence>
           </div>
 
-          {["About Us", "Blog", "Our Works"].map((item) => (
-            <a
-              key={item}
-              href="#"
-              onMouseEnter={() => setHoveredNav(item)}
+          {[
+            { label: "About Us", href: "/#services" },
+            { label: "Blog", href: "/blog" },
+            { label: "Case Studies", href: "#" },
+          ].map((item) => (
+            <Link
+              key={item.label}
+              to={item.href}
+              onMouseEnter={() => setHoveredNav(item.label)}
               onMouseLeave={() => setHoveredNav(null)}
               style={{
                 display: "flex",
@@ -181,7 +185,7 @@ export default function Header({ bgColor }) {
                 justifyContent: "center",
                 alignItems: "center",
                 borderRadius: "20px",
-                background: hoveredNav === item ? "rgba(255, 255, 255, 0.23)" : "transparent",
+                background: hoveredNav === item.label ? "rgba(255, 255, 255, 0.23)" : "transparent",
                 color: "#FFF",
                 textAlign: "center",
                 fontFamily: "Inter, sans-serif",
@@ -192,8 +196,8 @@ export default function Header({ bgColor }) {
                 transition: "background 0.2s ease",
               }}
             >
-              {item}
-            </a>
+              {item.label}
+            </Link>
           ))}
         </nav>
 
@@ -424,10 +428,14 @@ export default function Header({ bgColor }) {
               }}
             />
 
-            {["About Us", "Blog", "Our Works"].map((item) => (
-              <a
-                key={item}
-                href="#"
+            {[
+              { label: "About Us", href: "/#services" },
+              { label: "Blog", href: "/blog" },
+              { label: "Case Studies", href: "#" },
+            ].map((item) => (
+              <Link
+                key={item.label}
+                to={item.href}
                 onClick={() => setMobileMenuOpen(false)}
                 style={{
                   display: "block",
@@ -440,8 +448,8 @@ export default function Header({ bgColor }) {
                   borderRadius: "8px",
                 }}
               >
-                {item}
-              </a>
+                {item.label}
+              </Link>
             ))}
 
             <div

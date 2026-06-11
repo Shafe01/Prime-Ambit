@@ -8,8 +8,23 @@ import Roadmap from "../components/sections/Roadmap";
 import ReliableEngineering from "../components/sections/ReliableEngineering";
 import OurProcess from "../components/sections/OurProcess";
 import ContactCTA from "../components/sections/ContactCTA";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function Home() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const element = document.getElementById(location.hash.substring(1));
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
+  }, [location]);
+
   return (
     <>
       <Header />

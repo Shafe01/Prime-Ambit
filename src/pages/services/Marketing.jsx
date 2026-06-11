@@ -312,11 +312,15 @@ export default function Marketing() {
               </AnimatePresence>
             </div>
 
-            {["About Us", "Blog", "Our Works"].map((item) => (
-              <a
-                key={item}
-                href="#"
-                onMouseEnter={() => setHoveredNav(item)}
+            {[
+              { label: "About Us", href: "/#services" },
+              { label: "Blog", href: "/blog" },
+              { label: "Case Studies", href: "#" },
+            ].map((item) => (
+              <Link
+                key={item.label}
+                to={item.href}
+                onMouseEnter={() => setHoveredNav(item.label)}
                 onMouseLeave={() => setHoveredNav(null)}
                 style={{
                   display: "flex",
@@ -327,7 +331,7 @@ export default function Marketing() {
                   alignItems: "center",
                   borderRadius: "20px",
                   background:
-                    hoveredNav === item
+                    hoveredNav === item.label
                       ? "rgba(255, 255, 255, 0.23)"
                       : "transparent",
                   color: "#FFF",
@@ -340,8 +344,8 @@ export default function Marketing() {
                   transition: "background 0.2s ease",
                 }}
               >
-                {item}
-              </a>
+                {item.label}
+              </Link>
             ))}
           </nav>
         )}
@@ -563,10 +567,14 @@ export default function Marketing() {
                 }}
               />
 
-              {["About Us", "Blog", "Our Works"].map((item) => (
-                <a
-                  key={item}
-                  href="#"
+              {[
+                { label: "About Us", href: "/#services" },
+                { label: "Blog", href: "/blog" },
+                { label: "Case Studies", href: "#" },
+              ].map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.href}
                   onClick={() => setMobileMenuOpen(false)}
                   style={{
                     display: "block",
@@ -579,8 +587,8 @@ export default function Marketing() {
                     borderRadius: "8px",
                   }}
                 >
-                  {item}
-                </a>
+                  {item.label}
+                </Link>
               ))}
 
               <div

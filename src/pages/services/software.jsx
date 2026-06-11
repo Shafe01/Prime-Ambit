@@ -335,11 +335,15 @@ export default function Software() {
               </AnimatePresence>
             </div>
 
-            {["About Us", "Blog", "Our Works"].map((item) => (
-              <a
-                key={item}
-                href="#"
-                onMouseEnter={() => setHoveredNav(item)}
+            {[
+              { label: "About Us", href: "/#services" },
+              { label: "Blog", href: "/blog" },
+              { label: "Case Studies", href: "#" },
+            ].map((item) => (
+              <Link
+                key={item.label}
+                to={item.href}
+                onMouseEnter={() => setHoveredNav(item.label)}
                 onMouseLeave={() => setHoveredNav(null)}
                 style={{
                   display: "flex",
@@ -350,7 +354,7 @@ export default function Software() {
                   alignItems: "center",
                   borderRadius: "20px",
                   background:
-                    hoveredNav === item
+                    hoveredNav === item.label
                       ? "rgba(255, 255, 255, 0.23)"
                       : "transparent",
                   color: "#FFF",
@@ -363,8 +367,8 @@ export default function Software() {
                   transition: "background 0.2s ease",
                 }}
               >
-                {item}
-              </a>
+                {item.label}
+              </Link>
             ))}
           </nav>
         )}
@@ -583,10 +587,14 @@ export default function Software() {
                 }}
               />
 
-              {["About Us", "Blog", "Our Works"].map((item) => (
-                <a
-                  key={item}
-                  href="#"
+              {[
+                { label: "About Us", href: "/#services" },
+                { label: "Blog", href: "/blog" },
+                { label: "Case Studies", href: "#" },
+              ].map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.href}
                   onClick={() => setMobileMenuOpen(false)}
                   style={{
                     display: "block",
@@ -599,8 +607,8 @@ export default function Software() {
                     borderRadius: "8px",
                   }}
                 >
-                  {item}
-                </a>
+                  {item.label}
+                </Link>
               ))}
 
               <div

@@ -58,8 +58,6 @@ export default function Hero() {
               lineHeight: "8px",
             }}
           >
-            Web2 + Web3 Development
-            <br />
             Built for Real Products
           </span>
 
@@ -70,8 +68,6 @@ export default function Hero() {
               lineHeight: "20px",
             }}
           >
-            Web2 + Web3 Development
-            <br />
             Built for Real Products
           </span>
         </p>
